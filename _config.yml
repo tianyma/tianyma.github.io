@@ -134,8 +134,8 @@ comments:
     clientSecret: a30876357ebfafc91fd0279430246163085448d8
     repository  : tianyma's blog
     owner       : tianyma
-    admin: # Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST.
-      - tianyma
+    admin: tianyma # Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST. 
+     
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
