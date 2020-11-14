@@ -128,10 +128,6 @@ comments:
 
 
 # Gitalk settings
-  comment_gitalk_clientId: "583377e08540384aa007"
-  comment_gitalk_clientSecret: "f75e323d4a48e336cd96e46d92a6b1718bbe9125"
-  comment_gitalk_repo: "tianyma's blog"
-  github_username: "tianyma"
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
