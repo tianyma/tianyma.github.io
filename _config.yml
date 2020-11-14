@@ -120,13 +120,13 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: valine # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: utterances # false (default), "disqus", "gitalk", "valine", "custom"
       # - "the-other-admin-github-id"
  ## Disqus
   disqus:
     shortname: # the Disqus shortname for the site
  # To use Utterance comments,  you can going to https://utteranc.es/ get more parameters interpretation.
-  custom:
+  utterances:
     # Note: Make sure the repo is public, otherwise your readers will not be able to view the issues/comments.
     # Make sure the [utterances app](https://github.com/apps/utterances) is installed on the repo, otherwise users will not be able to post comments.
     #  If your repo is a fork, navigate to it's settings tab and confirm the issues feature is turned on.
