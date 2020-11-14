@@ -120,7 +120,7 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: gitalk # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: valine # false (default), "disqus", "gitalk", "valine", "custom"
       # - "the-other-admin-github-id"
   ## Disqus
   disqus:
@@ -131,18 +131,18 @@ comments:
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
-    clientID    : 583377e08540384aa007
-    clientSecret: f75e323d4a48e336cd96e46d92a6b1718bbe9125
-    repository  : tianyma's blog
-    owner       : tianyma
+    clientID    : #*0384aa007
+    clientSecret: #f7*336cd96e46d92a6b1718bbe9125
+    repository  : #tianyma's blog
+    owner       : #tianyma
     admin: # Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST.
       - tianyma
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
   valine:
-    app_id      : # LeanCloud App id
-    app_key     : # LeanCloud App key
+    app_id      : fmafUxQHYYl3uxm2JygTIq3p-gzGzoHsz # LeanCloud App id
+    app_key     : QSRyn6jDXiHefWm3idDlfcP2 # LeanCloud App key
     placeholder : # Prompt information
     visitor     : # false (default)
     meta        : # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
@@ -155,8 +155,8 @@ pageview:
 
   ## Leancloud
   leancloud:
-    app_id    : # LeanCloud App id
-    app_key   : # LeanCloud App key
+    app_id    : fmafUxQHYYl3uxm2JygTIq3p-gzGzoHsz # LeanCloud App id
+    app_key   : QSRyn6jDXiHefWm3idDlfcP2 # LeanCloud App key
     app_class : # LeanCloud App class
 
 
