@@ -120,7 +120,7 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: valine # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: gitalk # false (default), "disqus", "gitalk", "valine", "custom"
       # - "the-other-admin-github-id"
  ## Disqus
   disqus:
@@ -132,9 +132,10 @@ comments:
   gitalk:
     clientID    : 583377e08540384aa007
     clientSecret: a30876357ebfafc91fd0279430246163085448d8
-    repository  : tianyma's blog
+    repository  : tianyma.github.io
     owner       : tianyma
-    admin: tianyma # Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST. 
+    admin: 
+      -tianyma # Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST. 
      
 
   ## Valine
