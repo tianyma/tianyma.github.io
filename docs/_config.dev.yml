@@ -122,6 +122,7 @@ comments:
   provider: false # false (default), "disqus", "gitalk", "valine", "custom"
 
   ## Disqus
+  
   disqus:
     shortname: # the Disqus shortname for the site
 
