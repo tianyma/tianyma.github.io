@@ -120,7 +120,7 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: false # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: gitalk # false (default), "disqus", "gitalk", "valine", "custom"
       # - "the-other-admin-github-id"
  ## Disqus
   disqus:
@@ -130,12 +130,12 @@ comments:
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
-    clientID    : #*0384aa007
-    clientSecret: #f7*336cd96e46d92a6b1718bbe9125
-    repository  : #tianyma's blog
-    owner       : #tianyma
+    clientID    : 583377e08540384aa007
+    clientSecret: f75e323d4a48e336cd96e46d92a6b1718bbe9125
+    repository  : tianyma's blog
+    owner       : tianyma
     admin: # Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST.
-      #- tianyma
+      - tianyma
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
@@ -150,8 +150,8 @@ utterance:
   # Note: Make sure the repo is public, otherwise your readers will not be able to view the issues/comments.
   # Make sure the [utterances app](https://github.com/apps/utterances) is installed on the repo, otherwise users will not be able to post comments.
   #  If your repo is a fork, navigate to it's settings tab and confirm the issues feature is turned on.
-  repo:  tianyma/tianyma.github.io # Choose the repository utterances will connect to. eg: owner/repo
-  issue-term: pathname   # Choose the mapping between blog posts and GitHub issues. 
+  repo:  #tianyma/tianyma.github.io # Choose the repository utterances will connect to. eg: owner/repo
+  issue-term: #pathname   # Choose the mapping between blog posts and GitHub issues. 
   theme: github-light # Choose an Utterances theme that matches your blog. 'github-light' is default
 
   ## Optional
