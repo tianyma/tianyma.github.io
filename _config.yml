@@ -132,7 +132,7 @@ comments:
   gitalk:
     clientID    : 583377e08540384aa007
     clientSecret: a30876357ebfafc91fd0279430246163085448d8
-    repository  : tianyma.github.io
+    repository  : tianyma.github.io # must be your repo
     owner       : tianyma
     admin: 
       -tianyma # Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST. 
