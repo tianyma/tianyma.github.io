@@ -136,7 +136,7 @@ comments:
     repository  : #tianyma's blog
     owner       : #tianyma
     admin: # Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST.
-      - tianyma
+      #- tianyma
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
@@ -157,7 +157,7 @@ pageview:
   leancloud:
     app_id    : fmafUxQHYYl3uxm2JygTIq3p-gzGzoHsz # LeanCloud App id
     app_key   : QSRyn6jDXiHefWm3idDlfcP2 # LeanCloud App key
-    app_class : # LeanCloud App class
+    app_class : tianymagithub_ # LeanCloud App class
 
 
 ## => Search
