@@ -120,23 +120,12 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: utterances # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: false # false (default), "disqus", "gitalk", "valine", "custom"
       # - "the-other-admin-github-id"
  ## Disqus
   disqus:
     shortname: # the Disqus shortname for the site
  # To use Utterance comments,  you can going to https://utteranc.es/ get more parameters interpretation.
-  utterances:
-    # Note: Make sure the repo is public, otherwise your readers will not be able to view the issues/comments.
-    # Make sure the [utterances app](https://github.com/apps/utterances) is installed on the repo, otherwise users will not be able to post comments.
-    #  If your repo is a fork, navigate to it's settings tab and confirm the issues feature is turned on.
-    repo:  tianyma/tianyma.github.io # Choose the repository utterances will connect to. eg: owner/repo
-    issue-term: title   # Choose the mapping between blog posts and GitHub issues. 
-    theme: github-light # Choose an Utterances theme that matches your blog. 'github-light' is default
-
-    ## Optional
-    label:  blog-comments # Choose the label that will be assigned to issues created by Utterances.
-
 # Gitalk settings
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
@@ -156,6 +145,17 @@ comments:
     placeholder : be the first to comment! # Prompt information
     visitor     :  # false (default)
     meta        :  # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
+
+utterances:
+  # Note: Make sure the repo is public, otherwise your readers will not be able to view the issues/comments.
+  # Make sure the [utterances app](https://github.com/apps/utterances) is installed on the repo, otherwise users will not be able to post comments.
+  #  If your repo is a fork, navigate to it's settings tab and confirm the issues feature is turned on.
+  repo:  tianyma/tianyma.github.io # Choose the repository utterances will connect to. eg: owner/repo
+  issue-term: title   # Choose the mapping between blog posts and GitHub issues. 
+  theme: github-light # Choose an Utterances theme that matches your blog. 'github-light' is default
+  
+  ## Optional
+  label:  blog-comments # Choose the label that will be assigned to issues created by Utterances.
 
 
 ## => Pageview

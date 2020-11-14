@@ -1,12 +1,13 @@
-{% if site.comments.utterance.repo and site.comments.utterance.issue-term  %}
+{% if site.utterance.repo and site.utterance.issue-term  %}
 
 <script src="https://utteranc.es/client.js"
-        repo="{{site.comments.utterance.repo }}"
-        issue-term="{{ site.comments.utterance.issue-term }}"
-        theme="{{ site.comments.utterance.theme}}"
+        repo="{{site.utterance.repo }}"
+        issue-term="{{ site.utterance.issue-term }}"
+        theme="{{ site.utterance.theme}}"
         label="{{ page.url }}"  # you can going to https://jekyllrb.com/docs/variables/#page-variables find more page variables as a label.
         crossorigin="anonymous"
         async>
 </script>
+
 
 {% endif %}
