@@ -21,8 +21,9 @@ highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "t
 url     : # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : # does not include hostname
 title   : tianyma's blog
-description: do valuable research, be valuable person.
-# > # this means to ignore newlines until "Language & timezone"
+description: > # this means to ignore newlines until "Language & timezone"
+          do valuable research, be valuable person.
+
   
 
 
@@ -119,8 +120,15 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: false # false (default), "disqus", "gitalk", "valine", "custom"
-
+  provider: gitalk # false (default), "disqus", "gitalk", "valine", "custom"
+  gitalk:
+    clientID    : "583377e08540384aa007"
+    clientSecret: "f75e323d4a48e336cd96e46d92a6b1718bbe9125"
+    repository  : "tianyma's blog"
+    owner       : "tianyma"
+    admin: # Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST.
+      - "tianyma"
+      # - "the-other-admin-github-id"
   ## Disqus
   disqus:
     shortname: # the Disqus shortname for the site
