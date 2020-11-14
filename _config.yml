@@ -131,7 +131,7 @@ comments:
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
     clientID    : 583377e08540384aa007
-    clientSecret: f75e323d4a48e336cd96e46d92a6b1718bbe9125
+    clientSecret: a30876357ebfafc91fd0279430246163085448d8
     repository  : tianyma's blog
     owner       : tianyma
     admin: # Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST.
