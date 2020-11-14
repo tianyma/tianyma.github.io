@@ -1,6 +1,6 @@
 ---
 layout: base
-key: page-article 
+<!-- key: page-article  -->
 ---
 {%- assign _page_mode = page.mode | default: layout.mode | default: site.data.variables.default.page.mode -%}
 {%- assign _page_type = page.type | default: layout.type | default: site.data.variables.default.page.type -%}
@@ -269,3 +269,19 @@ key: page-article
 
 {%- include markdown-enhancements.html -%}
 {%- include pageview.html -%}
+<!-- Gitalk start -->
+<div id="gitalk-container"></div> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> 
+<script>
+    var gitalk  = new Gitalk ({
+        id: window.location.pathname,   // Ensure uniqueness and length less than 50
+        clientID: '{ {site.comment_gitalk_clientId} }',
+        clientSecret: '{ {site.comment_gitalk_clientSecret} }',
+        repo: '{ {site.comment_gitalk_repo} }',
+        owner: '{ {site.github_username} }',
+        admin: ['{ {site.github_username} }'],
+		    distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script> 
+<!-- Gitalk end -->
