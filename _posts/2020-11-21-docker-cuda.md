@@ -72,9 +72,15 @@ sudo docker ps -a
 
 2. 通过
 ```
-sudo docker inspect -f '\{\{.Id\}\}' [短ID or name]
+sudo docker inspect -f '{{ .Id }}' [短ID or name]
 ```
 获取容器的完整ID。
+如：
+```
+➜  render git:(master) ✗ sudo docker inspect -f '{{ .Id }}' cc1ec222c1ff
+cc1ec222c1ff72272a00061aa197ab8ba13bd446697b9d9c1820c45ba16b75cd
+
+```
 
 3. 通过
 ```
