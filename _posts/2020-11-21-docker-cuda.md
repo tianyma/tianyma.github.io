@@ -72,7 +72,7 @@ sudo docker ps -a
 
 2. 通过
 ```
-sudo docker inspect -f '{{.Id}}' [短ID or name]
+sudo docker inspect -f '\{\{.Id\}\}' [短ID or name]
 ```
 获取容器的完整ID。
 
