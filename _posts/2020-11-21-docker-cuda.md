@@ -64,27 +64,26 @@ sudo docker run -it --runtime=nvidia [DOCKER_IMAGE]:[DOCKER_TAG] /bin/bash
 ### 3.3 运行程序
 那么如何在容器中运行程序呢？我们需要将程序拷贝进去。从主机拷贝文件到容器中步骤如下：
 
-1. 通过
+1.通过
 ```
 sudo docker ps -a
 ``` 
 获取容器的短ID或者name。
 
-2. 通过
+2.通过
 
 
-sudo docker inspect -f '&#123;&#123; .Id &#125;&#125;' [短ID or name]
+**sudo docker inspect -f '&#123;&#123; .Id &#125;&#125;' [短ID or name]**
 
 获取容器的完整ID。
 如：
 
 
-➜  render git:(master) ✗ sudo docker inspect -f '&#123;&#123; .Id &#125;&#125;' cc1ec222c1ff
-cc1ec222c1ff72272a00061aa197ab8ba13bd446697b9d9c1820c45ba16b75cd
+**➜  render git:(master) ✗ sudo docker inspect -f '&#123;&#123; .Id &#125;&#125;' cc1ec222c1ff
+cc1ec222c1ff72272a00061aa197ab8ba13bd446697b9d9c1820c45ba16b75cd**
 
 
-
-3. 通过
+3.通过
 ```
 sudo docker cp [本地文件路径] [ID全称]:[容器路径]
 ```
