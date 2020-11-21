@@ -22,7 +22,7 @@ key: 2020-11-21-blog
 ```
 ## １ docker准备
 
-### １.1 了解原理和基本命令
+### 1.1 了解原理和基本命令
 如果你还是个docker小白，建议先通过[官方文档](https://docs.docker.com/get-started/overview/)了解一下docker的原理和基本用法，如运行、停止、删除镜像等。
 
 ### 1.2 安装
