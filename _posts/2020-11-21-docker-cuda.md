@@ -25,7 +25,7 @@ key: 2020-11-21-blog
 ### １.1 了解原理和基本命令
 如果你还是个docker小白，建议先通过[官方文档](https://docs.docker.com/get-started/overview/)了解一下docker的原理和基本用法，如运行、停止、删除镜像等。
 
-#### 1.2 安装
+### 1.2 安装
 官方的[安装教程](https://docs.docker.com/engine/install/)提供了对应不同操作系统的安装方法。
 
 当然，由于ubuntu 18.04源已经集成了docker软件，可以直接通过包管理工具安装。方法是
