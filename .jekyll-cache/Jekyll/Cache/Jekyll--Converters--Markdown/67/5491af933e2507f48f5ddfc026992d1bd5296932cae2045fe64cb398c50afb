@@ -1,0 +1,52 @@
+I"?<p>下面是CMU 15-418/15-618: Parallel Computer Architecture and Programming课程解题记录。</p>
+
+<p>本部分题解是assignment2，主题是cuda并行编程，这里是<a href="http://www.cs.cmu.edu/~418/assignment_writeups/asst2.pdf">题目</a>。</p>
+
+<h2 id="part-1-saxpysum-of-a-by-x-plus-y">Part 1 SAXPY(Sum of A by X PLUS Y)</h2>
+
+<h2 id="part-2-parallel-prefix-sum">Part 2 Parallel Prefix-Sum</h2>
+<p>本部分要求分别并行求解前缀和和重复元素索引。关于什么是前缀和和重复元素索引题目中有详细说明，这里我分别记录一下解题思路。</p>
+
+<p>由于求解重复元素索引要用到求解前缀和的方法，所以先求解前缀和，在CPU版本中，题目代码中分别给出了并行版本和串行版本，所以GPU版本只需要对CPU的并行版本进行改写即可。</p>
+
+<p>求解重复元素索引的方法分为下面几个步骤：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 声明如下数组flag, prefixflag,input, output
+2. 如果input[index] = input[index + 1], flag[index] = 1;
+3. 对flag求前缀和得到prefixflag。
+4. 重复元素个数count为prefixflag最后一位的值。
+5. 如果prefixflag[index] = prefixflag[index - 1], output[prefixflag[index - 1]] = index - 1。
+</code></pre></div></div>
+
+<p>举个例子:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>item</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>input</td>
+      <td>[1,2,2,1,1,1,3,5,3,3]</td>
+    </tr>
+    <tr>
+      <td>flag</td>
+      <td>[0,1,0,1,1,0,0,0,1,0]</td>
+    </tr>
+    <tr>
+      <td>prefixflag</td>
+      <td>[0,0,1,1,2,3,3,3,3,4]</td>
+    </tr>
+    <tr>
+      <td>output</td>
+      <td>[1,3,4,8]</td>
+    </tr>
+    <tr>
+      <td>count</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+:ET

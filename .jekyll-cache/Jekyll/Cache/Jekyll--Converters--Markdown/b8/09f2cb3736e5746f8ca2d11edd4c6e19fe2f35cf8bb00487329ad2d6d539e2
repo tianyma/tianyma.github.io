@@ -1,0 +1,62 @@
+I"u<p>下面用一个cheat sheet记录一些vim的快捷指令，方便自己需要的时候查询。</p>
+<h2 id="search">search</h2>
+<p>查找模式中加\c为大小写不敏感查找,\C为大小写敏感查找</p>
+
+<p>e.g.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ignore uppercase
+/foo\c or 
+:
+# do not ignore uppercase
+/foo\C
+</code></pre></div></div>
+<h2 id="replace">replace</h2>
+<p>:s（substitute）命令用来查找和替换字符串。格式为</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># the partition character can be '/' or '#' or '@' (maybe other special characters)
+:{作用范围}s/{目标}/{替换}/{替换标志} or 
+:{作用范围}s#{目标}#{替换}#{替换标志} or
+:{作用范围}s@{目标}@{替换}@{替换标志}
+</code></pre></div></div>
+<p>其中,替换标志有下面几种:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>替换标志</th>
+      <th>含义</th>
+      <th>备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>i/I</td>
+      <td>大小写敏感查询</td>
+      <td>i为敏感</td>
+    </tr>
+    <tr>
+      <td>c</td>
+      <td>替换前需要确认</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>g</td>
+      <td>全局替换</td>
+      <td>一行中的多个匹配项都会被替换</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>e.g.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># replace foo with bar in current line for all matches
+:s/foo/bar/g
+
+# replace foo with bar in the whole context only for the first match of each line
+:%s/foo/bar/
+
+# replace foo with bar searching from line 5 to line 12
+:5,12s/foo/bar/
+
+# replace foo with bar searching from current line to the 2 plus lines(3 lines in all) in uppercase ignore case
+:.,+2s/foo/bar/I
+</code></pre></div></div>
+:ET

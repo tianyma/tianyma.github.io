@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - tianyma's blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>使用docker运行多个版本的cuda - tianyma's blog</title>
 
-<meta name="description" content="do valuable research, be valuable person.
-">
-<link rel="canonical" href="http://localhost:4000/"><link rel="alternate" type="application/rss+xml" title="tianyma's blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="如果你遇到了这样一个问题:  我的机器上装的cuda版本是最新的，比如cuda 11.1，然而我拿到了一个在cuda 8.0的版本上编译好的程序，我该怎么运行它呢？总不会我又要安装一个8.0的cuda吧。(这个问题来自于我在做cmu 15-418 assignment task2时需要运行在cuda8.0环境编译...">
+<link rel="canonical" href="http://localhost:4000/2020/11/21/docker-cuda.html"><link rel="alternate" type="application/rss+xml" title="tianyma's blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -255,265 +254,203 @@
 </head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root">
-<div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
 
-      <div class="page__main-inner">
-<div class="page__header d-print-none">
-<header class="header"><div class="main">
+      <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
-        <div class="header__brand">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewbox="0 0 24 24">
+        <div class="header__brand"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="24px" height="24px" viewBox="0 0 24 24">
 <style type="text/css">
 	.st0{fill:#515151;}
 </style>
 <path class="st0" d="M1.7,22.3c5.7-5.7,11.3-5.7,17,0c3.3-3.3,3.5-5.3,0.8-6c2.7,0.7,3.5-1.1,2.3-5.6s-3.3-5.2-6.3-2.1
-	c3-3,2.3-5.2-2.1-6.3S7,1.8,7.7,4.6C7,1.8,5,2.1,1.7,5.3C7.3,11,7.3,16.7,1.7,22.3"></path>
+	c3-3,2.3-5.2-2.1-6.3S7,1.8,7.7,4.6C7,1.8,5,2.1,1.7,5.3C7.3,11,7.3,16.7,1.7,22.3"/>
 </svg>
 <a title="do valuable research, be valuable person.
-" href="/">tianyma's blog</a>
-</div>
-<button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
-</div>
-<nav class="navigation">
-        <ul>
-<li class="navigation__item"><a href="/archive.html">归档</a></li>
-<li class="navigation__item"><a href="/about.html">关于</a></li>
-<li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
-</ul>
-      </nav>
-</div>
+" href="/">tianyma's blog</a></div><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></div><nav class="navigation">
+        <ul><li class="navigation__item"><a href="/archive.html">归档</a></li><li class="navigation__item"><a href="/about.html">关于</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li></ul>
+      </nav></div>
   </header>
-</div>
-<div class="page__content"><div class="main"><div class="grid grid--reverse">
+</div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
 
-              <div class="col-main cell cell--auto">
-<!-- start custom main top snippet -->
+              <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页">
-<meta itemprop="author" content="tianyun ma">
-<div class="js-article-content">
-<div class="layout--articles">
-<div class="article-list items items--divided">
-<article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/11/21/docker-cuda.html"><h2 itemprop="headline" class="item__header">使用docker运行多个版本的cuda</h2></a></header>
-          <div class="item__description">
-<div class="article__content" itemprop="description articleBody">如果你遇到了这样一个问题:
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>使用docker运行多个版本的cuda</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="在 Github 上修改"
+            href="https://github.com/user_name/repo_name/tree/master/_posts/2020-11-21-docker-cuda.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="使用docker运行多个版本的cuda"><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=docker">docker</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=cuda">cuda</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 11月21日</span>
+            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-11-21T00:00:00+08:00">
+    <meta itemprop="keywords" content="docker,cuda"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-  我的机器上装的cuda版本是最新的，比如cuda 11.1，然而我拿到了一个在cuda 8.0的版本上编译好的程序，我该怎么运行它呢？总不会我又要安装一个8.0的cuda吧。(这个问题来自于我在做cmu 15-418 assignment task2时需要运行在cuda8.0环境编译的参考程序cudaScan_ref，而我的cuda是11.1版本)
+<!-- end custom article top snippet -->
+<div class="article__content" itemprop="articleBody"><blockquote>
+  <p>如果你遇到了这样一个问题:</p>
 
-  这个时候你肯定立刻会想到虚拟化，作为轻便好用的虚拟化工具，docker就派上用场了。
+  <p>我的机器上装的cuda版本是最新的，比如cuda 11.1，然而我拿到了一个在cuda 8.0的版本上编译好的程序，我该怎么运行它呢？总不会我又要安装一个8.0的cuda吧。(这个问题来自于我在做cmu 15-418 assignment task2时需要运行在cuda8.0环境编译的参考程序cudaScan_ref，而我的cuda是11.1版本)</p>
 
-  这篇文章就来介绍一下如何使用docker运行多版本的cuda。
+  <p>这个时候你肯定立刻会想到虚拟化，作为轻便好用的虚拟化工具，docker就派上用场了。</p>
 
+  <p>这篇文章就来介绍一下如何使用docker运行多版本的cuda。</p>
+</blockquote>
 
-
-  本机环境
-    系统：18.04.5 LTS (Bionic Beaver)
+<ul>
+  <li>本机环境
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>系统：18.04.5 LTS (Bionic Beaver)
 已安装cuda版本：11.1
-    
-    １ do...</div>
-<p><a href="/2020/11/21/docker-cuda.html">阅读更多</a></p>
-</div>
-<div class="article__info clearfix">
-<ul class="left-col menu">
-<li>
-              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=docker">docker</a>
-            </li>
-<li>
-              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=cuda">cuda</a>
-            </li>
+</code></pre></div>    </div>
+    <h2 id="１-docker准备">１ docker准备</h2>
+  </li>
 </ul>
-<ul class="right-col menu"><li>
-<i class="far fa-calendar-alt"></i> <span>2020年 11月21日</span>
-            </li></ul>
-</div>
-<meta itemprop="author" content="tianyun ma">
-<meta itemprop="datePublished" content="2020-11-21T00:00:00+08:00">
-    <meta itemprop="keywords" content="docker,cuda">
-</div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/11/20/15-418-assignment2.html"><h2 itemprop="headline" class="item__header">CMU 15-418 assignment2 解题记录</h2></a></header>
-          <div class="item__description">
-<div class="article__content" itemprop="description articleBody">下面是CMU 15-418/15-618: Parallel Computer Architecture and Programming课程解题记录。
 
-本部分题解是assignment2，主题是cuda并行编程，这里是题目。
+<h3 id="11-了解原理和基本命令">1.1 了解原理和基本命令</h3>
+<p>如果你还是个docker小白，建议先通过<a href="https://docs.docker.com/get-started/overview/">官方文档</a>了解一下docker的原理和基本用法，如运行、停止、删除镜像等。</p>
 
-Part 1 SAXPY(Sum of A by X PLUS Y)
+<h3 id="12-安装">1.2 安装</h3>
+<p>官方的<a href="https://docs.docker.com/engine/install/">安装教程</a>提供了对应不同操作系统的安装方法。</p>
 
-Part 2 Parallel Prefix-Sum
-本部分要求分别并行求解前缀和和重复元素索引。关于什么是前缀和和重复元素索引题目中有详细说明，这里我分别记录一下解题思路。
+<p>当然，由于ubuntu 18.04源已经集成了docker软件，可以直接通过包管理工具安装。方法是</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># on ubuntu 18.04
+sudo apt instll docker.io
+</code></pre></div></div>
+<h2 id="2-nvidia-container-toolkit准备">2 Nvidia Container Toolkit准备</h2>
+<p>Nvidia目前提供<code class="language-plaintext highlighter-rouge">Nvidia Container Toolkit</code>和<code class="language-plaintext highlighter-rouge">nvidia-docker2</code>包完成对docker的支持，可以通过<a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker">安装教程</a>进行安装。</p>
 
-由于求解重复元素索引要用到求解前缀和的方法，所以先求解前缀和，在CPU版本中，题目代码中分别给出了并行版本和串行版本，所以GPU版本只需要对CPU的并行版本进行改写即可。
+<p>安装的时候要注意其支持的系统环境和需要的环境依赖。</p>
 
-求解重复元素索引的方法分为下面几个步骤：...</div>
-<p><a href="/2020/11/20/15-418-assignment2.html">阅读更多</a></p>
-</div>
-<div class="article__info clearfix">
-<ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=cmu15-418">cmu15-418</a>
-            </li></ul>
-<ul class="right-col menu"><li>
-<i class="far fa-calendar-alt"></i> <span>2020年 11月20日</span>
-            </li></ul>
-</div>
-<meta itemprop="author" content="tianyun ma">
-<meta itemprop="datePublished" content="2020-11-20T00:00:00+08:00">
-    <meta itemprop="keywords" content="cmu15-418">
-</div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/11/18/basic-vim.html"><h2 itemprop="headline" class="item__header">Vim Cheat Sheet (不定期更新)</h2></a></header>
-          <div class="item__description">
-<div class="article__content" itemprop="description articleBody">下面用一个cheat sheet记录一些vim的快捷指令，方便自己需要的时候查询。
-search
-查找模式中加\c为大小写不敏感查找,\C为大小写敏感查找
+<h2 id="3-在docker上运行cuda环境">3 在docker上运行cuda环境</h2>
+<p>准备工作完成后，就可以来解决文章开始提出的问题了:如何在host环境为cuda11.1的情况下使用docker运行基于cuda8.0编译的程序？</p>
 
-e.g.
-# ignore uppercase
-/foo\c or 
-:
-# do not ignore uppercase
-/foo\C
+<h3 id="31-镜像获取">3.1 镜像获取</h3>
+<p>首先要从<a href="https://hub.docker.com/">docker-hub</a>上找到我们需要的环境的镜像，使用关键字<code class="language-plaintext highlighter-rouge">cuda8.0</code>搜索即可，然后在本地拉取镜像源。</p>
 
-replace
-:s（substitute）命令用来查找和替换字符串。格式为
-# the partition character can be '/' or '#' or '@' (maybe other special characters)
-:{作用范围}s/{目标}/{替换}/{替换标志} or 
-:{作用范围}s#{目标}#{替换}#{替换标志} or
-:{作用范围}s@{目标}@{...</div>
-<p><a href="/2020/11/18/basic-vim.html">阅读更多</a></p>
-</div>
-<div class="article__info clearfix">
-<ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=%E5%B7%A5%E5%85%B7">工具</a>
-            </li></ul>
-<ul class="right-col menu"><li>
-<i class="far fa-calendar-alt"></i> <span>2020年 11月18日</span>
-            </li></ul>
-</div>
-<meta itemprop="author" content="tianyun ma">
-<meta itemprop="datePublished" content="2020-11-18T00:00:00+08:00">
-    <meta itemprop="keywords" content="工具">
-</div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/11/11/meaning.html"><h2 itemprop="headline" class="item__header">写博客的意义是什么？</h2></a></header>
-          <div class="item__description">
-<div class="article__content" itemprop="description articleBody">不知道哪里冒出来的念头，突然想关注一下我的博客，之前的博客是用hexo搭建的，今天翻出来，看到About那一栏的个人信息还停留在大三，想想应该两年多没有更新了。
+<p>比如：我在docker-hub上找到这样的镜像：<code class="language-plaintext highlighter-rouge">klauskyj/cuda8.0-cudnn7
+</code>。那么就可以通过</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker pull klauskyj/cuda8.0-cudnn7
+</code></pre></div></div>
+<p>拉取下来了。
+通过</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker ps -a 
+</code></pre></div></div>
+<p>可以看到自己拉取的镜像。</p>
+<h3 id="32-运行镜像">3.2 运行镜像</h3>
+<p>类似于普通镜像运行自己拉取下来的镜像，runtime设为nvidia即可，如</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker run -it --runtime=nvidia [DOCKER_IMAGE]:[DOCKER_TAG] /bin/bash
+</code></pre></div></div>
+<p>进入交互式环境后，去<code class="language-plaintext highlighter-rouge">/usr/local</code>目录下就可以看到cuda 8.0了。</p>
+<h3 id="33-运行程序">3.3 运行程序</h3>
+<p>那么如何在容器中运行程序呢？我们需要将程序拷贝进去。从主机拷贝文件到容器中步骤如下：</p>
 
-之前的兴趣在机器人，使用ROS软件做过很多项目，但是始终觉得只是娱乐级别的开发，有时算法可以设计得很好，但是部署到机器上就会出现各种软硬件的问题，我想还是缺乏更扎实的软硬件基础吧，机缘巧合，在研究生阶段选择了计算机体系结构，虽然接触时间不长，但被这一把技术、艺术、设计哲学能完美结合的领域深深打动并吸引着，我想这是值得我一生去探索的。
+<p>1.通过</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker ps -a
+</code></pre></div></div>
+<p>获取容器的短ID或者name。</p>
 
-碎碎念不说了。今天重新开封了自己的博客，想做个新的开始，给自己的博客换了新的主题，力求简洁而不失美感，努力让自己集中精力在博客写作的提高上。于是，我好像又变成刚开始搭建博客的那个自己，我再次问...</div>
-<p><a href="/2020/11/11/meaning.html">阅读更多</a></p>
-</div>
-<div class="article__info clearfix">
-<ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=%E9%9A%8F%E6%84%9F">随感</a>
-            </li></ul>
-<ul class="right-col menu"><li>
-<i class="far fa-calendar-alt"></i> <span>2020年 11月11日</span>
-            </li></ul>
-</div>
-<meta itemprop="author" content="tianyun ma">
-<meta itemprop="datePublished" content="2020-11-11T00:00:00+08:00">
-    <meta itemprop="keywords" content="随感">
-</div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2018/07/01/welcome.html"><h2 itemprop="headline" class="item__header">Welcome</h2></a></header>
-          <div class="item__description">
-<div class="article__content" itemprop="description articleBody">If you see this page, that means you have setup your site. enjoy! <img class="emoji" title=":ghost:" alt=":ghost:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f47b.png" height="20" width="20"> <img class="emoji" title=":ghost:" alt=":ghost:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f47b.png" height="20" width="20"> <img class="emoji" title=":ghost:" alt=":ghost:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f47b.png" height="20" width="20">
+<p>2.通过</p>
 
-You may want to config the site or writing a post next. Please feel free to create an issue or send me email if you have any questions.</div>
-<p><a href="/2018/07/01/welcome.html">阅读更多</a></p>
-</div>
-<div class="article__info clearfix">
-<ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=TeXt">TeXt</a>
-            </li></ul>
-<ul class="right-col menu"><li>
-<i class="far fa-calendar-alt"></i> <span>2018年 07月01日</span>
-            </li></ul>
-</div>
-<meta itemprop="author" content="tianyun ma">
-<meta itemprop="datePublished" content="2018-07-01T00:00:00+08:00">
-    <meta itemprop="keywords" content="TeXt">
-</div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2018/06/01/header-image.html"><h2 itemprop="headline" class="item__header">Post with Header Image</h2></a></header>
-          <div class="item__description">
-<div class="article__content" itemprop="description articleBody">A Post with Header Image, See Page layout for more examples.</div>
-<p><a href="/2018/06/01/header-image.html">阅读更多</a></p>
-</div>
-<div class="article__info clearfix">
-<ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=TeXt">TeXt</a>
-            </li></ul>
-<ul class="right-col menu"><li>
-<i class="far fa-calendar-alt"></i> <span>2018年 06月01日</span>
-            </li></ul>
-</div>
-<meta itemprop="author" content="tianyun ma">
-<meta itemprop="datePublished" content="2018-06-01T00:00:00+08:00">
-    <meta itemprop="keywords" content="TeXt">
-</div>
-      </article>
-</div>
-</div>
-<div class="layout--home"></div>
-<script>/*(function () {
+<p><strong>sudo docker inspect -f ‘{{ .Id }}’ [短ID or name]</strong></p>
 
-})();*/
+<p>获取容器的完整ID。
+如：</p>
+
+<p><strong>➜  render git:(master) ✗ sudo docker inspect -f ‘{{ .Id }}’ cc1ec222c1ff
+cc1ec222c1ff72272a00061aa197ab8ba13bd446697b9d9c1820c45ba16b75cd</strong></p>
+
+<p>3.通过</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker cp [本地文件路径] [ID全称]:[容器路径]
+</code></pre></div></div>
+<p>拷贝文件，注意拷贝目录的话也一样，不用加其他参数。</p>
+
+<p>如果从容器中传输文件到host，通过</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker cp [ID全称]:[容器文件路径] [本地路径]
+</code></pre></div></div>
+<p>完成。</p>
+
+<p>最后，在容器中就可以运行这个程序啦。</p>
+
+<h2 id="4-总结">4 总结</h2>
+<p>这篇文章其实介绍了基本的docker用法，nvidia提供的nvidia-docker2.0封装的很好，可以方便地建立cuda环境，这里要注意虚拟化的cuda的版本要和自己的GPU匹配。</p>
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2020-11-21T00:00:00+08:00"><!-- start custom article footer snippet -->
+
+<!-- end custom article footer snippet -->
+<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
+</div><div class="article__license"><div class="license">
+    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/2020/11/20/15-418-assignment2.html">CMU 15-418 assignment2 解题记录</a></div></div></div>
+
+</div>
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    $(function() {
+      var $this ,$scroll;
+      var $articleContent = $('.js-article-content');
+      var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+      var scroll = hasSidebar ? '.js-page-main' : 'html, body';
+      $scroll = $(scroll);
+
+      $articleContent.find('.highlight').each(function() {
+        $this = $(this);
+        $this.attr('data-lang', $this.find('code').attr('data-lang'));
+      });
+      $articleContent.find('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').each(function() {
+        $this = $(this);
+        $this.append($('<a class="anchor d-print-none" aria-hidden="true"></a>').html('<i class="fas fa-anchor"></i>'));
+      });
+      $articleContent.on('click', '.anchor', function() {
+        $scroll.scrollToAnchor('#' + $(this).parent().attr('id'), 400);
+      });
+    });
+  });
+})();
 </script>
-
-
-
-</div>
-<section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
+</div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
 </div>
-            </div></div></div>
-<div class="page__footer d-print-none">
+            </div></div></div><div class="page__footer d-print-none">
 <footer class="footer py-4 js-page-footer">
-  <div class="main">
-<div itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="tianyun ma">
-<meta itemprop="url" content="/">
-<meta itemprop="description" content="do valuable research, be valuable person.">
-<div class="footer__author-links">
-<div class="author-links">
-  <ul class="menu menu--nowrap menu--inline">
-<li title="给我发邮件。">
+  <div class="main"><div itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tianyun ma"><meta itemprop="url" content="/"><meta itemprop="description" content="do valuable research, be valuable person."><div class="footer__author-links"><div class="author-links">
+  <ul class="menu menu--nowrap menu--inline"><li title="给我发邮件。">
       <a class="button button--circle mail-button" itemprop="email" href="mailto:himarsmty@gmail.com" target="_blank">
         <i class="fas fa-envelope"></i>
-      </a>
-</li>
-<li title="在 Github 上关注我。">
+      </a><li title="在 Github 上关注我。">
         <a class="button button--circle github-button" itemprop="sameAs" href="https://github.com/https://github.com/tianyma" target="_blank">
-          <div class="icon">
-<svg fill="#000000" width="24px" height="24px" viewbox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path class="svgpath" data-index="path_0" fill="#272636" d="M0 525.2c0 223.6 143.3 413.7 343 483.5 26.9 6.8 22.8-12.4 22.8-25.4l0-88.7c-155.3 18.2-161.5-84.6-172-101.7-21.1-36-70.8-45.2-56-62.3 35.4-18.2 71.4 4.6 113.1 66.3 30.2 44.7 89.1 37.2 119 29.7 6.5-26.9 20.5-50.9 39.7-69.6C248.8 728.2 181.7 630 181.7 513.2c0-56.6 18.7-108.7 55.3-150.7-23.3-69.3 2.2-128.5 5.6-137.3 66.5-6 135.5 47.6 140.9 51.8 37.8-10.2 80.9-15.6 129.1-15.6 48.5 0 91.8 5.6 129.8 15.9 12.9-9.8 77-55.8 138.8-50.2 3.3 8.8 28.2 66.7 6.3 135 37.1 42.1 56 94.6 56 151.4 0 117-67.5 215.3-228.8 243.7 26.9 26.6 43.6 63.4 43.6 104.2l0 128.8c0.9 10.3 0 20.5 17.2 20.5C878.1 942.4 1024 750.9 1024 525.3c0-282.9-229.3-512-512-512C229.1 13.2 0 242.3 0 525.2L0 525.2z"></path>
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path class="svgpath" data-index="path_0" fill="#272636" d="M0 525.2c0 223.6 143.3 413.7 343 483.5 26.9 6.8 22.8-12.4 22.8-25.4l0-88.7c-155.3 18.2-161.5-84.6-172-101.7-21.1-36-70.8-45.2-56-62.3 35.4-18.2 71.4 4.6 113.1 66.3 30.2 44.7 89.1 37.2 119 29.7 6.5-26.9 20.5-50.9 39.7-69.6C248.8 728.2 181.7 630 181.7 513.2c0-56.6 18.7-108.7 55.3-150.7-23.3-69.3 2.2-128.5 5.6-137.3 66.5-6 135.5 47.6 140.9 51.8 37.8-10.2 80.9-15.6 129.1-15.6 48.5 0 91.8 5.6 129.8 15.9 12.9-9.8 77-55.8 138.8-50.2 3.3 8.8 28.2 66.7 6.3 135 37.1 42.1 56 94.6 56 151.4 0 117-67.5 215.3-228.8 243.7 26.9 26.6 43.6 63.4 43.6 104.2l0 128.8c0.9 10.3 0 20.5 17.2 20.5C878.1 942.4 1024 750.9 1024 525.3c0-282.9-229.3-512-512-512C229.1 13.2 0 242.3 0 525.2L0 525.2z" />
 </svg>
 </div>
         </a>
-      </li>
-</ul>
+      </li></ul>
 </div>
 </div>
-    </div>
-<div class="site-info mt-2">
+    </div><div class="site-info mt-2">
       <div>© tianyma's blog 2020,
-        Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> &amp; <a title="TeXt is a super customizable Jekyll theme." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
+        Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
+        title="TeXt is a super customizable Jekyll theme." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
       </div>
     </div>
   </div>
 </footer>
-</div>
-</div>
-    </div>
-<script>(function() {
+</div></div>
+    </div><script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
   window.Lazyload.js(SOURCES.jquery, function() {
     var $body = $('body'), $window = $(window);
@@ -577,8 +514,7 @@ You may want to config the site or writing a post next. Please feel free to crea
     $.fn.modal = modal;
   });
 })();
-</script><div class="modal modal--overflow page__search-modal d-print-none js-page-search-modal">
-<script>
+</script><div class="modal modal--overflow page__search-modal d-print-none js-page-search-modal"><script>
 (function () {
   var SOURCES = window.TEXT_VARIABLES.sources;
   window.Lazyload.js(SOURCES.jquery, function() {
@@ -670,7 +606,7 @@ You may want to config the site or writing a post next. Please feel free to crea
     <div class="search-bar">
       <div class="search-box js-search-box">
         <div class="search-box__icon-search"><i class="fas fa-search"></i></div>
-        <input type="text">
+        <input type="text" />
         <div class="search-box__icon-clear js-icon-clear">
           <a><i class="fas fa-times"></i></a>
         </div>
@@ -794,8 +730,7 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
   });
 });
 </script>
-</div>
-</div>
+</div></div>
 
 
 <script>(function() {
@@ -1032,7 +967,75 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 /*(function () {
 
 })();*/
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
+</script><script type="text/x-mathjax-config">
+	var _config = { tex2jax: {
+		inlineMath: [['$','$'], ['\\(','\\)']]
+	}};MathJax.Hub.Config(_config);
 </script>
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
     </div>
     <script>(function () {
   var $root = document.getElementsByClassName('root')[0];
