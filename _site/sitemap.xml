@@ -37,4 +37,12 @@
 <url>
 <loc>http://localhost:4000/</loc>
 </url>
+<url>
+<loc>http://localhost:4000/pdf/CAC2020.pdf</loc>
+<lastmod>2020-11-26T15:17:39+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/tools/CAC2020.pdf</loc>
+<lastmod>2020-11-26T15:15:39+08:00</lastmod>
+</url>
 </urlset>
