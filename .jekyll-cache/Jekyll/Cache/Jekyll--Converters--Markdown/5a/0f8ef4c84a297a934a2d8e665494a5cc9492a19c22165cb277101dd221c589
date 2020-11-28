@@ -1,16 +1,9 @@
----
-layout: article
-title: "CAC2020(for pdf view test)"
-date: 2020-11-26
-tags: paper
-mathjax: true
-key: 2020-11-26-blog
----
-<center>
+I"Ú<center>
 <!-- <iframe src="http://docs.google.com/gview?url=/pdf/CAC2020.pdf&embedded=true" style="width:718px; height:700px;" frameborder="0"></iframe> -->
 <!-- <iframe src="/web/viewer.html?file=/pdf/CAC2020.pdf"></iframe> -->
 <!-- <iframe src="http://docs.google.com/gview?url=/pdf/CAC2020.pdf&embedded=true" style="width:500px; height:100px;" frameborder="0"></iframe> -->
 
 
-<object data="/pdf/CAC2020.pdf" width="1000" height="1000" type='application/pdf'/>
+<object data="/pdf/CAC2020.pdf" width="1000" height="1000" type="application/pdf" />
 </center>
+:ET
