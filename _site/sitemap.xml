@@ -38,6 +38,14 @@
 <loc>http://localhost:4000/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/pdf.js/web/compressed.tracemonkey-pldi-09.pdf</loc>
+<lastmod>2016-11-03T23:03:54+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/pdf.js/web/viewer.html</loc>
+<lastmod>2020-06-01T12:15:30+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/pdf/CAC2020.pdf</loc>
 <lastmod>2020-11-26T15:17:39+08:00</lastmod>
 </url>
