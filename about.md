@@ -23,7 +23,7 @@ titles:
   fr-FR   : *FR
   fr-LU   : *FR
   # @end locale config
-key: page-about
+# key: page-about
 ---
 
 目前在中国科学技术大学微电子学院攻读硕士学位，研究兴趣是计算机体系结构，深度学习。
