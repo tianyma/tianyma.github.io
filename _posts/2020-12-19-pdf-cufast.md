@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "cuFAST:基于GPU的FAST算法加速"
-date: 2020-11-26
+date: 2020-12-19
 tags: paper
 mathjax: true
 key: 2020-12-19-blog
