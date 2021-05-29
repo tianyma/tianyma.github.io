@@ -29,6 +29,14 @@
 <lastmod>2020-11-26T00:00:00+08:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/2020/12/19/pdf-cufast.html</loc>
+<lastmod>2020-12-19T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2020/12/23/success.html</loc>
+<lastmod>2020-12-23T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about.html</loc>
 </url>
 <url>
@@ -36,6 +44,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page2/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/pdf.js/web/compressed.tracemonkey-pldi-09.pdf</loc>
@@ -48,6 +59,10 @@
 <url>
 <loc>http://localhost:4000/pdf/CAC2020.pdf</loc>
 <lastmod>2020-11-26T15:17:39+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/pdf/cufast.pdf</loc>
+<lastmod>2020-12-20T14:26:24+08:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/tools/CAC2020.pdf</loc>
