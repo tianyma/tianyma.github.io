@@ -1,5 +1,127 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2021-05-29T08:36:14+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tianyma’s blog</title><subtitle>do valuable research, be valuable person.
-</subtitle><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><entry><title type="html">Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</title><link href="http://localhost:4000/2020/12/23/success.html" rel="alternate" type="text/html" title="Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)" /><published>2020-12-23T00:00:00+08:00</published><updated>2020-12-23T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/23/success</id><content type="html" xml:base="http://localhost:4000/2020/12/23/success.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2021-05-29T14:37:56+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tianyma’s blog</title><subtitle>do valuable research, be valuable person.
+</subtitle><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><entry><title type="html">Paper review: meta-reinforcement-learning</title><link href="http://localhost:4000/2021/05/29/Paper-review-meta-reinforcement-learning.html" rel="alternate" type="text/html" title="Paper review: meta-reinforcement-learning" /><published>2021-05-29T00:00:00+08:00</published><updated>2021-05-29T00:00:00+08:00</updated><id>http://localhost:4000/2021/05/29/Paper%20review:meta-reinforcement-learning</id><content type="html" xml:base="http://localhost:4000/2021/05/29/Paper-review-meta-reinforcement-learning.html">&lt;h3 id=&quot;challenge&quot;&gt;Challenge&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;tasks design&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;papers&quot;&gt;Papers&lt;/h3&gt;
+&lt;h4 id=&quot;meta-world-a-benchmark-and-evaluation-for-multi-task-and-meta-reinforcement-learning&quot;&gt;Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: PMLR 2020&lt;/li&gt;
+  &lt;li&gt;method: None&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;object manipulation (meta-world)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;http://proceedings.mlr.press/v100/yu20a/yu20a.pdf&quot;&gt;http://proceedings.mlr.press/v100/yu20a/yu20a.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:  &lt;a href=&quot;https://github.com/rlworkgroup/metaworld&quot;&gt;https://github.com/rlworkgroup/metaworld&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;https://meta-world.github.io/&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;efficient-off-policy-meta-reinforcement-learning-via-probabilistic-context-variables&quot;&gt;Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICML2019&lt;/li&gt;
+  &lt;li&gt;method: PEARL (probabilistic embeddings for actor-critic RL)&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: https://arxiv.org/pdf/1903.08254.pdf&lt;/li&gt;
+  &lt;li&gt;code: https://github.com/katerakelly/oyster&lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;https://bair.berkeley.edu/blog/2019/06/10/pearl/&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;rl2-fast-reinforcement-learning-via-slow-reinforcement-learning&quot;&gt;RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: None&lt;/li&gt;
+  &lt;li&gt;method: RL^2&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;navigation (minecraft)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: https://arxiv.org/pdf/1611.02779.pdf&lt;/li&gt;
+  &lt;li&gt;code:&lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;https://zhuanlan.zhihu.com/p/32606591&lt;/li&gt;
+      &lt;li&gt;https://openreview.net/forum?id=HkLXCE9lx&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;meta-reinforcement-learning-of-structured-exploration-strategies&quot;&gt;Meta-Reinforcement Learning of Structured Exploration Strategies&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: NeurIPS 2018&lt;/li&gt;
+  &lt;li&gt;method: MAESN (model agnostic exploration with structured noise)&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;robotic locomotion (rllab)&lt;/li&gt;
+      &lt;li&gt;object manipulation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: https://arxiv.org/pdf/1802.07245.pdf&lt;/li&gt;
+  &lt;li&gt;code: https://github.com/russellmendonca/maesn_suite&lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;https://zhuanlan.zhihu.com/p/63072582&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;a-simple-neural-attentive-meta-learner&quot;&gt;A Simple Neural Attentive Meta-Learner&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR 2018&lt;/li&gt;
+  &lt;li&gt;method: SNAIL (simple neural attentive learner)&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;navigation&lt;/li&gt;
+      &lt;li&gt;robotic locomotion&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: https://openreview.net/pdf?id=B1DmUzWAW&lt;/li&gt;
+  &lt;li&gt;code:  https://github.com/eambutu/snail-pytorch&lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;https://www.carsi.edu.cn/index_zh.htm&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;learning-to-reinforcement-learn&quot;&gt;Learning to reinforcement learn&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: CogSci 2017&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;navigation&lt;/li&gt;
+      &lt;li&gt;Harlow experiment&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: https://arxiv.org/pdf/1611.05763.pdf&lt;/li&gt;
+  &lt;li&gt;code:&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;####&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;source:&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link:&lt;/li&gt;
+  &lt;li&gt;code:&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">Challenge tasks design Papers Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning source: PMLR 2020 method: None environment: object manipulation (meta-world) paper link: http://proceedings.mlr.press/v100/yu20a/yu20a.pdf code: https://github.com/rlworkgroup/metaworld interpretation: https://meta-world.github.io/ Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables source: ICML2019 method: PEARL (probabilistic embeddings for actor-critic RL) environment: robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133) paper link: https://arxiv.org/pdf/1903.08254.pdf code: https://github.com/katerakelly/oyster interpretation: https://bair.berkeley.edu/blog/2019/06/10/pearl/ RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning source: None method: RL^2 environment: navigation (minecraft) paper link: https://arxiv.org/pdf/1611.02779.pdf code: interpretation: https://zhuanlan.zhihu.com/p/32606591 https://openreview.net/forum?id=HkLXCE9lx Meta-Reinforcement Learning of Structured Exploration Strategies source: NeurIPS 2018 method: MAESN (model agnostic exploration with structured noise) environment: robotic locomotion (rllab) object manipulation paper link: https://arxiv.org/pdf/1802.07245.pdf code: https://github.com/russellmendonca/maesn_suite interpretation: https://zhuanlan.zhihu.com/p/63072582 A Simple Neural Attentive Meta-Learner source: ICLR 2018 method: SNAIL (simple neural attentive learner) environment: navigation robotic locomotion paper link: https://openreview.net/pdf?id=B1DmUzWAW code: https://github.com/eambutu/snail-pytorch interpretation: https://www.carsi.edu.cn/index_zh.htm Learning to reinforcement learn source: CogSci 2017 method: environment: navigation Harlow experiment paper link: https://arxiv.org/pdf/1611.05763.pdf code: interpretation: #### source: method: environment: paper link: code: interpretation:</summary></entry><entry><title type="html">Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</title><link href="http://localhost:4000/2020/12/23/success.html" rel="alternate" type="text/html" title="Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)" /><published>2020-12-23T00:00:00+08:00</published><updated>2020-12-23T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/23/success</id><content type="html" xml:base="http://localhost:4000/2020/12/23/success.html">&lt;blockquote&gt;
   &lt;p&gt;转自Reddit.&lt;/p&gt;
 &lt;/blockquote&gt;
 

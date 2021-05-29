@@ -1,0 +1,124 @@
+I"þ<h3 id="challenge">Challenge</h3>
+<ul>
+  <li>tasks design</li>
+</ul>
+
+<h3 id="papers">Papers</h3>
+<h4 id="meta-world-a-benchmark-and-evaluation-for-multi-task-and-meta-reinforcement-learning">Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning</h4>
+<ul>
+  <li>source: PMLR 2020</li>
+  <li>method: None</li>
+  <li>environment:
+    <ul>
+      <li>object manipulation (meta-world)</li>
+    </ul>
+  </li>
+  <li>paper link: <a href="http://proceedings.mlr.press/v100/yu20a/yu20a.pdf">http://proceedings.mlr.press/v100/yu20a/yu20a.pdf</a></li>
+  <li>code:  <a href="https://github.com/rlworkgroup/metaworld">https://github.com/rlworkgroup/metaworld</a></li>
+  <li>interpretation:
+    <ul>
+      <li>https://meta-world.github.io/</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="efficient-off-policy-meta-reinforcement-learning-via-probabilistic-context-variables">Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables</h4>
+<ul>
+  <li>source: ICML2019</li>
+  <li>method: PEARL (probabilistic embeddings for actor-critic RL)</li>
+  <li>environment:
+    <ul>
+      <li>robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133)</li>
+    </ul>
+  </li>
+  <li>paper link: https://arxiv.org/pdf/1903.08254.pdf</li>
+  <li>code: https://github.com/katerakelly/oyster</li>
+  <li>interpretation:
+    <ul>
+      <li>https://bair.berkeley.edu/blog/2019/06/10/pearl/</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="rl2-fast-reinforcement-learning-via-slow-reinforcement-learning">RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning</h4>
+<ul>
+  <li>source: None</li>
+  <li>method: RL^2</li>
+  <li>environment:
+    <ul>
+      <li>navigation (minecraft)</li>
+    </ul>
+  </li>
+  <li>paper link: https://arxiv.org/pdf/1611.02779.pdf</li>
+  <li>code:</li>
+  <li>interpretation:
+    <ul>
+      <li>https://zhuanlan.zhihu.com/p/32606591</li>
+      <li>https://openreview.net/forum?id=HkLXCE9lx</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="meta-reinforcement-learning-of-structured-exploration-strategies">Meta-Reinforcement Learning of Structured Exploration Strategies</h4>
+<ul>
+  <li>source: NeurIPS 2018</li>
+  <li>method: MAESN (model agnostic exploration with structured noise)</li>
+  <li>environment:
+    <ul>
+      <li>robotic locomotion (rllab)</li>
+      <li>object manipulation</li>
+    </ul>
+  </li>
+  <li>paper link: https://arxiv.org/pdf/1802.07245.pdf</li>
+  <li>code: https://github.com/russellmendonca/maesn_suite</li>
+  <li>interpretation:
+    <ul>
+      <li>https://zhuanlan.zhihu.com/p/63072582</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="a-simple-neural-attentive-meta-learner">A Simple Neural Attentive Meta-Learner</h4>
+<ul>
+  <li>source: ICLR 2018</li>
+  <li>method: SNAIL (simple neural attentive learner)</li>
+  <li>environment:
+    <ul>
+      <li>navigation</li>
+      <li>robotic locomotion</li>
+    </ul>
+  </li>
+  <li>paper link: https://openreview.net/pdf?id=B1DmUzWAW</li>
+  <li>code:  https://github.com/eambutu/snail-pytorch</li>
+  <li>interpretation:
+    <ul>
+      <li>https://www.carsi.edu.cn/index_zh.htm</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="learning-to-reinforcement-learn">Learning to reinforcement learn</h4>
+<ul>
+  <li>source: CogSci 2017</li>
+  <li>method:</li>
+  <li>environment:
+    <ul>
+      <li>navigation</li>
+      <li>Harlow experiment</li>
+    </ul>
+  </li>
+  <li>paper link: https://arxiv.org/pdf/1611.05763.pdf</li>
+  <li>code:</li>
+  <li>interpretation:</li>
+</ul>
+
+<p>####</p>
+<ul>
+  <li>source:</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link:</li>
+  <li>code:</li>
+  <li>interpretation:</li>
+</ul>
+:ET
