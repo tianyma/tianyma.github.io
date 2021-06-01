@@ -6,10 +6,11 @@ tags: paper review
 mathjax: true
 key: 2021-05-29-blog
 ---
-### Challenge
+## Challenges of meta-RL
 - tasks design
 
-### Papers
+## Papers
+### environment
 #### Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning
 - source: PMLR 2020
 - method: None
@@ -20,19 +21,21 @@ key: 2021-05-29-blog
 - interpretation: 
   - [https://meta-world.github.io/](https://meta-world.github.io/)
 
-#### Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables
-- source: ICML2019
-- method: PEARL (probabilistic embeddings for actor-critic RL)
+
+### model-based meta-RL
+#### Learning to reinforcement learn
+- source: CogSci 2017
+- method: 
 - environment:
-  - robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133)
-- paper link: [https://arxiv.org/pdf/1903.08254.pdf](https://arxiv.org/pdf/1903.08254.pdf)
-- code: [https://github.com/katerakelly/oyster](https://github.com/katerakelly/oyster)
+  - navigation
+  - Harlow experiment
+- paper link: [https://arxiv.org/pdf/1611.05763.pdf](https://arxiv.org/pdf/1611.05763.pdf)
+- code:  
 - interpretation: 
-  - [https://bair.berkeley.edu/blog/2019/06/10/pearl/](https://bair.berkeley.edu/blog/2019/06/10/pearl/)
 
 #### RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning
-- source: None
-- method: RL^2
+- source: ICLR 2017
+- method: 
 - environment:
   - navigation (minecraft)
 - paper link: [https://arxiv.org/pdf/1611.02779.pdf](https://arxiv.org/pdf/1611.02779.pdf)
@@ -41,16 +44,13 @@ key: 2021-05-29-blog
   - [https://zhuanlan.zhihu.com/p/32606591](https://zhuanlan.zhihu.com/p/32606591)
   - [https://openreview.net/forum?id=HkLXCE9lx](https://openreview.net/forum?id=HkLXCE9lx)
 
-#### Meta-Reinforcement Learning of Structured Exploration Strategies
-- source: NeurIPS 2018
-- method: MAESN (model agnostic exploration with structured noise)
+#### Prefrontal cortex as a meta-reinforcement learning system
+- source: Nature Neuroscience 2018
+- method: 
 - environment:
-  - robotic locomotion (rllab)
-  - object manipulation
-- paper link: [https://arxiv.org/pdf/1802.07245.pdf](https://arxiv.org/pdf/1802.07245.pdf)
-- code: [https://github.com/russellmendonca/maesn_suite](https://github.com/russellmendonca/maesn_suite)
+- paper link: [https://www.nature.com/articles/s41593-018-0147-8](https://www.nature.com/articles/s41593-018-0147-8)
+- code:  
 - interpretation: 
-  - [https://zhuanlan.zhihu.com/p/63072582](https://zhuanlan.zhihu.com/p/63072582)
 
 #### A Simple Neural Attentive Meta-Learner
 - source: ICLR 2018
@@ -63,13 +63,81 @@ key: 2021-05-29-blog
 - interpretation: 
   - [https://www.carsi.edu.cn/index_zh.htm](https://www.carsi.edu.cn/index_zh.htm)
 
-#### Learning to reinforcement learn
-- source: CogSci 2017
+#### Reinforcement Learning, Fast and Slow
+- source: Trends in Cognitive Sciences 2019
 - method: 
 - environment:
-  - navigation
-  - Harlow experiment
-- paper link: [https://arxiv.org/pdf/1611.05763.pdf](https://arxiv.org/pdf/1611.05763.pdf)
+- paper link: [https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-66131930061-0](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-66131930061-0)
+- code:  
+- interpretation: 
+
+#### Improving Generalization in Meta Reinforcement Learning using Learned Objectives
+- source: ICLR 2020
+- method: 
+- environment:
+- paper link: [https://arxiv.org/pdf/1910.04098.pdf](https://arxiv.org/pdf/1910.04098.pdf)
+- code: [https://github.com/louiskirsch/metagenrl](https://github.com/louiskirsch/metagenrl) 
+- interpretation: 
+
+#### Discovering Reinforcement Learning Algorithms
+- source:	arXiv:2007.08794 2020
+- method: 
+- environment:
+- paper link: [https://arxiv.org/pdf/2007.08794](https://arxiv.org/pdf/2007.08794)
+- code:  
+- interpretation: 
+
+### optimization-based meta-RL
+#### Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks
+- source: ICML 2017
+- method: MAML
+- environment:
+- paper link: [https://arxiv.org/pdf/1703.03400.pdf](https://arxiv.org/pdf/1703.03400.pdf)
+- code: [https://github.com/cbfinn/maml_rl](https://github.com/cbfinn/maml_rl) 
+- interpretation: 
+
+#### On First-Order Meta-Learning Algorithms
+- source:	arXiv:1803.02999 2018
+- method: Reptile
+- environment:
+- paper link: [https://arxiv.org/pdf/1803.02999.pdf](https://arxiv.org/pdf/1803.02999.pdf)
+- code: [https://github.com/openai/supervised-reptile](https://github.com/openai/supervised-reptile) 
+- interpretation: 
+
+#### Meta-Reinforcement Learning of Structured Exploration Strategies
+- source: NeurIPS 2018
+- method: MAESN (model agnostic exploration with structured noise)
+- environment:
+  - robotic locomotion (rllab)
+  - object manipulation
+- paper link: [https://arxiv.org/pdf/1802.07245.pdf](https://arxiv.org/pdf/1802.07245.pdf)
+- code: [https://github.com/russellmendonca/maesn_suite](https://github.com/russellmendonca/maesn_suite)
+- interpretation: 
+  - [https://zhuanlan.zhihu.com/p/63072582](https://zhuanlan.zhihu.com/p/63072582)
+
+#### Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables
+- source: ICML2019
+- method: PEARL (probabilistic embeddings for actor-critic RL)
+- environment:
+  - robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133)
+- paper link: [https://arxiv.org/pdf/1903.08254.pdf](https://arxiv.org/pdf/1903.08254.pdf)
+- code: [https://github.com/katerakelly/oyster](https://github.com/katerakelly/oyster)
+- interpretation: 
+  - [https://bair.berkeley.edu/blog/2019/06/10/pearl/](https://bair.berkeley.edu/blog/2019/06/10/pearl/)
+
+#### Meta-Q-Learning 
+- source: ICLR 2020
+- method: 
+- environment:
+- paper link: [https://arxiv.org/pdf/1910.00125.pdf](https://arxiv.org/pdf/1910.00125.pdf)
+- code:  
+- interpretation: 
+
+#### Meta Learning via Learned Loss 
+- source: ICPR 2021
+- method: ML^3
+- environment:
+- paper link: [https://arxiv.org/pdf/1906.05374.pdf](https://arxiv.org/pdf/1906.05374.pdf) 
 - code:  
 - interpretation: 
 
