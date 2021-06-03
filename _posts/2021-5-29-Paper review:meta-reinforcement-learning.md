@@ -7,9 +7,14 @@ mathjax: true
 key: 2021-05-29-blog
 ---
 ## Challenges of meta-RL
+<<<<<<< HEAD
 - design a set of tasks that are interrelated
 - find the inter-representation
 - fast adaptation to new tasks 
+=======
+- tasks design
+
+>>>>>>> 400bc50f1a566515cbec5c30e9b5db42b3828a62
 ## Papers
 ### environment
 #### Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning
@@ -22,15 +27,24 @@ key: 2021-05-29-blog
 - interpretation: 
   - [https://meta-world.github.io/](https://meta-world.github.io/)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 400bc50f1a566515cbec5c30e9b5db42b3828a62
 ### model-based meta-RL
 #### Learning to reinforcement learn
 - source: CogSci 2017
 - method: 
 - environment:
+<<<<<<< HEAD
   - bandit problem
   - Two-step task
   - Harlow experiment 
   - 3D navigation (Deepmind Lab)
+=======
+  - navigation
+  - Harlow experiment
+>>>>>>> 400bc50f1a566515cbec5c30e9b5db42b3828a62
 - paper link: [https://arxiv.org/pdf/1611.05763.pdf](https://arxiv.org/pdf/1611.05763.pdf)
 - code:  
 - interpretation: 
@@ -67,6 +81,7 @@ key: 2021-05-29-blog
 - interpretation: 
   - [https://www.carsi.edu.cn/index_zh.htm](https://www.carsi.edu.cn/index_zh.htm)
 
+<<<<<<< HEAD
 #### PixelSNAIL: An Improved Autoregressive Generative Model
 - source: ICML 2018
 - method: 
@@ -91,6 +106,12 @@ key: 2021-05-29-blog
 - source: Trends in Cognitive Sciences 2019
 - method: 
 - environment:
+=======
+#### Reinforcement Learning, Fast and Slow
+- source: Trends in Cognitive Sciences 2019
+- method: 
+- environment:
+>>>>>>> 400bc50f1a566515cbec5c30e9b5db42b3828a62
 - paper link: [https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-66131930061-0](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-66131930061-0)
 - code:  
 - interpretation: 
@@ -111,6 +132,7 @@ key: 2021-05-29-blog
 - code:  
 - interpretation: 
 
+<<<<<<< HEAD
 #### Model-based Adversarial Meta-Reinforcement Learning 
 - source: NeurIPS 2020 
 - method: AdMRL
@@ -126,6 +148,13 @@ key: 2021-05-29-blog
 - environment:
   - 2D navigation (rllab)
   - locomotion (rllab)
+=======
+### optimization-based meta-RL
+#### Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks
+- source: ICML 2017
+- method: MAML
+- environment:
+>>>>>>> 400bc50f1a566515cbec5c30e9b5db42b3828a62
 - paper link: [https://arxiv.org/pdf/1703.03400.pdf](https://arxiv.org/pdf/1703.03400.pdf)
 - code: [https://github.com/cbfinn/maml_rl](https://github.com/cbfinn/maml_rl) 
 - interpretation: 
@@ -149,6 +178,7 @@ key: 2021-05-29-blog
 - interpretation: 
   - [https://zhuanlan.zhihu.com/p/63072582](https://zhuanlan.zhihu.com/p/63072582)
 
+<<<<<<< HEAD
 #### Some Considerations on Learning to Explore via Meta-Reinforcement Learning
 - source: ICLR 2018 
 - method: 
@@ -175,6 +205,8 @@ key: 2021-05-29-blog
 - paper link: [https://openreview.net/pdf?id=SkxXCi0qFX](https://openreview.net/pdf?id=SkxXCi0qFX)
 - code: [https://github.com/jonasrothfuss/promp](https://github.com/jonasrothfuss/promp) 
 
+=======
+>>>>>>> 400bc50f1a566515cbec5c30e9b5db42b3828a62
 #### Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables
 - source: ICML2019
 - method: PEARL (probabilistic embeddings for actor-critic RL)
@@ -185,6 +217,7 @@ key: 2021-05-29-blog
 - interpretation: 
   - [https://bair.berkeley.edu/blog/2019/06/10/pearl/](https://bair.berkeley.edu/blog/2019/06/10/pearl/)
 
+<<<<<<< HEAD
 #### Learning to Adapt in Dynamic, Real-World Environments Through Meta-Reinforcement Learning
 - source: ICLR 2019
 - method: 
@@ -201,6 +234,8 @@ key: 2021-05-29-blog
 - interpretation: 
   - [https://sites.google.com/berkeley.edu/metaadaptivecontrol](https://sites.google.com/berkeley.edu/metaadaptivecontrol)
 
+=======
+>>>>>>> 400bc50f1a566515cbec5c30e9b5db42b3828a62
 #### Meta-Q-Learning 
 - source: ICLR 2020
 - method: 
@@ -209,6 +244,7 @@ key: 2021-05-29-blog
 - code:  
 - interpretation: 
 
+<<<<<<< HEAD
 #### Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices
 - source:	ICML 2021
 - method: Dream
@@ -220,11 +256,14 @@ key: 2021-05-29-blog
 - interpretation: 
   - [https://ezliu.github.io/dream/](https://ezliu.github.io/dream/)
 
+=======
+>>>>>>> 400bc50f1a566515cbec5c30e9b5db42b3828a62
 #### Meta Learning via Learned Loss 
 - source: ICPR 2021
 - method: ML^3
 - environment:
 - paper link: [https://arxiv.org/pdf/1906.05374.pdf](https://arxiv.org/pdf/1906.05374.pdf) 
+<<<<<<< HEAD
 - code:  
 - interpretation: 
 
@@ -255,6 +294,8 @@ key: 2021-05-29-blog
 - method: 
 - environment:
 - paper link: [https://arxiv.org/pdf/2007.07206v4.pdf](https://arxiv.org/pdf/2007.07206v4.pdf)
+=======
+>>>>>>> 400bc50f1a566515cbec5c30e9b5db42b3828a62
 - code:  
 - interpretation: 
 
