@@ -17,3 +17,7 @@ key: 2021-06-01-blog
 ## 创新点
 本文是基于模型的元强化学习算法的一次尝试，通过将带LSTM的RNN用强化学习算法进行训练，可以使agent获得一定的学习适应能力。
 ## 算法评价
+
+
+
+[返回文章列表](https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html)

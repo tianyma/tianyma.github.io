@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - tianyma's blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Paper reading: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks - tianyma's blog</title>
 
-<meta name="description" content="do valuable research, be valuable person.
-">
-<link rel="canonical" href="http://localhost:4000/"><link rel="alternate" type="application/rss+xml" title="tianyma's blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="核心思想MAML是一种基于梯度下降的元学习算法，可以被用在分类和回归（监督学习）及强化学习中，来加速对新任务的学习。作者将不同的学习任务抽象为few-shot learning，也就是用少量学习样本就可以快速适应新任务。不同类型的任务除了损失函数的定义、数据的获取和表征外，基本的训练方法都是一致的，因此这种算法可...">
+<link rel="canonical" href="http://localhost:4000/2021/06/03/MAML.html"><link rel="alternate" type="application/rss+xml" title="tianyma's blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -255,7 +254,7 @@
 </head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
@@ -274,18 +273,17 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="tianyun ma"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/03/MAML.html"><h2 itemprop="headline" class="item__header">Paper reading: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">核心思想
-MAML是一种基于梯度下降的元学习算法，可以被用在分类和回归（监督学习）及强化学习中，来加速对新任务的学习。作者将不同的学习任务抽象为few-shot learning，也就是用少量学习样本就可以快速适应新任务。不同类型的任务除了损失函数的定义、数据的获取和表征外，基本的训练方法都是一致的，因此这种算法可以适用于不同任务。 
-MAML的核心思想是针对一系列学习任务构建共有的中间表征，不具体构造出新的模块来进行few-shot learning，而是对于已有的模型（如神经网络）的初始参数，找到模型种对不同任务都很敏感的参数，然后通过一个或多个梯度下降步长优化这些参数，从而在新任务上快速降低损失函数，获得最优性能。
-实现过程
-以K-shot-meta-RL（K是每个任务的样本数量...</div><p><a href="/2021/06/03/MAML.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Paper reading: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="在 Github 上修改"
+            href="https://github.com/user_name/repo_name/tree/master/_posts/2021-06-03-MAML.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Paper reading: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=paper">paper</a>
             </li><li>
@@ -293,147 +291,63 @@ MAML的核心思想是针对一系列学习任务构建共有的中间表征，�
                 href="/archive.html?tag=review">review</a>
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月03日</span>
             </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-03T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/02/RL2.html"><h2 itemprop="headline" class="item__header">Paper reading: $RL^2$: Fast Reinforcement Learning via Slow Reinforcement Learning</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">核心思想
-用经典RL算法训练一个带有GRU结构的RNN-based的agent，对每个固定MDP训练多个episode，在较早的episode可以学习到meta信息，从而在后面的episode中更快适应任务。
-实现过程
-定义
+    <meta itemprop="keywords" content="paper,review"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-episode: agent和一个MDP的一次开始到结束的交互序列。
+<!-- end custom article top snippet -->
+<div class="article__content" itemprop="articleBody"><h2 id="核心思想">核心思想</h2>
+<p>MAML是一种基于梯度下降的元学习算法，可以被用在分类和回归（监督学习）及强化学习中，来加速对新任务的学习。作者将不同的学习任务抽象为few-shot learning，也就是用少量学习样本就可以快速适应新任务。不同类型的任务除了损失函数的定义、数据的获取和表征外，基本的训练方法都是一致的，因此这种算法可以适用于不同任务。 <br />
+MAML的核心思想是针对一系列学习任务构建共有的中间表征，不具体构造出新的模块来进行few-shot learning，而是对于已有的模型（如神经网络）的初始参数，找到模型种对不同任务都很敏感的参数，然后通过一个或多个梯度下降步长优化这些参数，从而在新任务上快速降低损失函数，获得最优性能。</p>
+<h2 id="实现过程">实现过程</h2>
+<p>以K-shot-meta-RL（K是每个任务的样本数量）任务的MAML算法为例，对于一个任意任务分布，从中采样出一批任务用来进行元学习。对于每一个任务，用初始策略$f_{\theta}$获得K个样本轨迹$\mathcal{D}$，计算基于$f_{\theta}$和$\mathcal{D}$的损失函数，损失函数用来衡量在$\mathcal{D}$的最大奖励的期望。然后更新梯度，并用新的梯度重新获取K个样本轨迹用于下一步优化。  <br />
+由于强化学习的损失函数不可微分，所以使用策略梯度算法进行求解和优化。</p>
+<h2 id="测试任务">测试任务</h2>
+<p>在RL任务种，测试任务为rllab（已弃用，现在是garage）的2D navigation和locomotion，其中locomotion的物理引擎是mujoco。</p>
+<h2 id="创新点">创新点</h2>
+<p>MAML从不同的学习范式种抽象出共同特征，从而可以用统一的算法进行few-shot learning。另外，基于梯度下降的算法思想很简单。</p>
+<h2 id="算法评价">算法评价</h2>
+<p>MAML是比较接近meta learning本质的算法，也就是寻找任务的共同中间表征从而达到泛化的目的。但是MAML缺点是计算量很大，结合启发式的方法或许可以降低计算量，比如将梯度下降算法和启发式的因果模型结合起来，或许只需要1个梯度下降就可以找到最优解。</p>
 
-trial: agent与某一固定MDP的一系列连续的episode过程，在本文中，一个trial中包含n个episode。trial中的episode之间，agent的中间状态会被保留。
+<p><a href="https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html">返回文章列表</a></p>
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-06-03T00:00:00+08:00"><!-- start custom article footer snippet -->
 
-agent是一个带有GRU结构的RNN，在每个trial中与环境进行交互，agent的目标是最大化每个trial的奖励，策略更新采用了TRPO算法。在较早的episode训练后，由于agent的中间状态...</div><p><a href="/2021/06/02/RL2.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月02日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-02T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/01/Learning-to-reinforcement-learn.html"><h2 itemprop="headline" class="item__header">Paper reading: Learning to reinforcement learn</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">核心思想
-本文提出了一种深度元强化学习(deep meta-reinforcement learning)方法，通过强化学习训练一个循环神经网络(RNN)，使得该RNN可以通过自适应更新的方法快速适应不同任务，从而提高训练效率。
-实现过程
-本文使用A2C(Advantage Actor-Critic)算法在一系列输入任务上训练一个RNN。以MDPs(Markov Decision Processes)为例，设$\mathcal{D}$是一个MDPs分布，每个新的episode开始时，先从D采样的一个任务$m \backsim \mathcal{D}$，RNN的内部循环单元的参数会被重置，然后和环境交互一定的时长，每一次策略都是基于到目前的所有历史信息（状态，动作，奖励），agent的目...</div><p><a href="/2021/06/01/Learning-to-reinforcement-learn.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月01日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-01T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/05/29/meta-reinforcement-learning.html"><h2 itemprop="headline" class="item__header">Paper review: meta-reinforcement-learning</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Challenges of meta-RL
+<!-- end custom article footer snippet -->
+<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
+</div><div class="article__license"><div class="license">
+    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/2021/06/02/RL2.html">Paper reading: $RL^2$: Fast Reinforcement Learning via Slow Reinforcement Learning</a></div></div></div>
 
-  design a set of tasks that are interrelated
-  find the inter-representation
-  fast adaptation to new tasks
-    Papers
-    environment
-    Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning
-  
-  source: PMLR 2020
-  method: None
-  environment:
-    
-      object manipulation
-    
-  
-  pape...</div><p><a href="/2021/05/29/meta-reinforcement-learning.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 05月29日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-05-29T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/12/23/success.html"><h2 itemprop="headline" class="item__header">Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">转自Reddit.
+</div>
 
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    $(function() {
+      var $this ,$scroll;
+      var $articleContent = $('.js-article-content');
+      var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+      var scroll = hasSidebar ? '.js-page-main' : 'html, body';
+      $scroll = $(scroll);
 
-
-  给还在迷茫的自动化、计算机、电子系的本科小朋友，祝你们早日找到目标，努力学习，打好基础。估计做到这些，特奖就离你们不远了orz.
-
-
-Tips on How To Succeed in an ECE Major (or any degree)
-
-Do the homework. Even if it’s not required to turn in. It’s the only way to learn this ECE stuff. Don’t cheat on the homework, because when the exam comes around the lack of actual practice will show and you w...</div><p><a href="/2020/12/23/success.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=%E9%9A%8F%E6%84%9F">随感</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 12月23日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-12-23T00:00:00+08:00">
-    <meta itemprop="keywords" content="随感"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/12/19/pdf-cufast.html"><h2 itemprop="headline" class="item__header">cuFAST:基于GPU的FAST算法加速</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Click to view this blog.</div><p><a href="/2020/12/19/pdf-cufast.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=cuda">cuda</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 12月19日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-12-19T00:00:00+08:00">
-    <meta itemprop="keywords" content="cuda"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/11/26/pdf-test.html"><h2 itemprop="headline" class="item__header">CAC2020(for pdf view test)</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Click to view this blog.</div><p><a href="/2020/11/26/pdf-test.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 11月26日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-11-26T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/11/21/docker-cuda.html"><h2 itemprop="headline" class="item__header">使用docker运行多个版本的cuda</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">如果你遇到了这样一个问题:
-
-  我的机器上装的cuda版本是最新的，比如cuda 11.1，然而我拿到了一个在cuda 8.0的版本上编译好的程序，我该怎么运行它呢？总不会我又要安装一个8.0的cuda吧。(这个问题来自于我在做cmu 15-418 assignment task2时需要运行在cuda8.0环境编译的参考程序cudaScan_ref，而我的cuda是11.1版本)
-
-  这个时候你肯定立刻会想到虚拟化，作为轻便好用的虚拟化工具，docker就派上用场了。
-
-  这篇文章就来介绍一下如何使用docker运行多版本的cuda。
-
-
-
-  本机环境
-    系统：18.04.5 LTS (Bionic Beaver)
-已安装cuda版本：11.1
-    
-    １ do...</div><p><a href="/2020/11/21/docker-cuda.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=docker">docker</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=cuda">cuda</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 11月21日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-11-21T00:00:00+08:00">
-    <meta itemprop="keywords" content="docker,cuda"></div>
-      </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 13 篇文章，2 页。</p>
-    <div class="pagination__menu">
-      <ul class="menu menu--nowrap"><li><div class="button button--secondary button--circle disabled">
-            <i class="fas fa-angle-left"></i>
-          </div></li><li>
-              <div class="button button--primary button--circle focus"><span>1</span></div>
-            </li><li>
-                <a class="button button--secondary button--circle" href="/page2"><span>2</span></a>
-              </li><li><a class="button button--secondary button--circle" href="/page2">
-            <i class="fas fa-angle-right"></i>
-          </a></li></ul>
-    </div>
-  </div></div>
-<script>/*(function () {
-
-})();*/
+      $articleContent.find('.highlight').each(function() {
+        $this = $(this);
+        $this.attr('data-lang', $this.find('code').attr('data-lang'));
+      });
+      $articleContent.find('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').each(function() {
+        $this = $(this);
+        $this.append($('<a class="anchor d-print-none" aria-hidden="true"></a>').html('<i class="fas fa-anchor"></i>'));
+      });
+      $articleContent.on('click', '.anchor', function() {
+        $scroll.scrollToAnchor('#' + $(this).parent().attr('id'), 400);
+      });
+    });
+  });
+})();
 </script>
-
-
-
 </div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
@@ -981,7 +895,75 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 /*(function () {
 
 })();*/
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
+</script><script type="text/x-mathjax-config">
+	var _config = { tex2jax: {
+		inlineMath: [['$','$'], ['\\(','\\)']]
+	}};MathJax.Hub.Config(_config);
 </script>
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
     </div>
     <script>(function () {
   var $root = document.getElementsByClassName('root')[0];

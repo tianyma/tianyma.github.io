@@ -1,0 +1,24 @@
+I"�<h2 id="核心思想">核心思想</h2>
+<p>用经典RL算法训练一个带有GRU结构的RNN-based的agent，对每个固定MDP训练多个episode，在较早的episode可以学习到meta信息，从而在后面的episode中更快适应任务。</p>
+<h2 id="实现过程">实现过程</h2>
+<h3 id="定义">定义</h3>
+
+<p><strong>episode:</strong> agent和一个MDP的一次开始到结束的交互序列。</p>
+
+<p><strong>trial:</strong> agent与某一固定MDP的一系列连续的episode过程，在本文中，一个trial中包含n个episode。trial中的episode之间，agent的中间状态会被保留。</p>
+
+<p>agent是一个带有GRU结构的RNN，在每个trial中与环境进行交互，agent的目标是最大化每个trial的奖励，策略更新采用了<a href="https://arxiv.org/pdf/1502.05477.pdf">TRPO算法</a>。在较早的episode训练后，由于agent的中间状态会被保留，所以在之后的episode中，agent会更快速地适应任务。</p>
+<h2 id="测试任务">测试任务</h2>
+<ul>
+  <li>Multi-armed Bandit</li>
+  <li>Tabular MDP</li>
+  <li>3D maze navigation(ViZDoom environment)
+    <h2 id="创新点">创新点</h2>
+    <p>这篇文章的第三个实验，也就是3D maze navigation很有意思，通过较早的exploration，agent似乎可以在后面的episode中exploit并可以找到最优路径。</p>
+    <h2 id="算法评价">算法评价</h2>
+    <p>这篇论文似乎没有什么创新点，使用了一个RNN-based的agent，对每一个MDP进行多个episode训练，从而在后面的episode中可以快速适应任务。但是对算法描述很简单，并没有说清楚要学习的meta是什么。</p>
+  </li>
+</ul>
+
+<p><a href="https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html">返回文章列表</a></p>
+:ET

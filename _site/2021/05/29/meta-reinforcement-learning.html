@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？) - tianyma's blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Paper review: meta-reinforcement-learning - tianyma's blog</title>
 
-<meta name="description" content="转自Reddit.  给还在迷茫的自动化、计算机、电子系的本科小朋友，祝你们早日找到目标，努力学习，打好基础。估计做到这些，特奖就离你们不远了orz.Tips on How To Succeed in an ECE Major (or any degree)Do the homework. Even if it’...">
-<link rel="canonical" href="http://localhost:4000/2020/12/23/success.html"><link rel="alternate" type="application/rss+xml" title="tianyma's blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="Challenges of meta-RL  design a set of tasks that are interrelated  find the inter-representation  fast adaptation to new tasks    Papers    environment    M...">
+<link rel="canonical" href="http://localhost:4000/2021/05/29/meta-reinforcement-learning.html"><link rel="alternate" type="application/rss+xml" title="tianyma's blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -279,122 +279,613 @@
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</h1></header><span class="split-space">&nbsp;</span>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Paper review: meta-reinforcement-learning</h1></header><span class="split-space">&nbsp;</span>
           <a class="edit-on-github"
             title="在 Github 上修改"
-            href="https://github.com/user_name/repo_name/tree/master/_posts/2020-12-23-success.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)"><div class="article__info clearfix"><ul class="left-col menu"><li>
+            href="https://github.com/user_name/repo_name/tree/master/_posts/2021-05-29-meta-reinforcement-learning.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Paper review: meta-reinforcement-learning"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=%E9%9A%8F%E6%84%9F">随感</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 12月23日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-12-23T00:00:00+08:00">
-    <meta itemprop="keywords" content="随感"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+                href="/archive.html?tag=paper">paper</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=review">review</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 05月29日</span>
+            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-05-29T00:00:00+08:00">
+    <meta itemprop="keywords" content="paper,review"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
 <!-- end custom article top snippet -->
-<div class="article__content" itemprop="articleBody"><blockquote>
-  <p>转自Reddit.</p>
-</blockquote>
+<div class="article__content" itemprop="articleBody"><h2 id="challenges-of-meta-rl">Challenges of meta-RL</h2>
+<ul>
+  <li>design a set of tasks that are interrelated</li>
+  <li>find the inter-representation</li>
+  <li>fast adaptation to new tasks
+    <h2 id="papers">Papers</h2>
+    <h3 id="environment">environment</h3>
+    <h4 id="meta-world-a-benchmark-and-evaluation-for-multi-task-and-meta-reinforcement-learning">Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning</h4>
+  </li>
+  <li>source: PMLR 2020</li>
+  <li>method: None</li>
+  <li>environment:
+    <ul>
+      <li>object manipulation</li>
+    </ul>
+  </li>
+  <li>paper link: <a href="http://proceedings.mlr.press/v100/yu20a/yu20a.pdf">http://proceedings.mlr.press/v100/yu20a/yu20a.pdf</a></li>
+  <li>code:  <a href="https://github.com/rlworkgroup/metaworld">https://github.com/rlworkgroup/metaworld</a></li>
+  <li>interpretation:
+    <ul>
+      <li><a href="https://meta-world.github.io/">https://meta-world.github.io/</a></li>
+    </ul>
+  </li>
+</ul>
 
-<blockquote>
-  <p>给还在迷茫的自动化、计算机、电子系的本科小朋友，祝你们早日找到目标，努力学习，打好基础。估计做到这些，特奖就离你们不远了orz.</p>
-</blockquote>
+<h3 id="model-based-meta-rl">model-based meta-RL</h3>
+<h4 id="learning-to-reinforcement-learn"><a href="https://tianyma.github.io/2021/06/01/Learning-to-reinforcement-learn.html">Learning to reinforcement learn</a></h4>
+<ul>
+  <li>source: CogSci 2017</li>
+  <li>method:</li>
+  <li>environment:
+    <ul>
+      <li>bandit problem</li>
+      <li>Two-step task</li>
+      <li>Harlow experiment</li>
+      <li>3D navigation (Deepmind Lab)</li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1611.05763.pdf">https://arxiv.org/pdf/1611.05763.pdf</a></li>
+  <li>code:</li>
+  <li>interpretation:</li>
+</ul>
 
-<p>Tips on How To Succeed in an ECE Major (or any degree)</p>
+<h4 id="rl2-fast-reinforcement-learning-via-slow-reinforcement-learning"><a href="https://tianyma.github.io/2021/06/02/RL2.html">RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning</a></h4>
+<ul>
+  <li>source: ICLR 2017</li>
+  <li>method:</li>
+  <li>environment:
+    <ul>
+      <li>multi-armed bandit problem</li>
+      <li>tabular MDP</li>
+      <li>3D navigation (ViZDoom)</li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1611.02779.pdf">https://arxiv.org/pdf/1611.02779.pdf</a></li>
+  <li>code:</li>
+  <li>interpretation:
+    <ul>
+      <li><a href="https://zhuanlan.zhihu.com/p/32606591">https://zhuanlan.zhihu.com/p/32606591</a></li>
+      <li><a href="https://openreview.net/forum?id=HkLXCE9lx">https://openreview.net/forum?id=HkLXCE9lx</a></li>
+    </ul>
+  </li>
+</ul>
 
-<p><strong>Do the homework.</strong> Even if it’s not required to turn in. It’s the only way to learn this ECE stuff. Don’t cheat on the homework, because when the exam comes around the lack of actual practice will show and you will do poorly. This is how a lot of my friends failed ECE classes. They just copied solutions for the homeworks, got all A’s on the homeworks, then failed the exams and the class. The solutions can be helpful if you use them to work through problems and learn, but they can be very hurtful if you use them wrong.</p>
+<h4 id="prefrontal-cortex-as-a-meta-reinforcement-learning-system">Prefrontal cortex as a meta-reinforcement learning system</h4>
+<ul>
+  <li>source: Nature Neuroscience 2018</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://www.nature.com/articles/s41593-018-0147-8">https://www.nature.com/articles/s41593-018-0147-8</a></li>
+  <li>code:</li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Work the hard problems.</strong> Once you get really good at a certain type of problem, start working on a different type of problem. It’s easy to keep doing the problems you are good at and skip the hard ones. This is the opposite of what you should be doing! Work on the hard problems so you get practice.</p>
+<h4 id="a-simple-neural-attentive-meta-learner">A Simple Neural Attentive Meta-Learner</h4>
+<ul>
+  <li>source: ICLR 2018</li>
+  <li>method: SNAIL (simple neural attentive learner)</li>
+  <li>environment:
+    <ul>
+      <li>navigation</li>
+      <li>robotic locomotion</li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://openreview.net/pdf?id=B1DmUzWAW">https://openreview.net/pdf?id=B1DmUzWAW</a></li>
+  <li>code: <a href="https://github.com/eambutu/snail-pytorch">https://github.com/eambutu/snail-pytorch</a></li>
+  <li>interpretation:
+    <ul>
+      <li><a href="https://www.carsi.edu.cn/index_zh.htm">https://www.carsi.edu.cn/index_zh.htm</a></li>
+    </ul>
+  </li>
+</ul>
 
-<p><strong>Treat the school day like a work day.</strong> Regardless of when your classes are, get to school at 8:00 AM, and stay until 5:00 PM. If you have an exam or something the next day, then stay longer. Work hard during that time to finish all your homework, studying, office hours, emails, etc. That way your evenings could possibly be free to get rest or have some fun!</p>
+<h4 id="pixelsnail-an-improved-autoregressive-generative-model">PixelSNAIL: An Improved Autoregressive Generative Model</h4>
+<ul>
+  <li>source: ICML 2018</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1712.09763v1.pdf">https://arxiv.org/pdf/1712.09763v1.pdf</a></li>
+  <li>code:
+    <ul>
+      <li><a href="https://github.com/neocxi/pixelsnail-public">https://github.com/neocxi/pixelsnail-public</a></li>
+    </ul>
+  </li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Go to the professor’s office hours.</strong> They are different people in their office than in front of class. They will answer your questions in a direct way. You will need letters of recommendation at some point in your life (applying for grad school, scholarships, jobs) and it is part of the professor’s job to write letters of rec for students. If you know them even a little bit, like by going to a few office hours, then they will gladly write you a great letter of rec later in life.</p>
+<h4 id="concurrent-meta-reinforcement-learning">Concurrent Meta Reinforcement Learning</h4>
+<ul>
+  <li>source: arXiv:1903.02710 preprint</li>
+  <li>method: CMRL</li>
+  <li>environment:
+    <ul>
+      <li>N-Monty-Hall</li>
+      <li>N-Color-Choice</li>
+      <li>N-Reacher (Reacher-V2 from gym)</li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1903.02710v1.pdf">https://arxiv.org/pdf/1903.02710v1.pdf</a></li>
+  <li>code:</li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Go to the TA office hours.</strong> They are usually awesome and will help you work through problems, and sometimes give you the solutions. They are students, too, so they understand what you are dealing with and may be able to explain things in a different way than the professors.</p>
+<h4 id="reinforcement-learning-fast-and-slow">Reinforcement Learning, Fast and Slow</h4>
+<ul>
+  <li>source: Trends in Cognitive Sciences 2019</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-66131930061-0">https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-66131930061-0</a></li>
+  <li>code:</li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Make the circuit on a breadboard or in a simulator.</strong> Nothing beats learning the concepts then actually putting them into practice. It is infinitely helpful to make the circuits from homework or the textbook examples with an actual breadboard. Remember to engineer hardware you have to understand the hardware, and the best way to do that is play with the actual hardware. Components are cheap on Amazon, or there are some free circuit simulators if you want. I personally used everycircuit even though it is paid, it is worth it for the visualizations. Another browser based one is PartSim. Here is a list of free simulators.</p>
+<h4 id="improving-generalization-in-meta-reinforcement-learning-using-learned-objectives">Improving Generalization in Meta Reinforcement Learning using Learned Objectives</h4>
+<ul>
+  <li>source: ICLR 2020</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1910.04098.pdf">https://arxiv.org/pdf/1910.04098.pdf</a></li>
+  <li>code: <a href="https://github.com/louiskirsch/metagenrl">https://github.com/louiskirsch/metagenrl</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>All-night cramming study sessions are hurtful.</strong> They will not help you in an engineering degree. Don’t do them. You will need rest before an exam so you can think critically and your brain can have better recall. Sleep is key! To achieve no all-nighters, you have to start working on assignments early, and start studying early. Spreading out the studying over multiple days is helpful if you can do it early enough.</p>
+<h4 id="discovering-reinforcement-learning-algorithms">Discovering Reinforcement Learning Algorithms</h4>
+<ul>
+  <li>source:	arXiv:2007.08794 2020</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2007.08794">https://arxiv.org/pdf/2007.08794</a></li>
+  <li>code:</li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Use the campus tutoring resources.</strong> A lot of schools or departments offer free/cheap tutoring services. All of them will have some sort of resources. Ask your department counselor or admin person, they will point you in the right direction.</p>
+<h4 id="model-based-adversarial-meta-reinforcement-learning">Model-based Adversarial Meta-Reinforcement Learning</h4>
+<ul>
+  <li>source: NeurIPS 2020</li>
+  <li>method: AdMRL</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2006.08875v2.pdf">https://arxiv.org/pdf/2006.08875v2.pdf</a></li>
+  <li>code: <a href="https://github.com/LinZichuan/AdMRL">https://github.com/LinZichuan/AdMRL</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>“Awesome with no effort” doesn’t happen in college.</strong> You will have to make a deliberate effort to learn the material. You will have to make time to study and do homework. You will work your ass off. In high school or other degrees it is possible to rely on your smarts and just cruise through. That is not possible anymore, you gotta put in work to do well. Just being smart doesn’t count anymore, you have to have discipline and a work ethic. Luckily, those can be learned!</p>
+<h3 id="optimization-based-meta-rl">optimization-based meta-RL</h3>
+<h4 id="model-agnostic-meta-learning-for-fast-adaptation-of-deep-networks"><a href="https://tianyma.github.io/2021/06/03/MAML.html">Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</a></h4>
+<ul>
+  <li>source: ICML 2017</li>
+  <li>method: MAML-RL</li>
+  <li>environment:
+    <ul>
+      <li>2D navigation (rllab)</li>
+      <li>locomotion (rllab)</li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1703.03400.pdf">https://arxiv.org/pdf/1703.03400.pdf</a></li>
+  <li>code: <a href="https://github.com/cbfinn/maml_rl">https://github.com/cbfinn/maml_rl</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Start working on assignments based on the assigned date, not the due date.</strong> Don’t treat due dates like you did in high school, etc. Instead of planning assignments from the due date backwards, start doing work from the assigned date forwards. This is a big one! For example: If a homework is assigned on 11/5 but isn’t due until 11/20, don’t plan on doing the homework on 11/18. Instead, plan on doing the homework on 11/6. You could even trick yourself by writing down that the homework is due a few days before it actually is. That way you are done early and aren’t stressed out.</p>
+<h4 id="on-first-order-meta-learning-algorithms">On First-Order Meta-Learning Algorithms</h4>
+<ul>
+  <li>source:	arXiv:1803.02999 2018</li>
+  <li>method: Reptile</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1803.02999.pdf">https://arxiv.org/pdf/1803.02999.pdf</a></li>
+  <li>code: <a href="https://github.com/openai/supervised-reptile">https://github.com/openai/supervised-reptile</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Start studying for exams a few (2-3) weeks before they come.</strong> If you start studying the week before you will be stressed, not cover enough material, and struggle. Help yourself out and start early. It feels amazing when the exam is a day or two away and you already are done studying for it. Now any more studying is just an easy review, which makes you feel more confident, which makes you do better on the exam.</p>
+<h4 id="meta-reinforcement-learning-of-structured-exploration-strategies">Meta-Reinforcement Learning of Structured Exploration Strategies</h4>
+<ul>
+  <li>source: NeurIPS 2018</li>
+  <li>method: MAESN (model agnostic exploration with structured noise)</li>
+  <li>environment:
+    <ul>
+      <li>robotic locomotion (rllab)</li>
+      <li>object manipulation</li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1802.07245.pdf">https://arxiv.org/pdf/1802.07245.pdf</a></li>
+  <li>code: <a href="https://github.com/russellmendonca/maesn_suite">https://github.com/russellmendonca/maesn_suite</a></li>
+  <li>interpretation:
+    <ul>
+      <li><a href="https://zhuanlan.zhihu.com/p/63072582">https://zhuanlan.zhihu.com/p/63072582</a></li>
+    </ul>
+  </li>
+</ul>
 
-<p><strong>Go to each lecture.</strong> If learning and excelling isn’t enough motivation, then think of the cost. You are throwing hundreds of dollars into the trash every time you skip a class. Just go. Even if you are sleepy or don’t want to. It’s absolutely critical to get in this habit.</p>
+<h4 id="some-considerations-on-learning-to-explore-via-meta-reinforcement-learning">Some Considerations on Learning to Explore via Meta-Reinforcement Learning</h4>
+<ul>
+  <li>source: ICLR 2018</li>
+  <li>method:
+    <ul>
+      <li>E-MAML(optimization-based)</li>
+      <li>E-$RL^2$(model-based)</li>
+    </ul>
+  </li>
+  <li>environment:
+    <ul>
+      <li><a href="https://github.com/bstadie/krazyworld">Krazy World</a></li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1803.01118v2.pdf">https://arxiv.org/pdf/1803.01118v2.pdf</a></li>
+  <li>code:
+    <ul>
+      <li><a href="https://github.com/geyang/e-maml">https://github.com/geyang/e-maml</a></li>
+    </ul>
+  </li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Take notes by hand on paper, sit in the front rows, and don’t be afraid to ask questions.</strong> You are at school, asking questions is part of learning! If the professor thought you didn’t have any questions, then what would be the purpose of school? Ask questions!(注：ipad记笔记体验也不错:))</p>
+<h4 id="promp-proximal-meta-policy-search">ProMP: Proximal Meta-Policy Search</h4>
+<ul>
+  <li>source: ICLR 2019</li>
+  <li>method: ProMP</li>
+  <li>environment:
+    <ul>
+      <li>locomotion(gym &amp; Mujoco)
+        <ul>
+          <li>HalfCheetahFwdBack</li>
+          <li>AntRandDir</li>
+          <li>HopperRandParams</li>
+          <li>WalkerFwdBack</li>
+          <li>HumanoidRandDir</li>
+          <li>WalkerRandParams</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://openreview.net/pdf?id=SkxXCi0qFX">https://openreview.net/pdf?id=SkxXCi0qFX</a></li>
+  <li>code: <a href="https://github.com/jonasrothfuss/promp">https://github.com/jonasrothfuss/promp</a></li>
+</ul>
 
-<p><strong>Take notes in your own words.</strong> Simply copying down what the professor says word for word is fine for reference, but is not that helpful for learning. The textbook can be your reference. It is better to take notes in your own words, it forces you to process the information and write it in a new way, which increases retention.</p>
+<h4 id="efficient-off-policy-meta-reinforcement-learning-via-probabilistic-context-variables">Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables</h4>
+<ul>
+  <li>source: ICML2019</li>
+  <li>method: PEARL (probabilistic embeddings for actor-critic RL)</li>
+  <li>environment:
+    <ul>
+      <li>robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133)</li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1903.08254.pdf">https://arxiv.org/pdf/1903.08254.pdf</a></li>
+  <li>code: <a href="https://github.com/katerakelly/oyster">https://github.com/katerakelly/oyster</a></li>
+  <li>interpretation:
+    <ul>
+      <li><a href="https://bair.berkeley.edu/blog/2019/06/10/pearl/">https://bair.berkeley.edu/blog/2019/06/10/pearl/</a></li>
+    </ul>
+  </li>
+</ul>
 
-<p><strong>Do the reading before the lecture.</strong> I personally only did this a few times, but each time I did I felt like a freaking genius during the lecture. Even if I didn’t really get what I was reading, just being exposed to the terms and concepts made the lecture so much more effective.</p>
+<h4 id="learning-to-adapt-in-dynamic-real-world-environments-through-meta-reinforcement-learning">Learning to Adapt in Dynamic, Real-World Environments Through Meta-Reinforcement Learning</h4>
+<ul>
+  <li>source: ICLR 2019</li>
+  <li>method:
+    <ul>
+      <li>Model-Based Meta-Reinforcement Learning (train time)</li>
+      <li>Online Model Adaptation (test time)</li>
+    </ul>
+  </li>
+  <li>environment:
+    <ul>
+      <li>Mujoco
+        <ul>
+          <li>half cheetah:disabled joint, sloped terrain, pier</li>
+          <li>Ant: crippled leg</li>
+        </ul>
+      </li>
+      <li>real world robot</li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1803.11347v6.pdf">https://arxiv.org/pdf/1803.11347v6.pdf</a></li>
+  <li>code:
+    <ul>
+      <li><a href="https://github.com/iclavera/learning_to_adapt">https://github.com/iclavera/learning_to_adapt</a></li>
+    </ul>
+  </li>
+  <li>interpretation:
+    <ul>
+      <li><a href="https://sites.google.com/berkeley.edu/metaadaptivecontrol">https://sites.google.com/berkeley.edu/metaadaptivecontrol</a></li>
+    </ul>
+  </li>
+</ul>
 
-<p><strong>Try to review your notes after the lecture.</strong> What good are notes if you don’t look at them again?</p>
+<h4 id="meta-q-learning">Meta-Q-Learning</h4>
+<ul>
+  <li>source: ICLR 2020</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1910.00125.pdf">https://arxiv.org/pdf/1910.00125.pdf</a></li>
+  <li>code:</li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Find a good quiet place to study and make it your regular spot.</strong> I prefer top floors of libraries or basements. Headphones are great with some homework music on. Gotta find a zone that works for you and get into it. Sometimes music is distracting, and white noise would be better. I prefer brown noise. Here’s a website that does both!</p>
+<h4 id="decoupling-exploration-and-exploitation-for-meta-reinforcement-learning-without-sacrifices">Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices</h4>
+<ul>
+  <li>source:	ICML 2021</li>
+  <li>method: Dream</li>
+  <li>environment:
+    <ul>
+      <li><a href="https://github.com/maximecb/gym-miniworld">gym-miniworld</a></li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2008.02790v2.pdf">https://arxiv.org/pdf/2008.02790v2.pdf</a></li>
+  <li>code:
+    <ul>
+      <li><a href="https://github.com/ezliu/dream">https://github.com/ezliu/dream</a></li>
+    </ul>
+  </li>
+  <li>interpretation:
+    <ul>
+      <li><a href="https://ezliu.github.io/dream/">https://ezliu.github.io/dream/</a></li>
+    </ul>
+  </li>
+</ul>
 
-<p><strong>Find a good time of day to study.</strong> If you like studying at certain times of the day, then plan those times for studying.</p>
+<h4 id="meta-learning-via-learned-loss">Meta Learning via Learned Loss</h4>
+<ul>
+  <li>source: ICPR 2021</li>
+  <li>method: ML^3</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1906.05374.pdf">https://arxiv.org/pdf/1906.05374.pdf</a></li>
+  <li>code:</li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Make the most of your study time.</strong> It’s easy to sit at a desk for 8 hours straight then say “I just studied for 8 hours.” In my experience, that’s not real studying. Most likely half or two thirds of that time was actually spent studying. Get the studying done with, then move on with your day, otherwise you will get burned out. Sometimes forcing small breaks and chunking your study time helps, like in the Pomodoro technique.</p>
+<h3 id="未分类">未分类</h3>
+<h4 id="alchemy-a-structured-task-distribution-for-meta-reinforcement-learning">Alchemy: A structured task distribution for meta-reinforcement learning</h4>
+<ul>
+  <li>source: arXiv:2102.02926 preprint 2021</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2102.02926v1.pdf">https://arxiv.org/pdf/2102.02926v1.pdf</a></li>
+  <li>code:
+    <ul>
+      <li><a href="https://github.com/deepmind/dm_alchemy">https://github.com/deepmind/dm_alchemy</a></li>
+    </ul>
+  </li>
+  <li>interpretation:
+    <ul>
+      <li><a href="https://deepmind.com/research/publications/alchemy">https://deepmind.com/research/publications/alchemy</a></li>
+    </ul>
+  </li>
+</ul>
 
-<p><strong>Study one class at a time.</strong> Context switching is an expensive mental operation. Meaning it wastes time to switch between classes. When studying or doing homework try to finish one thing first, then move on. It will feel good to get something off your plate as well.</p>
+<h4 id="learning-to-learn-how-to-learn-self-adaptive-visual-navigation-using-meta-learning">Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning</h4>
+<ul>
+  <li>source: CVPR 2019</li>
+  <li>method: savn</li>
+  <li>environment:
+    <ul>
+      <li>3D navigation (ai2thor)</li>
+    </ul>
+  </li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1812.00971v2.pdf">https://arxiv.org/pdf/1812.00971v2.pdf</a></li>
+  <li>code:
+    <ul>
+      <li><a href="https://github.com/allenai/savn">https://github.com/allenai/savn</a></li>
+    </ul>
+  </li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Ditch the laptop and phone when studying if you can.</strong> Try to study with just a textbook, calculator, notebook, and pencil. It’s easy to get overwhelmed with homework and just browse reddit/facebook/internet for hours instead. Or play computer games. The biggest thing that ever helped me was studying without internet enabled electronic devices. It also helps to put a timer on your internet usage, so it makes your quick Google searches more urgent and less prone to wandering.</p>
+<h4 id="learning-robust-state-abstractions-for-hidden-parameter-block-mdps">Learning Robust State Abstractions for Hidden-Parameter Block MDPs</h4>
+<ul>
+  <li>source: ICLR2021</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2007.07206v4.pdf">https://arxiv.org/pdf/2007.07206v4.pdf</a></li>
+  <li>code:</li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Try to find a study group with 2-5 students.</strong> It really helps to have different people to study with, because everyone sees things slightly different. Plus it’s harder to slack off and play computer games when you have people sitting next to you. Too many people in a study group means that it becomes a social event, and no work gets done. I was very shy and didn’t get a study group until my last year of undergrad. It was just 2 people that I randomly asked “hey wanna study”. They will help you and you will help them and you will all be smarter. And you will feel social. Win win!</p>
+<h4 id="meta-reinforcement-learning-as-task-inference">Meta reinforcement learning as task inference</h4>
+<ul>
+  <li>source:	arXiv:1905.06424 2019</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1905.06424v2.pdf">https://arxiv.org/pdf/1905.06424v2.pdf</a></li>
+  <li>code:</li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Teach someone else the material.</strong> Saying the concepts out loud and forcing your brain to make sense of what you’re saying is a great way to learn the material. Yes, teaching helps you learn, it’s proven scientifically! You can do this with a classmate, friend, random person, or a rubber duck.</p>
+<h4 id="meld-meta-reinforcement-learning-from-images-via-latent-state-models">MELD: Meta-Reinforcement Learning from Images via Latent State Models</h4>
+<ul>
+  <li>source: CoRL 2020</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2010.13957v2.pdf">https://arxiv.org/pdf/2010.13957v2.pdf</a></li>
+  <li>code:
+    <ul>
+      <li><a href="https://github.com/tonyzhaozh/meld">https://github.com/tonyzhaozh/meld</a></li>
+    </ul>
+  </li>
+  <li>interpretation:
+    <ul>
+      <li><a href="https://sites.google.com/view/meld-lsm">https://sites.google.com/view/meld-lsm</a></li>
+    </ul>
+  </li>
+</ul>
 
-<p><strong>Learn the material from a different resource on your own.</strong> Watch YouTube videos, MIT OCW videos, read Wikipedia articles, look for animations, do anything to learn the material in a different way. I highly recommend visualizations of circuits, EM fields, computer architecture, etc. Any of the complex things that will be learned in an ECE degree can be much more readily understood with a good diagram or animation. Here’s some personal favorites: Falstad circuit examples and an amazing Electric Circuits YouTube playlist</p>
+<h4 id="meta-reinforcement-learning-with-task-embedding-and-shared-policy">Meta Reinforcement Learning with Task Embedding and Shared Policy</h4>
+<ul>
+  <li>source: /IJCAI 2019</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1905.06527v3.pdf">https://arxiv.org/pdf/1905.06527v3.pdf</a></li>
+  <li>code: <a href="https://github.com/llan-ml/tesp">https://github.com/llan-ml/tesp</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Use tools to supplement learning, but don’t abuse them.</strong> Chegg step-by-step solutions, Wolfram Mathematica, etc. are very useful tools that can help you understand how to work through problems. Just remember that they are tools you can use to increase your knowledge. Don’t abuse them, or it will show on your exams and in your job interviews.</p>
+<h4 id="fast-adaptive-task-offloading-in-edge-computing-based-on-meta-reinforcement-learning">Fast Adaptive Task Offloading in Edge Computing based on Meta Reinforcement Learning</h4>
+<ul>
+  <li>source: ITPDS 2020</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2008.02033v5.pdf">https://arxiv.org/pdf/2008.02033v5.pdf</a></li>
+  <li>code: <a href="https://github.com/linkpark/metarl-offloading">https://github.com/linkpark/metarl-offloading</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Have pride in what you are turning in.</strong> Make your circuits look nice, check your spelling, format things nicely. It makes you feel good and makes you put more effort into the whole assignment, which ultimately gives you a better grade.</p>
+<h4 id="learning-associative-inference-using-fast-weight-memory">Learning Associative Inference Using Fast Weight Memory</h4>
+<ul>
+  <li>source: ICLR 2021</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2011.07831v2.pdf">https://arxiv.org/pdf/2011.07831v2.pdf</a></li>
+  <li>code: <a href="https://github.com/ischlag/Fast-Weight-Memory-public">https://github.com/ischlag/Fast-Weight-Memory-public</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Understanding the foundations is a key to success.</strong> This isn’t simply a memorization degree. You must really understand what’s going on at the basic physical level. You will excel in all the other things if you can get a handle on the basics (ie. Kirchhoff’s laws, Ohm’s laws, EM fields, basic C programming, calculus, statistics).</p>
+<h4 id="few-shot-complex-knowledge-base-question-answering-via-meta-reinforcement-learning">Few-Shot Complex Knowledge Base Question Answering via Meta Reinforcement Learning</h4>
+<ul>
+  <li>source: EMNLP 2020</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2010.15877v1.pdf">https://arxiv.org/pdf/2010.15877v1.pdf</a></li>
+  <li>code: <a href="https://github.com/DevinJake/MRL-CQA">https://github.com/DevinJake/MRL-CQA</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Do something non-engineering to keep yourself sane.</strong> Sketch, read sci-fi books, meditate, go on walks, practice piano, play Frisbee, something to balance out all the left brain activity.</p>
+<h4 id="meta-reinforcement-learning-with-autonomous-inference-of-subtask-dependencies">Meta Reinforcement Learning with Autonomous Inference of Subtask Dependencies</h4>
+<ul>
+  <li>source: ICLR 2020</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2001.00248v2.pdf">https://arxiv.org/pdf/2001.00248v2.pdf</a></li>
+  <li>code: <a href="https://github.com/srsohn/msgi">https://github.com/srsohn/msgi</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>The only way to learn is to do problems.</strong> Certain degrees can be got by rote memorization. Engineering degrees can only be got by critical thinking and actually doing. Do the problems. Do them multiple ways. Make the circuit on a breadboard or in a simulator. Use your hands, use your brain!</p>
+<h4 id="loaded-dice-trading-off-bias-and-variance-in-any-order-score-function-gradient-estimators-for-reinforcement-learning">Loaded DiCE: Trading off Bias and Variance in Any-Order Score Function Gradient Estimators for Reinforcement Learning</h4>
+<ul>
+  <li>source: NeurIPS 2019</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="http://papers.nips.cc/paper/9026-loaded-dice-trading-off-bias-and-variance-in-any-order-score-function-gradient-estimators-for-reinforcement-learning.pdf">http://papers.nips.cc/paper/9026-loaded-dice-trading-off-bias-and-variance-in-any-order-score-function-gradient-estimators-for-reinforcement-learning.pdf</a></li>
+  <li>code: <a href="https://github.com/oxwhirl/loaded-dice">https://github.com/oxwhirl/loaded-dice</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Find practice problems, homework from other schools/classes, textbook solutions, etc.</strong> These are excellent resources for doing problems and learning. Be careful with solutions though!! It is easy to feel confident about a problem when doing it with solutions. That same problem on an exam will feel impossible because you don’t have solutions to look at. I like to use solutions to get me unstuck or to confirm I did the right step.(注：非常重要！！！国内的课程无论从lecture的内容丰富度、新鲜度还是实验的完善度、难度远没有国外的如MIT、伯克利等学校完善，学会利用国外学校的免费教育资源！)</p>
+<h4 id="causal-reasoning-from-meta-reinforcement-learning">Causal Reasoning from Meta-reinforcement Learning</h4>
+<ul>
+  <li>source: ICLR 2019</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1901.08162v1.pdf">https://arxiv.org/pdf/1901.08162v1.pdf</a></li>
+  <li>code: <a href="https://github.com/kantneel/causal-metarl">https://github.com/kantneel/causal-metarl</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Google for previous classes to find old lectures, problems, etc.</strong> If you are taking ECE 165 at UCSB, just google “ece 165 ucsb” or “ece 165 ucsb 2015” to find previous quarter’s class websites. They usually have old homeworks, lectures, solutions, etc.</p>
+<h4 id="introducing-neuromodulation-in-deep-neural-networks-to-learn-adaptive-behaviours">Introducing Neuromodulation in Deep Neural Networks to Learn Adaptive Behaviours</h4>
+<ul>
+  <li>source:	arXiv:1812.09113 preprint 2019</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/1812.09113v3.pdf">https://arxiv.org/pdf/1812.09113v3.pdf</a></li>
+  <li>code: <a href="https://github.com/nvecoven/nmd_net">https://github.com/nvecoven/nmd_net</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>When studying for exams, make equation cheat sheets.</strong> Distill all the complex equations, terms, conversions, etc. onto 1-2 pages. Do this even if your class does not allow them during the exam, just making them is a great study practice as it forces you to think about each important thing before an exam. Plus it’s a great resource later.</p>
+<h4 id="policy-gradient-rl-algorithms-as-directed-acyclic-graphs">Policy Gradient RL Algorithms as Directed Acyclic Graphs</h4>
+<ul>
+  <li>source: 	arXiv:2012.07763 preprint 2020</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2012.07763v2.pdf">https://arxiv.org/pdf/2012.07763v2.pdf</a></li>
+  <li>code: <a href="https://github.com/jjgarau/DAGPolicyGradient">https://github.com/jjgarau/DAGPolicyGradient</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Make a “roadmap” before studying.</strong> Usually this can be found in the syllabus. Basically you want to make a list of the topics you will learn so that you can quantify the amount of work you will be doing during the course. This makes your life much easier when studying.</p>
+<h4 id="evolving-inborn-knowledge-for-fast-adaptation-in-dynamic-pomdp-problems">Evolving Inborn Knowledge For Fast Adaptation in Dynamic POMDP Problems</h4>
+<ul>
+  <li>source: GECCO 2020</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2004.12846v2.pdf">https://arxiv.org/pdf/2004.12846v2.pdf</a></li>
+  <li>code: <a href="https://github.com/dlpbc/penn-a">https://github.com/dlpbc/penn-a</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Make a “toolbox” after/during studying.</strong> I like to take the key concepts from each chapter or topic and distill it to a single page of graphs, circuits, equations, terms, etc. This becomes a great reference and is a good exercise to parse the large amount of information you are learning into the important bits. Most courses are a bit like gold mining, you have to sift through and find the critical nuggets of information.</p>
+<h4 id="model-based-meta-reinforcement-learning-for-flight-with-suspended-payloads">Model-Based Meta-Reinforcement Learning for Flight with Suspended Payloads</h4>
+<ul>
+  <li>source: RA-L 2021</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2004.11345v2.pdf">https://arxiv.org/pdf/2004.11345v2.pdf</a></li>
+  <li>code: <a href="https://github.com/suneelbelkhale/model-based-meta-rl-for-flight">https://github.com/suneelbelkhale/model-based-meta-rl-for-flight</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>At some point you will do poorly on an exam, homework, class, etc.</strong> Don’t worry! Just take it as a sign that you need to devote more time and effort to the material. You know what they call medical students who get C’s? Doctor. You should try your best and take pride in your performance, but if you get hit with a bad grade don’t get down, just study harder next time!</p>
+<h4 id="hierarchical-meta-reinforcement-learning-for-multi-task-environments">Hierarchical Meta Reinforcement Learning for Multi-Task Environments</h4>
+<ul>
+  <li>source: ICLR 2021</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://openreview.net/pdf?id=u9ax42K7ND">https://openreview.net/pdf?id=u9ax42K7ND</a></li>
+  <li>code: <a href="https://github.com/MeSH-ICLR/MEtaSoftHierarchy">https://github.com/MeSH-ICLR/MEtaSoftHierarchy</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Use a planner or homework tracker to keep yourself on schedule.</strong> There are a lot of assignments and you would be crazy to try to memorize it all. Just get a nice planner, or use Google Calendar, whatever. Schedule your classes, homework, and (importantly) time for studying.</p>
+<h4 id="modeling-and-optimization-trade-off-in-meta-learning">Modeling and Optimization Trade-off in Meta-learning</h4>
+<ul>
+  <li>source: NeurIPS 2020</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2010.12916v2.pdf">https://arxiv.org/pdf/2010.12916v2.pdf</a></li>
+  <li>code: <a href="https://github.com/intel-isl/MetaLearningTradeoffs">https://github.com/intel-isl/MetaLearningTradeoffs</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Get connected on LinkedIn.</strong> Connect with your peers and professor on LinkedIn! It’s a very useful tool to stay connected in a professional environment and the people hiring at companies always look up applicants on LinkedIn.</p>
+<h4 id="meta-learning-of-structured-task-distributions-in-humans-and-machines">Meta-Learning of Structured Task Distributions in Humans and Machines</h4>
+<ul>
+  <li>source: ICLR 2021</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2010.02317v3.pdf">https://arxiv.org/pdf/2010.02317v3.pdf</a></li>
+  <li>code: <a href="https://github.com/sreejank/Compositional_MetaRL">https://github.com/sreejank/Compositional_MetaRL</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Learn to teach yourself.</strong> A degree in ECE is partly about learning the specific material, but it is mostly about learning critical thinking and how to teach yourself. These are the two big things that you will use for the rest of your life. At your future job you will have tools that do a lot of the calculations and work for you, but you must know how to teach yourself to use them and to think critically about the applications.</p>
+<h4 id="offline-meta-learning-of-exploration">Offline Meta Learning of Exploration</h4>
+<ul>
+  <li>source:	arXiv:2008.02598 preprint 2021</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2008.02598v3.pdf">https://arxiv.org/pdf/2008.02598v3.pdf</a></li>
+  <li>code: <a href="https://github.com/Rondorf/BOReL">https://github.com/Rondorf/BOReL</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Remember, this is a hard major.</strong> So you gotta work hard. It will be a stressful challenge, but you can make your life easier by being smart about how you do the work.</p>
+<h4 id="meta-reinforcement-learning-for-reliable-communication-in-thzvlc-wireless-vr-networks">Meta-Reinforcement Learning for Reliable Communication in THz/VLC Wireless VR Networks</h4>
+<ul>
+  <li>source: ICC 2021</li>
+  <li>method:</li>
+  <li>environment:</li>
+  <li>paper link: <a href="https://arxiv.org/pdf/2102.12277v1.pdf">https://arxiv.org/pdf/2102.12277v1.pdf</a></li>
+  <li>code: <a href="https://github.com/wyy0206/THzVR">https://github.com/wyy0206/THzVR</a></li>
+  <li>interpretation:</li>
+</ul>
 
-<p><strong>Remember, this is a rewarding major.</strong> ECE will pay off! Jobs are often exciting and interesting, and pay well. Here’s some statistics and information: Glassdoor salary estimates, Bureau of Labor Statistics employment stats and occupational outlook</p>
+<!--
+#### 
+- source: 
+- method: 
+- environment:
+- paper link: 
+- code:  
+- interpretation: 
 
-<p>评论区里的补充：</p>
-
-<p><strong>Go to your career fairs on campus each semester if they happen that frequently.</strong> Try talking with each of the representatives and find out what kind of classes and what kind of work they are doing. You get to practice your communication skills and also learn more about the industry.</p>
-
-<p><strong>textbooks are expensive.</strong> if you are broke and are savvy with sketchy parts of the web, you can find most of the textbooks as PDF’s online using the guide at the link below. Virus scan everything and be smart about what you download. Piracy is bad, mmkay, buyer beware!</p>
-
-<blockquote>
-  <p>原始链接</p>
-</blockquote>
-
-<blockquote class="reddit-card" data-card-created="1608721895"><a href="https://www.reddit.com/r/ECE/comments/52rtx6/tips_on_how_to_succeed_in_an_ece_major/">Tips on How To Succeed in an ECE Major</a> from <a href="http://www.reddit.com/r/ECE">r/ECE</a></blockquote>
-<script async="" src="//embed.redditmedia.com/widgets/platform.js" charset="UTF-8"></script>
-
-</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2020-12-23T00:00:00+08:00"><!-- start custom article footer snippet -->
+-->
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-05-29T00:00:00+08:00"><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet -->
 <div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
@@ -405,7 +896,7 @@
       </a>
     </p>
   </div></div></footer>
-<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/2020/12/19/pdf-cufast.html">cuFAST:基于GPU的FAST算法加速</a></div><div class="next"><span>下篇</span><a href="/2021/05/29/meta-reinforcement-learning.html">Paper review: meta-reinforcement-learning</a></div></div></div>
+<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/2020/12/23/success.html">Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</a></div><div class="next"><span>下篇</span><a href="/2021/06/01/Learning-to-reinforcement-learn.html">Paper reading: Learning to reinforcement learn</a></div></div></div>
 
 </div>
 

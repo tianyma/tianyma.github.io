@@ -23,7 +23,7 @@ key: 2021-05-29-blog
   - [https://meta-world.github.io/](https://meta-world.github.io/)
 
 ### model-based meta-RL
-#### Learning to reinforcement learn
+#### [Learning to reinforcement learn](https://tianyma.github.io/2021/06/01/Learning-to-reinforcement-learn.html)
 - source: CogSci 2017
 - method: 
 - environment:
@@ -35,7 +35,7 @@ key: 2021-05-29-blog
 - code:  
 - interpretation: 
 
-#### RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning
+#### [RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning](https://tianyma.github.io/2021/06/02/RL2.html)
 - source: ICLR 2017
 - method: 
 - environment:
@@ -120,7 +120,7 @@ key: 2021-05-29-blog
 - interpretation: 
 
 ### optimization-based meta-RL
-#### Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks
+#### [Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks](https://tianyma.github.io/2021/06/03/MAML.html)
 - source: ICML 2017
 - method: MAML-RL
 - environment:

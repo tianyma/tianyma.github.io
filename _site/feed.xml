@@ -1,82 +1,123 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2021-05-29T14:37:56+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tianyma’s blog</title><subtitle>do valuable research, be valuable person.
-</subtitle><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><entry><title type="html">Paper review: meta-reinforcement-learning</title><link href="http://localhost:4000/2021/05/29/Paper-review-meta-reinforcement-learning.html" rel="alternate" type="text/html" title="Paper review: meta-reinforcement-learning" /><published>2021-05-29T00:00:00+08:00</published><updated>2021-05-29T00:00:00+08:00</updated><id>http://localhost:4000/2021/05/29/Paper%20review:meta-reinforcement-learning</id><content type="html" xml:base="http://localhost:4000/2021/05/29/Paper-review-meta-reinforcement-learning.html">&lt;h3 id=&quot;challenge&quot;&gt;Challenge&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2021-06-03T23:29:53+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tianyma’s blog</title><subtitle>do valuable research, be valuable person.
+</subtitle><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><entry><title type="html">Paper reading: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</title><link href="http://localhost:4000/2021/06/03/MAML.html" rel="alternate" type="text/html" title="Paper reading: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks" /><published>2021-06-03T00:00:00+08:00</published><updated>2021-06-03T00:00:00+08:00</updated><id>http://localhost:4000/2021/06/03/MAML</id><content type="html" xml:base="http://localhost:4000/2021/06/03/MAML.html">&lt;h2 id=&quot;核心思想&quot;&gt;核心思想&lt;/h2&gt;
+&lt;p&gt;MAML是一种基于梯度下降的元学习算法，可以被用在分类和回归（监督学习）及强化学习中，来加速对新任务的学习。作者将不同的学习任务抽象为few-shot learning，也就是用少量学习样本就可以快速适应新任务。不同类型的任务除了损失函数的定义、数据的获取和表征外，基本的训练方法都是一致的，因此这种算法可以适用于不同任务。 &lt;br /&gt;
+MAML的核心思想是针对一系列学习任务构建共有的中间表征，不具体构造出新的模块来进行few-shot learning，而是对于已有的模型（如神经网络）的初始参数，找到模型种对不同任务都很敏感的参数，然后通过一个或多个梯度下降步长优化这些参数，从而在新任务上快速降低损失函数，获得最优性能。&lt;/p&gt;
+&lt;h2 id=&quot;实现过程&quot;&gt;实现过程&lt;/h2&gt;
+&lt;p&gt;以K-shot-meta-RL（K是每个任务的样本数量）任务的MAML算法为例，对于一个任意任务分布，从中采样出一批任务用来进行元学习。对于每一个任务，用初始策略$f_{\theta}$获得K个样本轨迹$\mathcal{D}$，计算基于$f_{\theta}$和$\mathcal{D}$的损失函数，损失函数用来衡量在$\mathcal{D}$的最大奖励的期望。然后更新梯度，并用新的梯度重新获取K个样本轨迹用于下一步优化。  &lt;br /&gt;
+由于强化学习的损失函数不可微分，所以使用策略梯度算法进行求解和优化。&lt;/p&gt;
+&lt;h2 id=&quot;测试任务&quot;&gt;测试任务&lt;/h2&gt;
+&lt;p&gt;在RL任务种，测试任务为rllab（已弃用，现在是garage）的2D navigation和locomotion，其中locomotion的物理引擎是mujoco。&lt;/p&gt;
+&lt;h2 id=&quot;创新点&quot;&gt;创新点&lt;/h2&gt;
+&lt;p&gt;MAML从不同的学习范式种抽象出共同特征，从而可以用统一的算法进行few-shot learning。另外，基于梯度下降的算法思想很简单。&lt;/p&gt;
+&lt;h2 id=&quot;算法评价&quot;&gt;算法评价&lt;/h2&gt;
+&lt;p&gt;MAML是比较接近meta learning本质的算法，也就是寻找任务的共同中间表征从而达到泛化的目的。但是MAML缺点是计算量很大，结合启发式的方法或许可以降低计算量，比如将梯度下降算法和启发式的因果模型结合起来，或许只需要1个梯度下降就可以找到最优解。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html&quot;&gt;返回文章列表&lt;/a&gt;&lt;/p&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">核心思想 MAML是一种基于梯度下降的元学习算法，可以被用在分类和回归（监督学习）及强化学习中，来加速对新任务的学习。作者将不同的学习任务抽象为few-shot learning，也就是用少量学习样本就可以快速适应新任务。不同类型的任务除了损失函数的定义、数据的获取和表征外，基本的训练方法都是一致的，因此这种算法可以适用于不同任务。 MAML的核心思想是针对一系列学习任务构建共有的中间表征，不具体构造出新的模块来进行few-shot learning，而是对于已有的模型（如神经网络）的初始参数，找到模型种对不同任务都很敏感的参数，然后通过一个或多个梯度下降步长优化这些参数，从而在新任务上快速降低损失函数，获得最优性能。 实现过程 以K-shot-meta-RL（K是每个任务的样本数量）任务的MAML算法为例，对于一个任意任务分布，从中采样出一批任务用来进行元学习。对于每一个任务，用初始策略$f_{\theta}$获得K个样本轨迹$\mathcal{D}$，计算基于$f_{\theta}$和$\mathcal{D}$的损失函数，损失函数用来衡量在$\mathcal{D}$的最大奖励的期望。然后更新梯度，并用新的梯度重新获取K个样本轨迹用于下一步优化。 由于强化学习的损失函数不可微分，所以使用策略梯度算法进行求解和优化。 测试任务 在RL任务种，测试任务为rllab（已弃用，现在是garage）的2D navigation和locomotion，其中locomotion的物理引擎是mujoco。 创新点 MAML从不同的学习范式种抽象出共同特征，从而可以用统一的算法进行few-shot learning。另外，基于梯度下降的算法思想很简单。 算法评价 MAML是比较接近meta learning本质的算法，也就是寻找任务的共同中间表征从而达到泛化的目的。但是MAML缺点是计算量很大，结合启发式的方法或许可以降低计算量，比如将梯度下降算法和启发式的因果模型结合起来，或许只需要1个梯度下降就可以找到最优解。 返回文章列表</summary></entry><entry><title type="html">Paper reading: $RL^2$: Fast Reinforcement Learning via Slow Reinforcement Learning</title><link href="http://localhost:4000/2021/06/02/RL2.html" rel="alternate" type="text/html" title="Paper reading: $RL^2$: Fast Reinforcement Learning via Slow Reinforcement Learning" /><published>2021-06-02T00:00:00+08:00</published><updated>2021-06-02T00:00:00+08:00</updated><id>http://localhost:4000/2021/06/02/RL2</id><content type="html" xml:base="http://localhost:4000/2021/06/02/RL2.html">&lt;h2 id=&quot;核心思想&quot;&gt;核心思想&lt;/h2&gt;
+&lt;p&gt;用经典RL算法训练一个带有GRU结构的RNN-based的agent，对每个固定MDP训练多个episode，在较早的episode可以学习到meta信息，从而在后面的episode中更快适应任务。&lt;/p&gt;
+&lt;h2 id=&quot;实现过程&quot;&gt;实现过程&lt;/h2&gt;
+&lt;h3 id=&quot;定义&quot;&gt;定义&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;episode:&lt;/strong&gt; agent和一个MDP的一次开始到结束的交互序列。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;trial:&lt;/strong&gt; agent与某一固定MDP的一系列连续的episode过程，在本文中，一个trial中包含n个episode。trial中的episode之间，agent的中间状态会被保留。&lt;/p&gt;
+
+&lt;p&gt;agent是一个带有GRU结构的RNN，在每个trial中与环境进行交互，agent的目标是最大化每个trial的奖励，策略更新采用了&lt;a href=&quot;https://arxiv.org/pdf/1502.05477.pdf&quot;&gt;TRPO算法&lt;/a&gt;。在较早的episode训练后，由于agent的中间状态会被保留，所以在之后的episode中，agent会更快速地适应任务。&lt;/p&gt;
+&lt;h2 id=&quot;测试任务&quot;&gt;测试任务&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;tasks design&lt;/li&gt;
+  &lt;li&gt;Multi-armed Bandit&lt;/li&gt;
+  &lt;li&gt;Tabular MDP&lt;/li&gt;
+  &lt;li&gt;3D maze navigation(ViZDoom environment)
+    &lt;h2 id=&quot;创新点&quot;&gt;创新点&lt;/h2&gt;
+    &lt;p&gt;这篇文章的第三个实验，也就是3D maze navigation很有意思，通过较早的exploration，agent似乎可以在后面的episode中exploit并可以找到最优路径。&lt;/p&gt;
+    &lt;h2 id=&quot;算法评价&quot;&gt;算法评价&lt;/h2&gt;
+    &lt;p&gt;这篇论文似乎没有什么创新点，使用了一个RNN-based的agent，对每一个MDP进行多个episode训练，从而在后面的episode中可以快速适应任务。但是对算法描述很简单，并没有说清楚要学习的meta是什么。&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;papers&quot;&gt;Papers&lt;/h3&gt;
-&lt;h4 id=&quot;meta-world-a-benchmark-and-evaluation-for-multi-task-and-meta-reinforcement-learning&quot;&gt;Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html&quot;&gt;返回文章列表&lt;/a&gt;&lt;/p&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">核心思想 用经典RL算法训练一个带有GRU结构的RNN-based的agent，对每个固定MDP训练多个episode，在较早的episode可以学习到meta信息，从而在后面的episode中更快适应任务。 实现过程 定义 episode: agent和一个MDP的一次开始到结束的交互序列。 trial: agent与某一固定MDP的一系列连续的episode过程，在本文中，一个trial中包含n个episode。trial中的episode之间，agent的中间状态会被保留。 agent是一个带有GRU结构的RNN，在每个trial中与环境进行交互，agent的目标是最大化每个trial的奖励，策略更新采用了TRPO算法。在较早的episode训练后，由于agent的中间状态会被保留，所以在之后的episode中，agent会更快速地适应任务。 测试任务 Multi-armed Bandit Tabular MDP 3D maze navigation(ViZDoom environment) 创新点 这篇文章的第三个实验，也就是3D maze navigation很有意思，通过较早的exploration，agent似乎可以在后面的episode中exploit并可以找到最优路径。 算法评价 这篇论文似乎没有什么创新点，使用了一个RNN-based的agent，对每一个MDP进行多个episode训练，从而在后面的episode中可以快速适应任务。但是对算法描述很简单，并没有说清楚要学习的meta是什么。 返回文章列表</summary></entry><entry><title type="html">Paper reading: Learning to reinforcement learn</title><link href="http://localhost:4000/2021/06/01/Learning-to-reinforcement-learn.html" rel="alternate" type="text/html" title="Paper reading: Learning to reinforcement learn" /><published>2021-06-01T00:00:00+08:00</published><updated>2021-06-01T00:00:00+08:00</updated><id>http://localhost:4000/2021/06/01/Learning-to-reinforcement-learn</id><content type="html" xml:base="http://localhost:4000/2021/06/01/Learning-to-reinforcement-learn.html">&lt;h2 id=&quot;核心思想&quot;&gt;核心思想&lt;/h2&gt;
+&lt;p&gt;本文提出了一种深度元强化学习(deep meta-reinforcement learning)方法，通过强化学习训练一个循环神经网络(RNN)，使得该RNN可以通过自适应更新的方法快速适应不同任务，从而提高训练效率。&lt;/p&gt;
+&lt;h2 id=&quot;实现过程&quot;&gt;实现过程&lt;/h2&gt;
+&lt;p&gt;本文使用A2C(Advantage Actor-Critic)算法在一系列输入任务上训练一个RNN。以MDPs(Markov Decision Processes)为例，设$\mathcal{D}$是一个MDPs分布，每个新的episode开始时，先从D采样的一个任务$m \backsim \mathcal{D}$，RNN的内部循环单元的参数会被重置，然后和环境交互一定的时长，每一次策略都是基于到目前的所有历史信息（状态，动作，奖励），agent的目标是在所有任务上最大化总的奖励。&lt;/p&gt;
+
+&lt;p&gt;训练结束后，网络权重会被固定，然后在一组来自$\mathcal{D}$（或者对分布$\mathcal{D}$稍微修改）的MDPs上测试agent的适应能力。&lt;/p&gt;
+&lt;h2 id=&quot;测试任务&quot;&gt;测试任务&lt;/h2&gt;
+&lt;p&gt;本文分布在4个bandit problem和2个MDP任务上进行了测试，MDP任务分别是一个改编的&lt;a href=&quot;https://scienceofbehaviorchange.org/measures/two-stage-task/&quot;&gt;two step task&lt;/a&gt;和一个改编的Harlow task，最后讨论了在一个3D迷宫任务(来自deepmind lab)上进行深度元学习的方法。&lt;/p&gt;
+&lt;h2 id=&quot;创新点&quot;&gt;创新点&lt;/h2&gt;
+&lt;p&gt;本文是基于模型的元强化学习算法的一次尝试，通过将带LSTM的RNN用强化学习算法进行训练，可以使agent获得一定的学习适应能力。&lt;/p&gt;
+&lt;h2 id=&quot;算法评价&quot;&gt;算法评价&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html&quot;&gt;返回文章列表&lt;/a&gt;&lt;/p&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">核心思想 本文提出了一种深度元强化学习(deep meta-reinforcement learning)方法，通过强化学习训练一个循环神经网络(RNN)，使得该RNN可以通过自适应更新的方法快速适应不同任务，从而提高训练效率。 实现过程 本文使用A2C(Advantage Actor-Critic)算法在一系列输入任务上训练一个RNN。以MDPs(Markov Decision Processes)为例，设$\mathcal{D}$是一个MDPs分布，每个新的episode开始时，先从D采样的一个任务$m \backsim \mathcal{D}$，RNN的内部循环单元的参数会被重置，然后和环境交互一定的时长，每一次策略都是基于到目前的所有历史信息（状态，动作，奖励），agent的目标是在所有任务上最大化总的奖励。 训练结束后，网络权重会被固定，然后在一组来自$\mathcal{D}$（或者对分布$\mathcal{D}$稍微修改）的MDPs上测试agent的适应能力。 测试任务 本文分布在4个bandit problem和2个MDP任务上进行了测试，MDP任务分别是一个改编的two step task和一个改编的Harlow task，最后讨论了在一个3D迷宫任务(来自deepmind lab)上进行深度元学习的方法。 创新点 本文是基于模型的元强化学习算法的一次尝试，通过将带LSTM的RNN用强化学习算法进行训练，可以使agent获得一定的学习适应能力。 算法评价 返回文章列表</summary></entry><entry><title type="html">Paper review: meta-reinforcement-learning</title><link href="http://localhost:4000/2021/05/29/meta-reinforcement-learning.html" rel="alternate" type="text/html" title="Paper review: meta-reinforcement-learning" /><published>2021-05-29T00:00:00+08:00</published><updated>2021-05-29T00:00:00+08:00</updated><id>http://localhost:4000/2021/05/29/meta-reinforcement-learning</id><content type="html" xml:base="http://localhost:4000/2021/05/29/meta-reinforcement-learning.html">&lt;h2 id=&quot;challenges-of-meta-rl&quot;&gt;Challenges of meta-RL&lt;/h2&gt;
 &lt;ul&gt;
+  &lt;li&gt;design a set of tasks that are interrelated&lt;/li&gt;
+  &lt;li&gt;find the inter-representation&lt;/li&gt;
+  &lt;li&gt;fast adaptation to new tasks
+    &lt;h2 id=&quot;papers&quot;&gt;Papers&lt;/h2&gt;
+    &lt;h3 id=&quot;environment&quot;&gt;environment&lt;/h3&gt;
+    &lt;h4 id=&quot;meta-world-a-benchmark-and-evaluation-for-multi-task-and-meta-reinforcement-learning&quot;&gt;Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning&lt;/h4&gt;
+  &lt;/li&gt;
   &lt;li&gt;source: PMLR 2020&lt;/li&gt;
   &lt;li&gt;method: None&lt;/li&gt;
   &lt;li&gt;environment:
     &lt;ul&gt;
-      &lt;li&gt;object manipulation (meta-world)&lt;/li&gt;
+      &lt;li&gt;object manipulation&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;paper link: &lt;a href=&quot;http://proceedings.mlr.press/v100/yu20a/yu20a.pdf&quot;&gt;http://proceedings.mlr.press/v100/yu20a/yu20a.pdf&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;code:  &lt;a href=&quot;https://github.com/rlworkgroup/metaworld&quot;&gt;https://github.com/rlworkgroup/metaworld&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;interpretation:
     &lt;ul&gt;
-      &lt;li&gt;https://meta-world.github.io/&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://meta-world.github.io/&quot;&gt;https://meta-world.github.io/&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;efficient-off-policy-meta-reinforcement-learning-via-probabilistic-context-variables&quot;&gt;Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables&lt;/h4&gt;
+&lt;h3 id=&quot;model-based-meta-rl&quot;&gt;model-based meta-RL&lt;/h3&gt;
+&lt;h4 id=&quot;learning-to-reinforcement-learn&quot;&gt;&lt;a href=&quot;https://tianyma.github.io/2021/06/01/Learning-to-reinforcement-learn.html&quot;&gt;Learning to reinforcement learn&lt;/a&gt;&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;source: ICML2019&lt;/li&gt;
-  &lt;li&gt;method: PEARL (probabilistic embeddings for actor-critic RL)&lt;/li&gt;
+  &lt;li&gt;source: CogSci 2017&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
   &lt;li&gt;environment:
     &lt;ul&gt;
-      &lt;li&gt;robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133)&lt;/li&gt;
+      &lt;li&gt;bandit problem&lt;/li&gt;
+      &lt;li&gt;Two-step task&lt;/li&gt;
+      &lt;li&gt;Harlow experiment&lt;/li&gt;
+      &lt;li&gt;3D navigation (Deepmind Lab)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;paper link: https://arxiv.org/pdf/1903.08254.pdf&lt;/li&gt;
-  &lt;li&gt;code: https://github.com/katerakelly/oyster&lt;/li&gt;
-  &lt;li&gt;interpretation:
-    &lt;ul&gt;
-      &lt;li&gt;https://bair.berkeley.edu/blog/2019/06/10/pearl/&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1611.05763.pdf&quot;&gt;https://arxiv.org/pdf/1611.05763.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;rl2-fast-reinforcement-learning-via-slow-reinforcement-learning&quot;&gt;RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning&lt;/h4&gt;
+&lt;h4 id=&quot;rl2-fast-reinforcement-learning-via-slow-reinforcement-learning&quot;&gt;&lt;a href=&quot;https://tianyma.github.io/2021/06/02/RL2.html&quot;&gt;RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning&lt;/a&gt;&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;source: None&lt;/li&gt;
-  &lt;li&gt;method: RL^2&lt;/li&gt;
+  &lt;li&gt;source: ICLR 2017&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
   &lt;li&gt;environment:
     &lt;ul&gt;
-      &lt;li&gt;navigation (minecraft)&lt;/li&gt;
+      &lt;li&gt;multi-armed bandit problem&lt;/li&gt;
+      &lt;li&gt;tabular MDP&lt;/li&gt;
+      &lt;li&gt;3D navigation (ViZDoom)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;paper link: https://arxiv.org/pdf/1611.02779.pdf&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1611.02779.pdf&quot;&gt;https://arxiv.org/pdf/1611.02779.pdf&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;code:&lt;/li&gt;
   &lt;li&gt;interpretation:
     &lt;ul&gt;
-      &lt;li&gt;https://zhuanlan.zhihu.com/p/32606591&lt;/li&gt;
-      &lt;li&gt;https://openreview.net/forum?id=HkLXCE9lx&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/32606591&quot;&gt;https://zhuanlan.zhihu.com/p/32606591&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://openreview.net/forum?id=HkLXCE9lx&quot;&gt;https://openreview.net/forum?id=HkLXCE9lx&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;meta-reinforcement-learning-of-structured-exploration-strategies&quot;&gt;Meta-Reinforcement Learning of Structured Exploration Strategies&lt;/h4&gt;
+&lt;h4 id=&quot;prefrontal-cortex-as-a-meta-reinforcement-learning-system&quot;&gt;Prefrontal cortex as a meta-reinforcement learning system&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;source: NeurIPS 2018&lt;/li&gt;
-  &lt;li&gt;method: MAESN (model agnostic exploration with structured noise)&lt;/li&gt;
-  &lt;li&gt;environment:
-    &lt;ul&gt;
-      &lt;li&gt;robotic locomotion (rllab)&lt;/li&gt;
-      &lt;li&gt;object manipulation&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;paper link: https://arxiv.org/pdf/1802.07245.pdf&lt;/li&gt;
-  &lt;li&gt;code: https://github.com/russellmendonca/maesn_suite&lt;/li&gt;
-  &lt;li&gt;interpretation:
-    &lt;ul&gt;
-      &lt;li&gt;https://zhuanlan.zhihu.com/p/63072582&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;source: Nature Neuroscience 2018&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://www.nature.com/articles/s41593-018-0147-8&quot;&gt;https://www.nature.com/articles/s41593-018-0147-8&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;a-simple-neural-attentive-meta-learner&quot;&gt;A Simple Neural Attentive Meta-Learner&lt;/h4&gt;
@@ -89,39 +130,513 @@
       &lt;li&gt;robotic locomotion&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;paper link: https://openreview.net/pdf?id=B1DmUzWAW&lt;/li&gt;
-  &lt;li&gt;code:  https://github.com/eambutu/snail-pytorch&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://openreview.net/pdf?id=B1DmUzWAW&quot;&gt;https://openreview.net/pdf?id=B1DmUzWAW&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/eambutu/snail-pytorch&quot;&gt;https://github.com/eambutu/snail-pytorch&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;interpretation:
     &lt;ul&gt;
-      &lt;li&gt;https://www.carsi.edu.cn/index_zh.htm&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.carsi.edu.cn/index_zh.htm&quot;&gt;https://www.carsi.edu.cn/index_zh.htm&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;learning-to-reinforcement-learn&quot;&gt;Learning to reinforcement learn&lt;/h4&gt;
+&lt;h4 id=&quot;pixelsnail-an-improved-autoregressive-generative-model&quot;&gt;PixelSNAIL: An Improved Autoregressive Generative Model&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;source: CogSci 2017&lt;/li&gt;
-  &lt;li&gt;method:&lt;/li&gt;
-  &lt;li&gt;environment:
-    &lt;ul&gt;
-      &lt;li&gt;navigation&lt;/li&gt;
-      &lt;li&gt;Harlow experiment&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;paper link: https://arxiv.org/pdf/1611.05763.pdf&lt;/li&gt;
-  &lt;li&gt;code:&lt;/li&gt;
-  &lt;li&gt;interpretation:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;####&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;source:&lt;/li&gt;
+  &lt;li&gt;source: ICML 2018&lt;/li&gt;
   &lt;li&gt;method:&lt;/li&gt;
   &lt;li&gt;environment:&lt;/li&gt;
-  &lt;li&gt;paper link:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1712.09763v1.pdf&quot;&gt;https://arxiv.org/pdf/1712.09763v1.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/neocxi/pixelsnail-public&quot;&gt;https://github.com/neocxi/pixelsnail-public&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;concurrent-meta-reinforcement-learning&quot;&gt;Concurrent Meta Reinforcement Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: arXiv:1903.02710 preprint&lt;/li&gt;
+  &lt;li&gt;method: CMRL&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;N-Monty-Hall&lt;/li&gt;
+      &lt;li&gt;N-Color-Choice&lt;/li&gt;
+      &lt;li&gt;N-Reacher (Reacher-V2 from gym)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1903.02710v1.pdf&quot;&gt;https://arxiv.org/pdf/1903.02710v1.pdf&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;code:&lt;/li&gt;
   &lt;li&gt;interpretation:&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">Challenge tasks design Papers Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning source: PMLR 2020 method: None environment: object manipulation (meta-world) paper link: http://proceedings.mlr.press/v100/yu20a/yu20a.pdf code: https://github.com/rlworkgroup/metaworld interpretation: https://meta-world.github.io/ Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables source: ICML2019 method: PEARL (probabilistic embeddings for actor-critic RL) environment: robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133) paper link: https://arxiv.org/pdf/1903.08254.pdf code: https://github.com/katerakelly/oyster interpretation: https://bair.berkeley.edu/blog/2019/06/10/pearl/ RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning source: None method: RL^2 environment: navigation (minecraft) paper link: https://arxiv.org/pdf/1611.02779.pdf code: interpretation: https://zhuanlan.zhihu.com/p/32606591 https://openreview.net/forum?id=HkLXCE9lx Meta-Reinforcement Learning of Structured Exploration Strategies source: NeurIPS 2018 method: MAESN (model agnostic exploration with structured noise) environment: robotic locomotion (rllab) object manipulation paper link: https://arxiv.org/pdf/1802.07245.pdf code: https://github.com/russellmendonca/maesn_suite interpretation: https://zhuanlan.zhihu.com/p/63072582 A Simple Neural Attentive Meta-Learner source: ICLR 2018 method: SNAIL (simple neural attentive learner) environment: navigation robotic locomotion paper link: https://openreview.net/pdf?id=B1DmUzWAW code: https://github.com/eambutu/snail-pytorch interpretation: https://www.carsi.edu.cn/index_zh.htm Learning to reinforcement learn source: CogSci 2017 method: environment: navigation Harlow experiment paper link: https://arxiv.org/pdf/1611.05763.pdf code: interpretation: #### source: method: environment: paper link: code: interpretation:</summary></entry><entry><title type="html">Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</title><link href="http://localhost:4000/2020/12/23/success.html" rel="alternate" type="text/html" title="Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)" /><published>2020-12-23T00:00:00+08:00</published><updated>2020-12-23T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/23/success</id><content type="html" xml:base="http://localhost:4000/2020/12/23/success.html">&lt;blockquote&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;reinforcement-learning-fast-and-slow&quot;&gt;Reinforcement Learning, Fast and Slow&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: Trends in Cognitive Sciences 2019&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-66131930061-0&quot;&gt;https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-66131930061-0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;improving-generalization-in-meta-reinforcement-learning-using-learned-objectives&quot;&gt;Improving Generalization in Meta Reinforcement Learning using Learned Objectives&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR 2020&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1910.04098.pdf&quot;&gt;https://arxiv.org/pdf/1910.04098.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/louiskirsch/metagenrl&quot;&gt;https://github.com/louiskirsch/metagenrl&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;discovering-reinforcement-learning-algorithms&quot;&gt;Discovering Reinforcement Learning Algorithms&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source:	arXiv:2007.08794 2020&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2007.08794&quot;&gt;https://arxiv.org/pdf/2007.08794&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;model-based-adversarial-meta-reinforcement-learning&quot;&gt;Model-based Adversarial Meta-Reinforcement Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: NeurIPS 2020&lt;/li&gt;
+  &lt;li&gt;method: AdMRL&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2006.08875v2.pdf&quot;&gt;https://arxiv.org/pdf/2006.08875v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/LinZichuan/AdMRL&quot;&gt;https://github.com/LinZichuan/AdMRL&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;optimization-based-meta-rl&quot;&gt;optimization-based meta-RL&lt;/h3&gt;
+&lt;h4 id=&quot;model-agnostic-meta-learning-for-fast-adaptation-of-deep-networks&quot;&gt;&lt;a href=&quot;https://tianyma.github.io/2021/06/03/MAML.html&quot;&gt;Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICML 2017&lt;/li&gt;
+  &lt;li&gt;method: MAML-RL&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;2D navigation (rllab)&lt;/li&gt;
+      &lt;li&gt;locomotion (rllab)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1703.03400.pdf&quot;&gt;https://arxiv.org/pdf/1703.03400.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/cbfinn/maml_rl&quot;&gt;https://github.com/cbfinn/maml_rl&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;on-first-order-meta-learning-algorithms&quot;&gt;On First-Order Meta-Learning Algorithms&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source:	arXiv:1803.02999 2018&lt;/li&gt;
+  &lt;li&gt;method: Reptile&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1803.02999.pdf&quot;&gt;https://arxiv.org/pdf/1803.02999.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/openai/supervised-reptile&quot;&gt;https://github.com/openai/supervised-reptile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;meta-reinforcement-learning-of-structured-exploration-strategies&quot;&gt;Meta-Reinforcement Learning of Structured Exploration Strategies&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: NeurIPS 2018&lt;/li&gt;
+  &lt;li&gt;method: MAESN (model agnostic exploration with structured noise)&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;robotic locomotion (rllab)&lt;/li&gt;
+      &lt;li&gt;object manipulation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1802.07245.pdf&quot;&gt;https://arxiv.org/pdf/1802.07245.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/russellmendonca/maesn_suite&quot;&gt;https://github.com/russellmendonca/maesn_suite&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/63072582&quot;&gt;https://zhuanlan.zhihu.com/p/63072582&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;some-considerations-on-learning-to-explore-via-meta-reinforcement-learning&quot;&gt;Some Considerations on Learning to Explore via Meta-Reinforcement Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR 2018&lt;/li&gt;
+  &lt;li&gt;method:
+    &lt;ul&gt;
+      &lt;li&gt;E-MAML(optimization-based)&lt;/li&gt;
+      &lt;li&gt;E-$RL^2$(model-based)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bstadie/krazyworld&quot;&gt;Krazy World&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1803.01118v2.pdf&quot;&gt;https://arxiv.org/pdf/1803.01118v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/geyang/e-maml&quot;&gt;https://github.com/geyang/e-maml&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;promp-proximal-meta-policy-search&quot;&gt;ProMP: Proximal Meta-Policy Search&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR 2019&lt;/li&gt;
+  &lt;li&gt;method: ProMP&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;locomotion(gym &amp;amp; Mujoco)
+        &lt;ul&gt;
+          &lt;li&gt;HalfCheetahFwdBack&lt;/li&gt;
+          &lt;li&gt;AntRandDir&lt;/li&gt;
+          &lt;li&gt;HopperRandParams&lt;/li&gt;
+          &lt;li&gt;WalkerFwdBack&lt;/li&gt;
+          &lt;li&gt;HumanoidRandDir&lt;/li&gt;
+          &lt;li&gt;WalkerRandParams&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://openreview.net/pdf?id=SkxXCi0qFX&quot;&gt;https://openreview.net/pdf?id=SkxXCi0qFX&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/jonasrothfuss/promp&quot;&gt;https://github.com/jonasrothfuss/promp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;efficient-off-policy-meta-reinforcement-learning-via-probabilistic-context-variables&quot;&gt;Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICML2019&lt;/li&gt;
+  &lt;li&gt;method: PEARL (probabilistic embeddings for actor-critic RL)&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1903.08254.pdf&quot;&gt;https://arxiv.org/pdf/1903.08254.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/katerakelly/oyster&quot;&gt;https://github.com/katerakelly/oyster&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://bair.berkeley.edu/blog/2019/06/10/pearl/&quot;&gt;https://bair.berkeley.edu/blog/2019/06/10/pearl/&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;learning-to-adapt-in-dynamic-real-world-environments-through-meta-reinforcement-learning&quot;&gt;Learning to Adapt in Dynamic, Real-World Environments Through Meta-Reinforcement Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR 2019&lt;/li&gt;
+  &lt;li&gt;method:
+    &lt;ul&gt;
+      &lt;li&gt;Model-Based Meta-Reinforcement Learning (train time)&lt;/li&gt;
+      &lt;li&gt;Online Model Adaptation (test time)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;Mujoco
+        &lt;ul&gt;
+          &lt;li&gt;half cheetah:disabled joint, sloped terrain, pier&lt;/li&gt;
+          &lt;li&gt;Ant: crippled leg&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;real world robot&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1803.11347v6.pdf&quot;&gt;https://arxiv.org/pdf/1803.11347v6.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/iclavera/learning_to_adapt&quot;&gt;https://github.com/iclavera/learning_to_adapt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://sites.google.com/berkeley.edu/metaadaptivecontrol&quot;&gt;https://sites.google.com/berkeley.edu/metaadaptivecontrol&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;meta-q-learning&quot;&gt;Meta-Q-Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR 2020&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1910.00125.pdf&quot;&gt;https://arxiv.org/pdf/1910.00125.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;decoupling-exploration-and-exploitation-for-meta-reinforcement-learning-without-sacrifices&quot;&gt;Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source:	ICML 2021&lt;/li&gt;
+  &lt;li&gt;method: Dream&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/maximecb/gym-miniworld&quot;&gt;gym-miniworld&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2008.02790v2.pdf&quot;&gt;https://arxiv.org/pdf/2008.02790v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ezliu/dream&quot;&gt;https://github.com/ezliu/dream&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://ezliu.github.io/dream/&quot;&gt;https://ezliu.github.io/dream/&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;meta-learning-via-learned-loss&quot;&gt;Meta Learning via Learned Loss&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICPR 2021&lt;/li&gt;
+  &lt;li&gt;method: ML^3&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1906.05374.pdf&quot;&gt;https://arxiv.org/pdf/1906.05374.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;未分类&quot;&gt;未分类&lt;/h3&gt;
+&lt;h4 id=&quot;alchemy-a-structured-task-distribution-for-meta-reinforcement-learning&quot;&gt;Alchemy: A structured task distribution for meta-reinforcement learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: arXiv:2102.02926 preprint 2021&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2102.02926v1.pdf&quot;&gt;https://arxiv.org/pdf/2102.02926v1.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/deepmind/dm_alchemy&quot;&gt;https://github.com/deepmind/dm_alchemy&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://deepmind.com/research/publications/alchemy&quot;&gt;https://deepmind.com/research/publications/alchemy&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;learning-to-learn-how-to-learn-self-adaptive-visual-navigation-using-meta-learning&quot;&gt;Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: CVPR 2019&lt;/li&gt;
+  &lt;li&gt;method: savn&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;3D navigation (ai2thor)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1812.00971v2.pdf&quot;&gt;https://arxiv.org/pdf/1812.00971v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/allenai/savn&quot;&gt;https://github.com/allenai/savn&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;learning-robust-state-abstractions-for-hidden-parameter-block-mdps&quot;&gt;Learning Robust State Abstractions for Hidden-Parameter Block MDPs&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR2021&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2007.07206v4.pdf&quot;&gt;https://arxiv.org/pdf/2007.07206v4.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;meta-reinforcement-learning-as-task-inference&quot;&gt;Meta reinforcement learning as task inference&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source:	arXiv:1905.06424 2019&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1905.06424v2.pdf&quot;&gt;https://arxiv.org/pdf/1905.06424v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;meld-meta-reinforcement-learning-from-images-via-latent-state-models&quot;&gt;MELD: Meta-Reinforcement Learning from Images via Latent State Models&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: CoRL 2020&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2010.13957v2.pdf&quot;&gt;https://arxiv.org/pdf/2010.13957v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tonyzhaozh/meld&quot;&gt;https://github.com/tonyzhaozh/meld&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://sites.google.com/view/meld-lsm&quot;&gt;https://sites.google.com/view/meld-lsm&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;meta-reinforcement-learning-with-task-embedding-and-shared-policy&quot;&gt;Meta Reinforcement Learning with Task Embedding and Shared Policy&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: /IJCAI 2019&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1905.06527v3.pdf&quot;&gt;https://arxiv.org/pdf/1905.06527v3.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/llan-ml/tesp&quot;&gt;https://github.com/llan-ml/tesp&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fast-adaptive-task-offloading-in-edge-computing-based-on-meta-reinforcement-learning&quot;&gt;Fast Adaptive Task Offloading in Edge Computing based on Meta Reinforcement Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ITPDS 2020&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2008.02033v5.pdf&quot;&gt;https://arxiv.org/pdf/2008.02033v5.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/linkpark/metarl-offloading&quot;&gt;https://github.com/linkpark/metarl-offloading&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;learning-associative-inference-using-fast-weight-memory&quot;&gt;Learning Associative Inference Using Fast Weight Memory&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR 2021&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2011.07831v2.pdf&quot;&gt;https://arxiv.org/pdf/2011.07831v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/ischlag/Fast-Weight-Memory-public&quot;&gt;https://github.com/ischlag/Fast-Weight-Memory-public&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;few-shot-complex-knowledge-base-question-answering-via-meta-reinforcement-learning&quot;&gt;Few-Shot Complex Knowledge Base Question Answering via Meta Reinforcement Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: EMNLP 2020&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2010.15877v1.pdf&quot;&gt;https://arxiv.org/pdf/2010.15877v1.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/DevinJake/MRL-CQA&quot;&gt;https://github.com/DevinJake/MRL-CQA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;meta-reinforcement-learning-with-autonomous-inference-of-subtask-dependencies&quot;&gt;Meta Reinforcement Learning with Autonomous Inference of Subtask Dependencies&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR 2020&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2001.00248v2.pdf&quot;&gt;https://arxiv.org/pdf/2001.00248v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/srsohn/msgi&quot;&gt;https://github.com/srsohn/msgi&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;loaded-dice-trading-off-bias-and-variance-in-any-order-score-function-gradient-estimators-for-reinforcement-learning&quot;&gt;Loaded DiCE: Trading off Bias and Variance in Any-Order Score Function Gradient Estimators for Reinforcement Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: NeurIPS 2019&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;http://papers.nips.cc/paper/9026-loaded-dice-trading-off-bias-and-variance-in-any-order-score-function-gradient-estimators-for-reinforcement-learning.pdf&quot;&gt;http://papers.nips.cc/paper/9026-loaded-dice-trading-off-bias-and-variance-in-any-order-score-function-gradient-estimators-for-reinforcement-learning.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/oxwhirl/loaded-dice&quot;&gt;https://github.com/oxwhirl/loaded-dice&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;causal-reasoning-from-meta-reinforcement-learning&quot;&gt;Causal Reasoning from Meta-reinforcement Learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR 2019&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1901.08162v1.pdf&quot;&gt;https://arxiv.org/pdf/1901.08162v1.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/kantneel/causal-metarl&quot;&gt;https://github.com/kantneel/causal-metarl&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;introducing-neuromodulation-in-deep-neural-networks-to-learn-adaptive-behaviours&quot;&gt;Introducing Neuromodulation in Deep Neural Networks to Learn Adaptive Behaviours&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source:	arXiv:1812.09113 preprint 2019&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1812.09113v3.pdf&quot;&gt;https://arxiv.org/pdf/1812.09113v3.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/nvecoven/nmd_net&quot;&gt;https://github.com/nvecoven/nmd_net&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;policy-gradient-rl-algorithms-as-directed-acyclic-graphs&quot;&gt;Policy Gradient RL Algorithms as Directed Acyclic Graphs&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: 	arXiv:2012.07763 preprint 2020&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2012.07763v2.pdf&quot;&gt;https://arxiv.org/pdf/2012.07763v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/jjgarau/DAGPolicyGradient&quot;&gt;https://github.com/jjgarau/DAGPolicyGradient&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;evolving-inborn-knowledge-for-fast-adaptation-in-dynamic-pomdp-problems&quot;&gt;Evolving Inborn Knowledge For Fast Adaptation in Dynamic POMDP Problems&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: GECCO 2020&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2004.12846v2.pdf&quot;&gt;https://arxiv.org/pdf/2004.12846v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/dlpbc/penn-a&quot;&gt;https://github.com/dlpbc/penn-a&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;model-based-meta-reinforcement-learning-for-flight-with-suspended-payloads&quot;&gt;Model-Based Meta-Reinforcement Learning for Flight with Suspended Payloads&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: RA-L 2021&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2004.11345v2.pdf&quot;&gt;https://arxiv.org/pdf/2004.11345v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/suneelbelkhale/model-based-meta-rl-for-flight&quot;&gt;https://github.com/suneelbelkhale/model-based-meta-rl-for-flight&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;hierarchical-meta-reinforcement-learning-for-multi-task-environments&quot;&gt;Hierarchical Meta Reinforcement Learning for Multi-Task Environments&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR 2021&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://openreview.net/pdf?id=u9ax42K7ND&quot;&gt;https://openreview.net/pdf?id=u9ax42K7ND&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/MeSH-ICLR/MEtaSoftHierarchy&quot;&gt;https://github.com/MeSH-ICLR/MEtaSoftHierarchy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;modeling-and-optimization-trade-off-in-meta-learning&quot;&gt;Modeling and Optimization Trade-off in Meta-learning&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: NeurIPS 2020&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2010.12916v2.pdf&quot;&gt;https://arxiv.org/pdf/2010.12916v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/intel-isl/MetaLearningTradeoffs&quot;&gt;https://github.com/intel-isl/MetaLearningTradeoffs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;meta-learning-of-structured-task-distributions-in-humans-and-machines&quot;&gt;Meta-Learning of Structured Task Distributions in Humans and Machines&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICLR 2021&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2010.02317v3.pdf&quot;&gt;https://arxiv.org/pdf/2010.02317v3.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/sreejank/Compositional_MetaRL&quot;&gt;https://github.com/sreejank/Compositional_MetaRL&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;offline-meta-learning-of-exploration&quot;&gt;Offline Meta Learning of Exploration&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source:	arXiv:2008.02598 preprint 2021&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2008.02598v3.pdf&quot;&gt;https://arxiv.org/pdf/2008.02598v3.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/Rondorf/BOReL&quot;&gt;https://github.com/Rondorf/BOReL&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;meta-reinforcement-learning-for-reliable-communication-in-thzvlc-wireless-vr-networks&quot;&gt;Meta-Reinforcement Learning for Reliable Communication in THz/VLC Wireless VR Networks&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: ICC 2021&lt;/li&gt;
+  &lt;li&gt;method:&lt;/li&gt;
+  &lt;li&gt;environment:&lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2102.12277v1.pdf&quot;&gt;https://arxiv.org/pdf/2102.12277v1.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code: &lt;a href=&quot;https://github.com/wyy0206/THzVR&quot;&gt;https://github.com/wyy0206/THzVR&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;interpretation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--
+#### 
+- source: 
+- method: 
+- environment:
+- paper link: 
+- code:  
+- interpretation: 
+
+--&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">Challenges of meta-RL design a set of tasks that are interrelated find the inter-representation fast adaptation to new tasks Papers environment Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning source: PMLR 2020 method: None environment: object manipulation paper link: http://proceedings.mlr.press/v100/yu20a/yu20a.pdf code: https://github.com/rlworkgroup/metaworld interpretation: https://meta-world.github.io/ model-based meta-RL Learning to reinforcement learn source: CogSci 2017 method: environment: bandit problem Two-step task Harlow experiment 3D navigation (Deepmind Lab) paper link: https://arxiv.org/pdf/1611.05763.pdf code: interpretation: RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning source: ICLR 2017 method: environment: multi-armed bandit problem tabular MDP 3D navigation (ViZDoom) paper link: https://arxiv.org/pdf/1611.02779.pdf code: interpretation: https://zhuanlan.zhihu.com/p/32606591 https://openreview.net/forum?id=HkLXCE9lx Prefrontal cortex as a meta-reinforcement learning system source: Nature Neuroscience 2018 method: environment: paper link: https://www.nature.com/articles/s41593-018-0147-8 code: interpretation: A Simple Neural Attentive Meta-Learner source: ICLR 2018 method: SNAIL (simple neural attentive learner) environment: navigation robotic locomotion paper link: https://openreview.net/pdf?id=B1DmUzWAW code: https://github.com/eambutu/snail-pytorch interpretation: https://www.carsi.edu.cn/index_zh.htm PixelSNAIL: An Improved Autoregressive Generative Model source: ICML 2018 method: environment: paper link: https://arxiv.org/pdf/1712.09763v1.pdf code: https://github.com/neocxi/pixelsnail-public interpretation: Concurrent Meta Reinforcement Learning source: arXiv:1903.02710 preprint method: CMRL environment: N-Monty-Hall N-Color-Choice N-Reacher (Reacher-V2 from gym) paper link: https://arxiv.org/pdf/1903.02710v1.pdf code: interpretation: Reinforcement Learning, Fast and Slow source: Trends in Cognitive Sciences 2019 method: environment: paper link: https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-66131930061-0 code: interpretation: Improving Generalization in Meta Reinforcement Learning using Learned Objectives source: ICLR 2020 method: environment: paper link: https://arxiv.org/pdf/1910.04098.pdf code: https://github.com/louiskirsch/metagenrl interpretation: Discovering Reinforcement Learning Algorithms source: arXiv:2007.08794 2020 method: environment: paper link: https://arxiv.org/pdf/2007.08794 code: interpretation: Model-based Adversarial Meta-Reinforcement Learning source: NeurIPS 2020 method: AdMRL environment: paper link: https://arxiv.org/pdf/2006.08875v2.pdf code: https://github.com/LinZichuan/AdMRL interpretation: optimization-based meta-RL Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks source: ICML 2017 method: MAML-RL environment: 2D navigation (rllab) locomotion (rllab) paper link: https://arxiv.org/pdf/1703.03400.pdf code: https://github.com/cbfinn/maml_rl interpretation: On First-Order Meta-Learning Algorithms source: arXiv:1803.02999 2018 method: Reptile environment: paper link: https://arxiv.org/pdf/1803.02999.pdf code: https://github.com/openai/supervised-reptile interpretation: Meta-Reinforcement Learning of Structured Exploration Strategies source: NeurIPS 2018 method: MAESN (model agnostic exploration with structured noise) environment: robotic locomotion (rllab) object manipulation paper link: https://arxiv.org/pdf/1802.07245.pdf code: https://github.com/russellmendonca/maesn_suite interpretation: https://zhuanlan.zhihu.com/p/63072582 Some Considerations on Learning to Explore via Meta-Reinforcement Learning source: ICLR 2018 method: E-MAML(optimization-based) E-$RL^2$(model-based) environment: Krazy World paper link: https://arxiv.org/pdf/1803.01118v2.pdf code: https://github.com/geyang/e-maml interpretation: ProMP: Proximal Meta-Policy Search source: ICLR 2019 method: ProMP environment: locomotion(gym &amp;amp; Mujoco) HalfCheetahFwdBack AntRandDir HopperRandParams WalkerFwdBack HumanoidRandDir WalkerRandParams paper link: https://openreview.net/pdf?id=SkxXCi0qFX code: https://github.com/jonasrothfuss/promp Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables source: ICML2019 method: PEARL (probabilistic embeddings for actor-critic RL) environment: robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133) paper link: https://arxiv.org/pdf/1903.08254.pdf code: https://github.com/katerakelly/oyster interpretation: https://bair.berkeley.edu/blog/2019/06/10/pearl/ Learning to Adapt in Dynamic, Real-World Environments Through Meta-Reinforcement Learning source: ICLR 2019 method: Model-Based Meta-Reinforcement Learning (train time) Online Model Adaptation (test time) environment: Mujoco half cheetah:disabled joint, sloped terrain, pier Ant: crippled leg real world robot paper link: https://arxiv.org/pdf/1803.11347v6.pdf code: https://github.com/iclavera/learning_to_adapt interpretation: https://sites.google.com/berkeley.edu/metaadaptivecontrol Meta-Q-Learning source: ICLR 2020 method: environment: paper link: https://arxiv.org/pdf/1910.00125.pdf code: interpretation: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices source: ICML 2021 method: Dream environment: gym-miniworld paper link: https://arxiv.org/pdf/2008.02790v2.pdf code: https://github.com/ezliu/dream interpretation: https://ezliu.github.io/dream/ Meta Learning via Learned Loss source: ICPR 2021 method: ML^3 environment: paper link: https://arxiv.org/pdf/1906.05374.pdf code: interpretation: 未分类 Alchemy: A structured task distribution for meta-reinforcement learning source: arXiv:2102.02926 preprint 2021 method: environment: paper link: https://arxiv.org/pdf/2102.02926v1.pdf code: https://github.com/deepmind/dm_alchemy interpretation: https://deepmind.com/research/publications/alchemy Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning source: CVPR 2019 method: savn environment: 3D navigation (ai2thor) paper link: https://arxiv.org/pdf/1812.00971v2.pdf code: https://github.com/allenai/savn interpretation: Learning Robust State Abstractions for Hidden-Parameter Block MDPs source: ICLR2021 method: environment: paper link: https://arxiv.org/pdf/2007.07206v4.pdf code: interpretation: Meta reinforcement learning as task inference source: arXiv:1905.06424 2019 method: environment: paper link: https://arxiv.org/pdf/1905.06424v2.pdf code: interpretation: MELD: Meta-Reinforcement Learning from Images via Latent State Models source: CoRL 2020 method: environment: paper link: https://arxiv.org/pdf/2010.13957v2.pdf code: https://github.com/tonyzhaozh/meld interpretation: https://sites.google.com/view/meld-lsm Meta Reinforcement Learning with Task Embedding and Shared Policy source: /IJCAI 2019 method: environment: paper link: https://arxiv.org/pdf/1905.06527v3.pdf code: https://github.com/llan-ml/tesp interpretation: Fast Adaptive Task Offloading in Edge Computing based on Meta Reinforcement Learning source: ITPDS 2020 method: environment: paper link: https://arxiv.org/pdf/2008.02033v5.pdf code: https://github.com/linkpark/metarl-offloading interpretation: Learning Associative Inference Using Fast Weight Memory source: ICLR 2021 method: environment: paper link: https://arxiv.org/pdf/2011.07831v2.pdf code: https://github.com/ischlag/Fast-Weight-Memory-public interpretation: Few-Shot Complex Knowledge Base Question Answering via Meta Reinforcement Learning source: EMNLP 2020 method: environment: paper link: https://arxiv.org/pdf/2010.15877v1.pdf code: https://github.com/DevinJake/MRL-CQA interpretation: Meta Reinforcement Learning with Autonomous Inference of Subtask Dependencies source: ICLR 2020 method: environment: paper link: https://arxiv.org/pdf/2001.00248v2.pdf code: https://github.com/srsohn/msgi interpretation: Loaded DiCE: Trading off Bias and Variance in Any-Order Score Function Gradient Estimators for Reinforcement Learning source: NeurIPS 2019 method: environment: paper link: http://papers.nips.cc/paper/9026-loaded-dice-trading-off-bias-and-variance-in-any-order-score-function-gradient-estimators-for-reinforcement-learning.pdf code: https://github.com/oxwhirl/loaded-dice interpretation: Causal Reasoning from Meta-reinforcement Learning source: ICLR 2019 method: environment: paper link: https://arxiv.org/pdf/1901.08162v1.pdf code: https://github.com/kantneel/causal-metarl interpretation: Introducing Neuromodulation in Deep Neural Networks to Learn Adaptive Behaviours source: arXiv:1812.09113 preprint 2019 method: environment: paper link: https://arxiv.org/pdf/1812.09113v3.pdf code: https://github.com/nvecoven/nmd_net interpretation: Policy Gradient RL Algorithms as Directed Acyclic Graphs source: arXiv:2012.07763 preprint 2020 method: environment: paper link: https://arxiv.org/pdf/2012.07763v2.pdf code: https://github.com/jjgarau/DAGPolicyGradient interpretation: Evolving Inborn Knowledge For Fast Adaptation in Dynamic POMDP Problems source: GECCO 2020 method: environment: paper link: https://arxiv.org/pdf/2004.12846v2.pdf code: https://github.com/dlpbc/penn-a interpretation: Model-Based Meta-Reinforcement Learning for Flight with Suspended Payloads source: RA-L 2021 method: environment: paper link: https://arxiv.org/pdf/2004.11345v2.pdf code: https://github.com/suneelbelkhale/model-based-meta-rl-for-flight interpretation: Hierarchical Meta Reinforcement Learning for Multi-Task Environments source: ICLR 2021 method: environment: paper link: https://openreview.net/pdf?id=u9ax42K7ND code: https://github.com/MeSH-ICLR/MEtaSoftHierarchy interpretation: Modeling and Optimization Trade-off in Meta-learning source: NeurIPS 2020 method: environment: paper link: https://arxiv.org/pdf/2010.12916v2.pdf code: https://github.com/intel-isl/MetaLearningTradeoffs interpretation: Meta-Learning of Structured Task Distributions in Humans and Machines source: ICLR 2021 method: environment: paper link: https://arxiv.org/pdf/2010.02317v3.pdf code: https://github.com/sreejank/Compositional_MetaRL interpretation: Offline Meta Learning of Exploration source: arXiv:2008.02598 preprint 2021 method: environment: paper link: https://arxiv.org/pdf/2008.02598v3.pdf code: https://github.com/Rondorf/BOReL interpretation: Meta-Reinforcement Learning for Reliable Communication in THz/VLC Wireless VR Networks source: ICC 2021 method: environment: paper link: https://arxiv.org/pdf/2102.12277v1.pdf code: https://github.com/wyy0206/THzVR interpretation:</summary></entry><entry><title type="html">Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</title><link href="http://localhost:4000/2020/12/23/success.html" rel="alternate" type="text/html" title="Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)" /><published>2020-12-23T00:00:00+08:00</published><updated>2020-12-23T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/23/success</id><content type="html" xml:base="http://localhost:4000/2020/12/23/success.html">&lt;blockquote&gt;
   &lt;p&gt;转自Reddit.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -433,40 +948,4 @@ cc1ec222c1ff72272a00061aa197ab8ba13bd446697b9d9c1820c45ba16b75cd&lt;/strong&gt;&
 
 # replace foo with bar searching from current line to the 2 plus lines(3 lines in all) in uppercase ignore case
 :.,+2s/foo/bar/I
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="工具" /><summary type="html">下面用一个cheat sheet记录一些vim的快捷指令，方便自己需要的时候查询。 search 查找模式中加\c为大小写不敏感查找,\C为大小写敏感查找 e.g. # ignore uppercase /foo\c or : # do not ignore uppercase /foo\C replace :s（substitute）命令用来查找和替换字符串。格式为 # the partition character can be '/' or '#' or '@' (maybe other special characters) :{作用范围}s/{目标}/{替换}/{替换标志} or :{作用范围}s#{目标}#{替换}#{替换标志} or :{作用范围}s@{目标}@{替换}@{替换标志} 其中,替换标志有下面几种: 替换标志 含义 备注 i/I 大小写敏感查询 i为敏感 c 替换前需要确认   g 全局替换 一行中的多个匹配项都会被替换 e.g. # replace foo with bar in current line for all matches :s/foo/bar/g # replace foo with bar in the whole context only for the first match of each line :%s/foo/bar/ # replace foo with bar searching from line 5 to line 12 :5,12s/foo/bar/ # replace foo with bar searching from current line to the 2 plus lines(3 lines in all) in uppercase ignore case :.,+2s/foo/bar/I</summary></entry><entry><title type="html">写博客的意义是什么？</title><link href="http://localhost:4000/2020/11/11/meaning.html" rel="alternate" type="text/html" title="写博客的意义是什么？" /><published>2020-11-11T00:00:00+08:00</published><updated>2020-11-11T00:00:00+08:00</updated><id>http://localhost:4000/2020/11/11/meaning</id><content type="html" xml:base="http://localhost:4000/2020/11/11/meaning.html">&lt;p&gt;不知道哪里冒出来的念头，突然想关注一下我的博客，之前的博客是用hexo搭建的，今天翻出来，看到&lt;strong&gt;About&lt;/strong&gt;那一栏的个人信息还停留在大三，想想应该两年多没有更新了。&lt;/p&gt;
-
-&lt;p&gt;之前的兴趣在机器人，使用ROS软件做过很多项目，但是始终觉得只是娱乐级别的开发，有时算法可以设计得很好，但是部署到机器上就会出现各种软硬件的问题，我想还是缺乏更扎实的软硬件基础吧，机缘巧合，在研究生阶段选择了计算机体系结构，虽然接触时间不长，但被这一把技术、艺术、设计哲学能完美结合的领域深深打动并吸引着，我想这是值得我一生去探索的。&lt;/p&gt;
-
-&lt;p&gt;碎碎念不说了。今天重新开封了自己的博客，想做个新的开始，给自己的博客换了新的主题，力求简洁而不失美感，努力让自己集中精力在博客写作的提高上。于是，我好像又变成刚开始搭建博客的那个自己，我再次问了自己这个问题：写博客的意义是什么？&lt;/p&gt;
-
-&lt;p&gt;国内很多程序员的博客质量都很差，大概都有下面几个特点：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;内容错误。很多程序员照搬别人的博客，然而自己都不去验证其中的正确性。&lt;/li&gt;
-  &lt;li&gt;浮于表面。很多程序员只关注于记录某个bug的解决方案，而不去深究背后的问题，这样的记录也不过是浪费时间写了一些文字而已。&lt;/li&gt;
-  &lt;li&gt;最让我的反感的是那些不认真写内容，还在后面加二维码打赏的程序员。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;那么写博客的意义在哪里呢？&lt;/p&gt;
-
-&lt;p&gt;我想无非也是下面几个目的：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;通过技术的总结和分享巩固自己的知识。也即是”The best way to learn something is to teach it”。&lt;/li&gt;
-  &lt;li&gt;锻炼自己的表达和写作能力。这在研究中是非常重要的，无论是与同行的交流还是文章的发表，讲好一个故事与做出成果同等重要。&lt;/li&gt;
-  &lt;li&gt;自我的展示。通过博客展示自我从而获得不论是名誉还是经济的好处的例子不在少数，国内的如&lt;a href=&quot;http://www.ruanyifeng.com/blog/&quot;&gt;阮一峰&lt;/a&gt;，国外的如Stack Overflow的创始人 &lt;a href=&quot;https://blog.codinghorror.com/&quot;&gt;Jeff Atwood&lt;/a&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;综上，博客应该精而不在多，每一次记录都应该被认真对待，才不至于浪费时间（包括别人的时间）而自己亦无所得。亦如研究，也应该去做有价值的研究，有十年磨一剑的毅力和耐心，就像陈秀雄和王兵教授，尽管可能要耗费5年去完成，6年去审稿，但最后证明了哈密尔顿-田猜想（Hamilton-Tian conjecture）和偏零阶估计猜想（Partial C0-conjecture），是非常令人敬佩的。&lt;/p&gt;
-
-&lt;p&gt;这篇文章是作为一个新的开始，是对自己的鞭策和鼓励，希望坚持下去，做好的研究，写好的博客。&lt;/p&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="随感" /><summary type="html">不知道哪里冒出来的念头，突然想关注一下我的博客，之前的博客是用hexo搭建的，今天翻出来，看到About那一栏的个人信息还停留在大三，想想应该两年多没有更新了。 之前的兴趣在机器人，使用ROS软件做过很多项目，但是始终觉得只是娱乐级别的开发，有时算法可以设计得很好，但是部署到机器上就会出现各种软硬件的问题，我想还是缺乏更扎实的软硬件基础吧，机缘巧合，在研究生阶段选择了计算机体系结构，虽然接触时间不长，但被这一把技术、艺术、设计哲学能完美结合的领域深深打动并吸引着，我想这是值得我一生去探索的。 碎碎念不说了。今天重新开封了自己的博客，想做个新的开始，给自己的博客换了新的主题，力求简洁而不失美感，努力让自己集中精力在博客写作的提高上。于是，我好像又变成刚开始搭建博客的那个自己，我再次问了自己这个问题：写博客的意义是什么？ 国内很多程序员的博客质量都很差，大概都有下面几个特点： 内容错误。很多程序员照搬别人的博客，然而自己都不去验证其中的正确性。 浮于表面。很多程序员只关注于记录某个bug的解决方案，而不去深究背后的问题，这样的记录也不过是浪费时间写了一些文字而已。 最让我的反感的是那些不认真写内容，还在后面加二维码打赏的程序员。 那么写博客的意义在哪里呢？ 我想无非也是下面几个目的： 通过技术的总结和分享巩固自己的知识。也即是”The best way to learn something is to teach it”。 锻炼自己的表达和写作能力。这在研究中是非常重要的，无论是与同行的交流还是文章的发表，讲好一个故事与做出成果同等重要。 自我的展示。通过博客展示自我从而获得不论是名誉还是经济的好处的例子不在少数，国内的如阮一峰，国外的如Stack Overflow的创始人 Jeff Atwood。 综上，博客应该精而不在多，每一次记录都应该被认真对待，才不至于浪费时间（包括别人的时间）而自己亦无所得。亦如研究，也应该去做有价值的研究，有十年磨一剑的毅力和耐心，就像陈秀雄和王兵教授，尽管可能要耗费5年去完成，6年去审稿，但最后证明了哈密尔顿-田猜想（Hamilton-Tian conjecture）和偏零阶估计猜想（Partial C0-conjecture），是非常令人敬佩的。 这篇文章是作为一个新的开始，是对自己的鞭策和鼓励，希望坚持下去，做好的研究，写好的博客。</summary></entry><entry><title type="html">Welcome</title><link href="http://localhost:4000/2018/07/01/welcome.html" rel="alternate" type="text/html" title="Welcome" /><published>2018-07-01T00:00:00+08:00</published><updated>2018-07-01T00:00:00+08:00</updated><id>http://localhost:4000/2018/07/01/welcome</id><content type="html" xml:base="http://localhost:4000/2018/07/01/welcome.html">&lt;p&gt;If you see this page, that means you have setup your site. enjoy! :ghost: :ghost: :ghost:&lt;/p&gt;
-
-&lt;p&gt;You may want to &lt;a href=&quot;https://tianqi.name/jekyll-TeXt-theme/docs/en/configuration&quot;&gt;config the site&lt;/a&gt; or &lt;a href=&quot;https://tianqi.name/jekyll-TeXt-theme/docs/en/writing-posts&quot;&gt;writing a post&lt;/a&gt; next. Please feel free to &lt;a href=&quot;https://github.com/kitian616/jekyll-TeXt-theme/issues&quot;&gt;create an issue&lt;/a&gt; or &lt;a href=&quot;mailto:kitian616@outlook.com&quot;&gt;send me email&lt;/a&gt; if you have any questions.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;If you like TeXt, don’t forget to give me a star. :star2:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/kitian616/jekyll-TeXt-theme/&quot;&gt;&lt;img src=&quot;https://img.shields.io/github/stars/kitian616/jekyll-TeXt-theme.svg?label=Stars&amp;amp;style=social&quot; alt=&quot;Star This Project&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="TeXt" /><summary type="html">If you see this page, that means you have setup your site. enjoy! :ghost: :ghost: :ghost: You may want to config the site or writing a post next. Please feel free to create an issue or send me email if you have any questions.</summary></entry><entry><title type="html">Post with Header Image</title><link href="http://localhost:4000/2018/06/01/header-image.html" rel="alternate" type="text/html" title="Post with Header Image" /><published>2018-06-01T00:00:00+08:00</published><updated>2018-06-01T00:00:00+08:00</updated><id>http://localhost:4000/2018/06/01/header-image</id><content type="html" xml:base="http://localhost:4000/2018/06/01/header-image.html">&lt;p&gt;A Post with Header Image, See &lt;a href=&quot;https://tianqi.name/jekyll-TeXt-theme/samples.html#page-layout&quot;&gt;Page layout&lt;/a&gt; for more examples.&lt;/p&gt;
-
-&lt;!--more--&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="TeXt" /><summary type="html">A Post with Header Image, See Page layout for more examples.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="工具" /><summary type="html">下面用一个cheat sheet记录一些vim的快捷指令，方便自己需要的时候查询。 search 查找模式中加\c为大小写不敏感查找,\C为大小写敏感查找 e.g. # ignore uppercase /foo\c or : # do not ignore uppercase /foo\C replace :s（substitute）命令用来查找和替换字符串。格式为 # the partition character can be '/' or '#' or '@' (maybe other special characters) :{作用范围}s/{目标}/{替换}/{替换标志} or :{作用范围}s#{目标}#{替换}#{替换标志} or :{作用范围}s@{目标}@{替换}@{替换标志} 其中,替换标志有下面几种: 替换标志 含义 备注 i/I 大小写敏感查询 i为敏感 c 替换前需要确认   g 全局替换 一行中的多个匹配项都会被替换 e.g. # replace foo with bar in current line for all matches :s/foo/bar/g # replace foo with bar in the whole context only for the first match of each line :%s/foo/bar/ # replace foo with bar searching from line 5 to line 12 :5,12s/foo/bar/ # replace foo with bar searching from current line to the 2 plus lines(3 lines in all) in uppercase ignore case :.,+2s/foo/bar/I</summary></entry></feed>
