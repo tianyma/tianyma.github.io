@@ -1,4 +1,4 @@
-I"�<h2 id="核心思想">核心思想</h2>
+I"�<h2 id="核心思想">核心思想</h2>
 <p>本文提出了一种深度元强化学习(deep meta-reinforcement learning)方法，通过强化学习训练一个循环神经网络(RNN)，使得该RNN可以通过自适应更新的方法快速适应不同任务，从而提高训练效率。</p>
 <h2 id="实现过程">实现过程</h2>
 <p>本文使用A2C(Advantage Actor-Critic)算法在一系列输入任务上训练一个RNN。以MDPs(Markov Decision Processes)为例，设$\mathcal{D}$是一个MDPs分布，每个新的episode开始时，先从D采样的一个任务$m \backsim \mathcal{D}$，RNN的内部循环单元的参数会被重置，然后和环境交互一定的时长，每一次策略都是基于到目前的所有历史信息（状态，动作，奖励），agent的目标是在所有任务上最大化总的奖励。</p>
@@ -10,5 +10,5 @@
 <p>本文是基于模型的元强化学习算法的一次尝试，通过将带LSTM的RNN用强化学习算法进行训练，可以使agent获得一定的学习适应能力。</p>
 <h2 id="算法评价">算法评价</h2>
 
-<p><a href="https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html">返回文章列表</a></p>
+<p><a href="http://localhost:4000/2021/05/29/meta-reinforcement-learning.html">返回文章列表</a></p>
 :ET

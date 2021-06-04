@@ -33,6 +33,7 @@ key: 2021-05-29-blog
   - 3D navigation (Deepmind Lab)
 - paper link: [https://arxiv.org/pdf/1611.05763.pdf](https://arxiv.org/pdf/1611.05763.pdf)
 - code:  
+  - [https://github.com/Phu-archive/Learning2RL](https://github.com/Phu-archive/Learning2RL)
 - interpretation: 
 
 #### [RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning]({{ site.url }}/2021/06/02/RL2.html)
@@ -44,6 +45,8 @@ key: 2021-05-29-blog
   - 3D navigation (ViZDoom)
 - paper link: [https://arxiv.org/pdf/1611.02779.pdf](https://arxiv.org/pdf/1611.02779.pdf)
 - code:  
+  - [https://github.com/mwufi/meta-rl-bandits (pytorch)](https://github.com/mwufi/meta-rl-bandits)
+  - [https://github.com/VashishtMadhavan/rl2 (tensorflow)](https://github.com/VashishtMadhavan/rl2)
 - interpretation: 
   - [https://zhuanlan.zhihu.com/p/32606591](https://zhuanlan.zhihu.com/p/32606591)
   - [https://openreview.net/forum?id=HkLXCE9lx](https://openreview.net/forum?id=HkLXCE9lx)
@@ -283,7 +286,7 @@ key: 2021-05-29-blog
 
 
 #### Meta Reinforcement Learning with Task Embedding and Shared Policy 
-- source: /IJCAI 2019
+- source: IJCAI 2019
 - method: 
 - environment:
 - paper link: [https://arxiv.org/pdf/1905.06527v3.pdf](https://arxiv.org/pdf/1905.06527v3.pdf)
