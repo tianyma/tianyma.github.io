@@ -130,7 +130,9 @@ key: 2021-05-29-blog
   - 2D navigation (rllab)
   - locomotion (rllab)
 - paper link: [https://arxiv.org/pdf/1703.03400.pdf](https://arxiv.org/pdf/1703.03400.pdf)
-- code: [https://github.com/cbfinn/maml_rl](https://github.com/cbfinn/maml_rl) 
+- code: 
+  - [https://github.com/cbfinn/maml_rl(tensorflow)](https://github.com/cbfinn/maml_rl) 
+  - [https://github.com/tristandeleu/pytorch-maml-rl](https://github.com/tristandeleu/pytorch-maml-rl)
 - interpretation: 
 
 #### [On First-Order Meta-Learning Algorithms]({{ site.url }}/2021/06/04/Reptile.html)
@@ -141,7 +143,8 @@ key: 2021-05-29-blog
     - mini-ImageNet 
     - Omniglot
 - paper link: [https://arxiv.org/pdf/1803.02999.pdf](https://arxiv.org/pdf/1803.02999.pdf)
-- code: [https://github.com/openai/supervised-reptile](https://github.com/openai/supervised-reptile) 
+- code: 
+  - [https://github.com/openai/supervised-reptile](https://github.com/openai/supervised-reptile) 
 - interpretation: 
   - https://openai.com/blog/reptile/
   - https://lilianweng.github.io/lil-log/2018/11/30/meta-learning.html#reptile
