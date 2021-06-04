@@ -1,4 +1,4 @@
-I"Ç]<h2 id="challenges-of-meta-rl">Challenges of meta-RL</h2>
+I"[_<h2 id="challenges-of-meta-rl">Challenges of meta-RL</h2>
 <ul>
   <li>design a set of tasks that are interrelated</li>
   <li>find the inter-representation</li>
@@ -24,10 +24,10 @@
 </ul>
 
 <h3 id="model-based-meta-rl">model-based meta-RL</h3>
-<h4 id="learning-to-reinforcement-learn20210601learning-to-reinforcement-learnhtml">[Learning to reinforcement learn]/2021/06/01/Learning-to-reinforcement-learn.html</h4>
+<h4 id="learning-to-reinforcement-learn"><a href="http://localhost:4000/_posts/2021-06-01-Learning-to-reinforcement-learn.md">Learning to reinforcement learn</a></h4>
 <ul>
   <li>source: CogSci 2017</li>
-  <li>method:</li>
+  <li>method: deep meta-RL</li>
   <li>environment:
     <ul>
       <li>bandit problem</li>
@@ -41,10 +41,10 @@
   <li>interpretation:</li>
 </ul>
 
-<h4 id="rl2-fast-reinforcement-learning-via-slow-reinforcement-learning"><a href="https://tianyma.github.io/2021/06/02/RL2.html">RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning</a></h4>
+<h4 id="rl2-fast-reinforcement-learning-via-slow-reinforcement-learning"><a href="http://localhost:4000/_posts/2021-06-02-RL2.md">RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning</a></h4>
 <ul>
   <li>source: ICLR 2017</li>
-  <li>method:</li>
+  <li>method: $RL^2$</li>
   <li>environment:
     <ul>
       <li>multi-armed bandit problem</li>
@@ -162,7 +162,7 @@
 </ul>
 
 <h3 id="optimization-based-meta-rl">optimization-based meta-RL</h3>
-<h4 id="model-agnostic-meta-learning-for-fast-adaptation-of-deep-networks"><a href="https://tianyma.github.io/2021/06/03/MAML.html">Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</a></h4>
+<h4 id="model-agnostic-meta-learning-for-fast-adaptation-of-deep-networks"><a href="http://localhost:4000/_posts/2021-06-03-MAML.md">Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</a></h4>
 <ul>
   <li>source: ICML 2017</li>
   <li>method: MAML-RL</li>
@@ -177,14 +177,28 @@
   <li>interpretation:</li>
 </ul>
 
-<h4 id="on-first-order-meta-learning-algorithms">On First-Order Meta-Learning Algorithms</h4>
+<h4 id="on-first-order-meta-learning-algorithms"><a href="https://tianyma.github.io/2021/06/04/Reptile.html">On First-Order Meta-Learning Algorithms</a></h4>
 <ul>
   <li>source:	arXiv:1803.02999 2018</li>
   <li>method: Reptile</li>
-  <li>environment:</li>
+  <li>environment:
+    <ul>
+      <li>few-shot image classification
+        <ul>
+          <li>mini-ImageNet</li>
+          <li>Omniglot</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
   <li>paper link: <a href="https://arxiv.org/pdf/1803.02999.pdf">https://arxiv.org/pdf/1803.02999.pdf</a></li>
   <li>code: <a href="https://github.com/openai/supervised-reptile">https://github.com/openai/supervised-reptile</a></li>
-  <li>interpretation:</li>
+  <li>interpretation:
+    <ul>
+      <li>https://openai.com/blog/reptile/</li>
+      <li>https://lilianweng.github.io/lil-log/2018/11/30/meta-learning.html#reptile</li>
+    </ul>
+  </li>
 </ul>
 
 <h4 id="meta-reinforcement-learning-of-structured-exploration-strategies">Meta-Reinforcement Learning of Structured Exploration Strategies</h4>

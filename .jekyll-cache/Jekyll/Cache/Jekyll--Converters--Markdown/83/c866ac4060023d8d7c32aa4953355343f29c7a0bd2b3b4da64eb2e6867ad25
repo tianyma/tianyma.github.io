@@ -1,0 +1,27 @@
+I"\<h2 id="核心思想">核心思想</h2>
+<p>Reptile和MAML一样都是模型无关的元学习算法，不同的是，Reptile是用在新任务上的梯度下降方向和初始参数的方向求差作为初始参数的最终更新方向。</p>
+<h2 id="实现过程">实现过程</h2>
+<center>
+<figure>
+  <img src="http://localhost:4000/post_assets/2021-06-04/gradient-update-reptile.jpg" alt="pre-erain、MAML、Reptile的梯度更新方向" />
+  <figcaption>Pre-erain、MAML、Reptile的梯度更新方向的示意图。$\theta$为初始参数，蓝色箭头为不同方法初始参数更新方向，绿色箭头为初始参数在采样的任务上的梯度下降方向。</figcaption>
+</figure>
+</center>
+
+<p>算法流程：</p>
+<ul>
+  <li>采样一个任务或一批任务。</li>
+  <li>在任务上用初始化参数基于梯度下降训练，得到所有梯度方向，并求出总的梯度下降方向。</li>
+  <li>基于初始参数方向和总梯度下降方向的差作为参数更新方向。
+    <h2 id="测试任务">测试任务</h2>
+  </li>
+  <li>作者针对于few-shot classification做了实验，效果和MAML差不多。
+    <h2 id="创新点">创新点</h2>
+    <p>Reptile是基于MAML做了稍微改进，用梯度下降方向和初始参数方向的差作为更新方向，优势在于兼顾了所有任务的更新，降低了overfit的风险。</p>
+    <h2 id="算法评价">算法评价</h2>
+    <p>Reptile基于MAML做了微小改动，核心思想并没有太大差别。</p>
+  </li>
+</ul>
+
+<p><a href="https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html">返回文章列表</a></p>
+:ET

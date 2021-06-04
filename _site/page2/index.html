@@ -299,6 +299,43 @@
 <div class="layout--articles">
 <div class="article-list items items--divided">
 <article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/2020/11/21/docker-cuda.html"><h2 itemprop="headline" class="item__header">使用docker运行多个版本的cuda</h2></a></header>
+          <div class="item__description">
+<div class="article__content" itemprop="description articleBody">如果你遇到了这样一个问题:
+
+  我的机器上装的cuda版本是最新的，比如cuda 11.1，然而我拿到了一个在cuda 8.0的版本上编译好的程序，我该怎么运行它呢？总不会我又要安装一个8.0的cuda吧。(这个问题来自于我在做cmu 15-418 assignment task2时需要运行在cuda8.0环境编译的参考程序cudaScan_ref，而我的cuda是11.1版本)
+
+  这个时候你肯定立刻会想到虚拟化，作为轻便好用的虚拟化工具，docker就派上用场了。
+
+  这篇文章就来介绍一下如何使用docker运行多版本的cuda。
+
+
+
+  本机环境
+    系统：18.04.5 LTS (Bionic Beaver)
+已安装cuda版本：11.1
+    
+    １ do...</div>
+<p><a href="/2020/11/21/docker-cuda.html">阅读更多</a></p>
+</div>
+<div class="article__info clearfix">
+<ul class="left-col menu">
+<li>
+              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=docker">docker</a>
+            </li>
+<li>
+              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=cuda">cuda</a>
+            </li>
+</ul>
+<ul class="right-col menu"><li>
+<i class="far fa-calendar-alt"></i> <span>2020年 11月21日</span>
+            </li></ul>
+</div>
+<meta itemprop="author" content="tianyun ma">
+<meta itemprop="datePublished" content="2020-11-21T00:00:00+08:00">
+    <meta itemprop="keywords" content="docker,cuda">
+</div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/2020/11/20/15-418-assignment2.html"><h2 itemprop="headline" class="item__header">CMU 15-418 assignment2 解题记录</h2></a></header>
           <div class="item__description">
 <div class="article__content" itemprop="description articleBody">下面是CMU 15-418/15-618: Parallel Computer Architecture and Programming课程解题记录。
@@ -425,7 +462,7 @@ You may want to config the site or writing a post next. Please feel free to crea
 </div>
 </div>
 <div class="layout--home"><div class="pagination">
-<p>共计 13 篇文章，2 页。</p>
+<p>共计 14 篇文章，2 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap">
 <li><a class="button button--secondary button--circle" href="/">

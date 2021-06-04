@@ -23,7 +23,7 @@ key: 2021-05-29-blog
   - [https://meta-world.github.io/](https://meta-world.github.io/)
 
 ### model-based meta-RL
-#### [Learning to reinforcement learn](https://tianyma.github.io/2021/06/01/Learning-to-reinforcement-learn.html)
+#### [Learning to reinforcement learn]({{ site.url }}/_posts/2021-06-01-Learning-to-reinforcement-learn.md)
 - source: CogSci 2017
 - method: deep meta-RL
 - environment:
@@ -35,7 +35,7 @@ key: 2021-05-29-blog
 - code:  
 - interpretation: 
 
-#### [RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning](https://tianyma.github.io/2021/06/02/RL2.html)
+#### [RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning]({{ site.url }}/_posts/2021-06-02-RL2.md)
 - source: ICLR 2017
 - method: $RL^2$
 - environment:
@@ -120,7 +120,7 @@ key: 2021-05-29-blog
 - interpretation: 
 
 ### optimization-based meta-RL
-#### [Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks](https://tianyma.github.io/2021/06/03/MAML.html)
+#### [Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks]({{ site.url }}/_posts/2021-06-03-MAML.md)
 - source: ICML 2017
 - method: MAML-RL
 - environment:
@@ -130,7 +130,7 @@ key: 2021-05-29-blog
 - code: [https://github.com/cbfinn/maml_rl](https://github.com/cbfinn/maml_rl) 
 - interpretation: 
 
-#### [On First-Order Meta-Learning Algorithms](https://tianyma.github.io/2021/06/04/Reptile.html)
+#### [On First-Order Meta-Learning Algorithms]({{ site.url }}/_posts/2021-06-04-Reptile.md)
 - source:	arXiv:1803.02999 2018
 - method: Reptile
 - environment:
