@@ -25,7 +25,7 @@ key: 2021-05-29-blog
 ### model-based meta-RL
 #### [Learning to reinforcement learn](https://tianyma.github.io/2021/06/01/Learning-to-reinforcement-learn.html)
 - source: CogSci 2017
-- method: 
+- method: deep meta-RL
 - environment:
   - bandit problem
   - Two-step task
@@ -37,7 +37,7 @@ key: 2021-05-29-blog
 
 #### [RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning](https://tianyma.github.io/2021/06/02/RL2.html)
 - source: ICLR 2017
-- method: 
+- method: $RL^2$
 - environment:
   - multi-armed bandit problem
   - tabular MDP
@@ -130,13 +130,18 @@ key: 2021-05-29-blog
 - code: [https://github.com/cbfinn/maml_rl](https://github.com/cbfinn/maml_rl) 
 - interpretation: 
 
-#### On First-Order Meta-Learning Algorithms
+#### [On First-Order Meta-Learning Algorithms](https://tianyma.github.io/2021/06/04/Reptile.html)
 - source:	arXiv:1803.02999 2018
 - method: Reptile
 - environment:
+  - few-shot image classification
+    - mini-ImageNet 
+    - Omniglot
 - paper link: [https://arxiv.org/pdf/1803.02999.pdf](https://arxiv.org/pdf/1803.02999.pdf)
 - code: [https://github.com/openai/supervised-reptile](https://github.com/openai/supervised-reptile) 
 - interpretation: 
+  - https://openai.com/blog/reptile/
+  - https://lilianweng.github.io/lil-log/2018/11/30/meta-learning.html#reptile
 
 #### Meta-Reinforcement Learning of Structured Exploration Strategies
 - source: NeurIPS 2018
