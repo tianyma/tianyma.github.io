@@ -19,5 +19,4 @@ key: 2021-06-01-blog
 ## 算法评价
 
 
-
-[返回文章列表](https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html)
+[返回文章列表]({{ site.url}}/_posts/2021-05-29-meta-reinforcement-learning.md)
