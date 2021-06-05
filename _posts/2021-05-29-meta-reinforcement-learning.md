@@ -220,11 +220,11 @@ key: 2021-05-29-blog
 - code:  
 - interpretation: 
 
-#### Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices
+#### [Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices]({{ site.url }}/_posts/2021/06/05/dream.html)
 - source:	ICML 2021
 - method: Dream
 - environment:
-  - [gym-miniworld](https://github.com/maximecb/gym-miniworld)
+  - [gym-miniworld 3D navigation](https://github.com/maximecb/gym-miniworld)
 - paper link: [https://arxiv.org/pdf/2008.02790v2.pdf](https://arxiv.org/pdf/2008.02790v2.pdf)
 - code: 
   - [https://github.com/ezliu/dream](https://github.com/ezliu/dream)
