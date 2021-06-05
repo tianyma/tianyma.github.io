@@ -220,7 +220,7 @@ key: 2021-05-29-blog
 - code:  
 - interpretation: 
 
-#### [Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices]({{ site.url }}/_posts/2021/06/05/dream.html)
+#### [Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices]({{ site.url }}/2021/06/05/dream.html)
 - source:	ICML 2021
 - method: Dream
 - environment:
