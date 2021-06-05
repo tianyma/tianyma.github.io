@@ -10,13 +10,19 @@ key: 2021-05-30-blog
 ## 2D navigation
 ### gym-minigrid
 - source code: [https://github.com/maximecb/gym-minigrid](https://github.com/maximecb/gym-minigrid)
-- scene screenshot: ![gym-minigrid-shot]({{ site.url }}/post_assets/2021-05-30/minigrid-shot.gif)
+- scene screenshot: 
+
+![gym-minigrid-shot]({{ site.url }}/post_assets/2021-05-30/minigrid-shot.gif)
+
 - use cases:
     - [Guiding Policies with Language via Meta-Learning](https://arxiv.org/abs/1811.07882)
 
 ### gym-maze
 - source code: [https://github.com/MattChanTK/gym-maze](https://github.com/MattChanTK/gym-maze)
-- scene screenshot: ![gym-maze-shot]({{ site.url }}/post_assets/2021-05-30/gymmaze-shot.gif)
+- scene screenshot: 
+
+![gym-maze-shot]({{ site.url }}/post_assets/2021-05-30/gymmaze-shot.gif)
+
 - use cases:
   - 
 
