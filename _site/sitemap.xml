@@ -41,6 +41,10 @@
 <lastmod>2021-05-29T00:00:00+08:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/2021/05/30/RL-benchmark.html</loc>
+<lastmod>2021-05-30T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/2021/06/01/Learning-to-reinforcement-learn.html</loc>
 <lastmod>2021-06-01T00:00:00+08:00</lastmod>
 </url>
@@ -57,6 +61,14 @@
 <lastmod>2021-06-04T00:00:00+08:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/2021/06/05/dream.html</loc>
+<lastmod>2021-06-05T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2021/06/06/savn.html</loc>
+<lastmod>2021-06-06T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about.html</loc>
 </url>
 <url>
@@ -67,6 +79,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/page2/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page3/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/pdf.js/web/compressed.tracemonkey-pldi-09.pdf</loc>

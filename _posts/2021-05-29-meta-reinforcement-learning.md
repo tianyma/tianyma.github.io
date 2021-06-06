@@ -23,7 +23,8 @@ key: 2021-05-29-blog
   - [https://meta-world.github.io/](https://meta-world.github.io/)
 
 ### model-based meta-RL
-#### [Learning to reinforcement learn]({{ site.url }}/2021/06/01/Learning-to-reinforcement-learn.html)
+#### [Learning to reinforcement learn]({% post_url 2021-06-01-Learning-to-reinforcement-learn %})
+<!-- #### [Learning to reinforcement learn]({{ site.url }}/2021/06/01/Learning-to-reinforcement-learn.html) -->
 - source: CogSci 2017
 - method: deep meta-RL
 - environment:

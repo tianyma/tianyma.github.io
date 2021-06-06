@@ -1,0 +1,46 @@
+I"�<p>这是一篇强化学习benchmark的总结，按照任务对其进行分类，并不全面地列举了在benchmark测试过的文章及开源代码。</p>
+<h2 id="2d-navigation">2D navigation</h2>
+<h3 id="gym-minigrid">gym-minigrid</h3>
+<ul>
+  <li>source code: <a href="https://github.com/maximecb/gym-minigrid">https://github.com/maximecb/gym-minigrid</a></li>
+  <li>scene screenshot:</li>
+</ul>
+
+<p><img src="http://localhost:4000/post_assets/2021-05-30/minigrid-shot.gif" alt="gym-minigrid-shot" /></p>
+
+<ul>
+  <li>use cases:
+    <ul>
+      <li><a href="https://arxiv.org/abs/1811.07882">Guiding Policies with Language via Meta-Learning</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="gym-maze">gym-maze</h3>
+<ul>
+  <li>source code: <a href="https://github.com/MattChanTK/gym-maze">https://github.com/MattChanTK/gym-maze</a></li>
+  <li>scene screenshot:</li>
+</ul>
+
+<p><img src="http://localhost:4000/post_assets/2021-05-30/gymmaze-shot.gif" alt="gym-maze-shot" /></p>
+
+<ul>
+  <li>use cases:
+    <ul>
+      <li></li>
+    </ul>
+  </li>
+</ul>
+
+<!---   
+### 
+- source code: 
+- scene screenshot: 
+- use cases:
+  - 
+----->
+
+<p>Reference:</p>
+
+<p><a href="https://github.com/clvrai/awesome-rl-envs#navigation">https://github.com/clvrai/awesome-rl-envs#navigation</a></p>
+:ET

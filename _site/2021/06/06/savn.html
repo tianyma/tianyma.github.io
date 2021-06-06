@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Paper reading: On First-Order Meta-Learning Algorithms - tianyma's blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Paper reading: Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning - tianyma's blog</title>
 
-<meta name="description" content="核心思想Reptile和MAML一样都是模型无关的元学习算法，不同的是，Reptile是用在新任务上的梯度下降方向和初始参数的方向求差作为初始参数的最终更新方向。实现过程    Pre-erain、MAML、Reptile的梯度更新方向的示意图。$\theta$为初始参数，蓝色箭头为不同方法初始参数更新方向，绿色...">
-<link rel="canonical" href="http://localhost:4000/2021/06/04/Reptile.html"><link rel="alternate" type="application/rss+xml" title="tianyma's blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="核心思想本文是meta-RL在navigation中的应用。  本文将navigation任务的学习分为了三个层次：  learn：通过监督式actor-critic loss进行学习  learn to learn：通过自适应算法的interactive loss进行学习  learn to how to le...">
+<link rel="canonical" href="http://localhost:4000/2021/06/06/savn.html"><link rel="alternate" type="application/rss+xml" title="tianyma's blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -279,48 +279,44 @@
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Paper reading: On First-Order Meta-Learning Algorithms</h1></header><span class="split-space">&nbsp;</span>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Paper reading: Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning</h1></header><span class="split-space">&nbsp;</span>
           <a class="edit-on-github"
             title="在 Github 上修改"
-            href="https://github.com/user_name/repo_name/tree/master/_posts/2021-06-04-Reptile.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Paper reading: On First-Order Meta-Learning Algorithms"><div class="article__info clearfix"><ul class="left-col menu"><li>
+            href="https://github.com/user_name/repo_name/tree/master/_posts/2021-06-06-savn.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Paper reading: Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=paper">paper</a>
             </li><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月04日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-04T00:00:00+08:00">
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月06日</span>
+            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-06T00:00:00+08:00">
     <meta itemprop="keywords" content="paper,review"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
 <!-- end custom article top snippet -->
 <div class="article__content" itemprop="articleBody"><h2 id="核心思想">核心思想</h2>
-<p>Reptile和MAML一样都是模型无关的元学习算法，不同的是，Reptile是用在新任务上的梯度下降方向和初始参数的方向求差作为初始参数的最终更新方向。</p>
-<h2 id="实现过程">实现过程</h2>
-<center>
-<figure>
-  <img src="http://localhost:4000/post_assets/2021-06-04/gradient-update-reptile.jpg" alt="pre-erain、MAML、Reptile的梯度更新方向" />
-  <figcaption>Pre-erain、MAML、Reptile的梯度更新方向的示意图。$\theta$为初始参数，蓝色箭头为不同方法初始参数更新方向，绿色箭头为初始参数在采样的任务上的梯度下降方向。</figcaption>
-</figure>
-</center>
-
-<p>算法流程：</p>
+<p>本文是meta-RL在navigation中的应用。  <br />
+本文将navigation任务的学习分为了三个层次：</p>
 <ul>
-  <li>采样一个任务或一批任务。</li>
-  <li>在任务上用初始化参数基于梯度下降训练，得到所有梯度方向，并求出总的梯度下降方向。</li>
-  <li>基于初始参数方向和总梯度下降方向的差作为参数更新方向。
-    <h2 id="测试任务">测试任务</h2>
-  </li>
-  <li>作者针对于few-shot classification做了实验，效果和MAML差不多。
-    <h2 id="创新点">创新点</h2>
-    <p>Reptile是基于MAML做了稍微改进，用梯度下降方向和初始参数方向的差作为更新方向，优势在于兼顾了所有任务的更新，降低了overfit的风险。</p>
-    <h2 id="算法评价">算法评价</h2>
-    <p>Reptile基于MAML做了微小改动，核心思想并没有太大差别。</p>
-  </li>
+  <li>learn：通过监督式actor-critic loss进行学习</li>
+  <li>learn to learn：通过自适应算法的interactive loss进行学习</li>
+  <li>learn to how to learn:通过学习自适应算法的interactive loss进行学习</li>
 </ul>
 
-<p><a href="http://localhost:4000/2021/05/29/meta-reinforcement-learning.html">返回文章列表</a></p>
-</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-06-04T00:00:00+08:00"><!-- start custom article footer snippet -->
+<p>本文提出的SAVN(self-adapted visual navigation)在传统的强化学习算法（如A2C）的基础上，添加了基于梯度下降的元学习算法（based on MAML）和自监督学习机制，让agent可以在通过与环境交互来学习的基础上，达成其他两个更高层次的能力：学会学习，学会如何学习。</p>
+
+<p>通俗的说，让agent学会了在新环境中随机应变的能力，使其可以快速适应新环境。</p>
+<h2 id="实现过程">实现过程</h2>
+<p>在训练过程中，通过最小化interactive loss来学习自适应网络，在测试过程中，固定自适应网络参数，只学习优化navigation loss。</p>
+<h2 id="测试任务">测试任务</h2>
+<p>本文在AI-thor的3D navigation任务上进行了测试，任务是只基于RGB观测信息导航agent到任一指定物品处。</p>
+<h2 id="创新点">创新点</h2>
+<p>在navigation中加入meta-RL的概念，通过自监督学习使agent在inference阶段也可以学习更新策略。</p>
+<h2 id="算法评价">算法评价</h2>
+<p>本文在传统RL navigation的基础上加入了meta learning和自监督学习的概念，是meta-RL在navigation的一个不错的应用。</p>
+
+<p><a href="https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html">返回文章列表</a></p>
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-06-06T00:00:00+08:00"><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet -->
 <div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
@@ -331,7 +327,7 @@
       </a>
     </p>
   </div></div></footer>
-<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/2021/06/03/MAML.html">Paper reading: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</a></div><div class="next"><span>下篇</span><a href="/2021/06/05/dream.html">Paper reading: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices</a></div></div></div>
+<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/2021/06/05/dream.html">Paper reading: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices</a></div></div></div>
 
 </div>
 

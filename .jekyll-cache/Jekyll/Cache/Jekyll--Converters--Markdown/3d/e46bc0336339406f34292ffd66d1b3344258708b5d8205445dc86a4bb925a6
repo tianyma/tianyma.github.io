@@ -1,0 +1,23 @@
+I"�<h2 id="核心思想">核心思想</h2>
+<p>本文是meta-RL在navigation中的应用。  <br />
+本文将navigation任务的学习分为了三个层次：</p>
+<ul>
+  <li>learn：通过监督式actor-critic loss进行学习</li>
+  <li>learn to learn：通过自适应算法的interactive loss进行学习</li>
+  <li>learn to how to learn:通过学习自适应算法的interactive loss进行学习</li>
+</ul>
+
+<p>本文提出的SAVN(self-adapted visual navigation)在传统的强化学习算法（如A2C）的基础上，添加了基于梯度下降的元学习算法（based on MAML）和自监督学习机制，让agent可以在通过与环境交互来学习的基础上，达成其他两个更高层次的能力：学会学习，学会如何学习。</p>
+
+<p>通俗的说，让agent学会了在新环境中随机应变的能力，使其可以快速适应新环境。</p>
+<h2 id="实现过程">实现过程</h2>
+<p>在训练过程中，通过最小化interactive loss来学习自适应网络，在测试过程中，固定自适应网络参数，只学习优化navigation loss。</p>
+<h2 id="测试任务">测试任务</h2>
+<p>本文在AI-thor的3D navigation任务上进行了测试，任务是只基于RGB观测信息导航agent到任一指定物品处。</p>
+<h2 id="创新点">创新点</h2>
+<p>在navigation中加入meta-RL的概念，通过自监督学习使agent在inference阶段也可以学习更新策略。</p>
+<h2 id="算法评价">算法评价</h2>
+<p>本文在传统RL navigation的基础上加入了meta learning和自监督学习的概念，是meta-RL在navigation的一个不错的应用。</p>
+
+<p><a href="https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html">返回文章列表</a></p>
+:ET

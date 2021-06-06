@@ -1,5 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2021-06-04T14:09:23+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tianyma’s blog</title><subtitle>do valuable research, be valuable person.
-</subtitle><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><entry><title type="html">Paper reading: On First-Order Meta-Learning Algorithms</title><link href="http://localhost:4000/2021/06/04/Reptile.html" rel="alternate" type="text/html" title="Paper reading: On First-Order Meta-Learning Algorithms" /><published>2021-06-04T00:00:00+08:00</published><updated>2021-06-04T00:00:00+08:00</updated><id>http://localhost:4000/2021/06/04/Reptile</id><content type="html" xml:base="http://localhost:4000/2021/06/04/Reptile.html">&lt;h2 id=&quot;核心思想&quot;&gt;核心思想&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh" /><updated>2021-06-06T23:54:55+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tianyma’s blog</title><subtitle>do valuable research, be valuable person.
+</subtitle><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><entry><title type="html">Paper reading: Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning</title><link href="http://localhost:4000/2021/06/06/savn.html" rel="alternate" type="text/html" title="Paper reading: Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning" /><published>2021-06-06T00:00:00+08:00</published><updated>2021-06-06T00:00:00+08:00</updated><id>http://localhost:4000/2021/06/06/savn</id><content type="html" xml:base="http://localhost:4000/2021/06/06/savn.html">&lt;h2 id=&quot;核心思想&quot;&gt;核心思想&lt;/h2&gt;
+&lt;p&gt;本文是meta-RL在navigation中的应用。  &lt;br /&gt;
+本文将navigation任务的学习分为了三个层次：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;learn：通过监督式actor-critic loss进行学习&lt;/li&gt;
+  &lt;li&gt;learn to learn：通过自适应算法的interactive loss进行学习&lt;/li&gt;
+  &lt;li&gt;learn to how to learn:通过学习自适应算法的interactive loss进行学习&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文提出的SAVN(self-adapted visual navigation)在传统的强化学习算法（如A2C）的基础上，添加了基于梯度下降的元学习算法（based on MAML）和自监督学习机制，让agent可以在通过与环境交互来学习的基础上，达成其他两个更高层次的能力：学会学习，学会如何学习。&lt;/p&gt;
+
+&lt;p&gt;通俗的说，让agent学会了在新环境中随机应变的能力，使其可以快速适应新环境。&lt;/p&gt;
+&lt;h2 id=&quot;实现过程&quot;&gt;实现过程&lt;/h2&gt;
+&lt;p&gt;在训练过程中，通过最小化interactive loss来学习自适应网络，在测试过程中，固定自适应网络参数，只学习优化navigation loss。&lt;/p&gt;
+&lt;h2 id=&quot;测试任务&quot;&gt;测试任务&lt;/h2&gt;
+&lt;p&gt;本文在AI-thor的3D navigation任务上进行了测试，任务是只基于RGB观测信息导航agent到任一指定物品处。&lt;/p&gt;
+&lt;h2 id=&quot;创新点&quot;&gt;创新点&lt;/h2&gt;
+&lt;p&gt;在navigation中加入meta-RL的概念，通过自监督学习使agent在inference阶段也可以学习更新策略。&lt;/p&gt;
+&lt;h2 id=&quot;算法评价&quot;&gt;算法评价&lt;/h2&gt;
+&lt;p&gt;本文在传统RL navigation的基础上加入了meta learning和自监督学习的概念，是meta-RL在navigation的一个不错的应用。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html&quot;&gt;返回文章列表&lt;/a&gt;&lt;/p&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">核心思想 本文是meta-RL在navigation中的应用。 本文将navigation任务的学习分为了三个层次： learn：通过监督式actor-critic loss进行学习 learn to learn：通过自适应算法的interactive loss进行学习 learn to how to learn:通过学习自适应算法的interactive loss进行学习 本文提出的SAVN(self-adapted visual navigation)在传统的强化学习算法（如A2C）的基础上，添加了基于梯度下降的元学习算法（based on MAML）和自监督学习机制，让agent可以在通过与环境交互来学习的基础上，达成其他两个更高层次的能力：学会学习，学会如何学习。 通俗的说，让agent学会了在新环境中随机应变的能力，使其可以快速适应新环境。 实现过程 在训练过程中，通过最小化interactive loss来学习自适应网络，在测试过程中，固定自适应网络参数，只学习优化navigation loss。 测试任务 本文在AI-thor的3D navigation任务上进行了测试，任务是只基于RGB观测信息导航agent到任一指定物品处。 创新点 在navigation中加入meta-RL的概念，通过自监督学习使agent在inference阶段也可以学习更新策略。 算法评价 本文在传统RL navigation的基础上加入了meta learning和自监督学习的概念，是meta-RL在navigation的一个不错的应用。 返回文章列表</summary></entry><entry><title type="html">Paper reading: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices</title><link href="http://localhost:4000/2021/06/05/dream.html" rel="alternate" type="text/html" title="Paper reading: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices" /><published>2021-06-05T00:00:00+08:00</published><updated>2021-06-05T00:00:00+08:00</updated><id>http://localhost:4000/2021/06/05/dream</id><content type="html" xml:base="http://localhost:4000/2021/06/05/dream.html">&lt;h2 id=&quot;核心思想&quot;&gt;核心思想&lt;/h2&gt;
+&lt;p&gt;想象要学习一门新的编程语言，一种做法是找一本教科书或找到官方文档，完整阅读一遍，然后开始编程，但这也许不是最高效的做法。更高效的做法是找到一个要解决的问题或要实现的算法，尝试写出伪代码，然后学习这门语言的语法，并用其实现这个算法，也就是在实践中去学习。这个过程可以抽象成一个exploration和exploitation的过程。  &lt;br /&gt;
+在meta-RL中，存在如何解耦exploration和exploitation的问题，如教会一个机器人做饭，我们可以让其在一些厨房场景中先学习如何做饭，然后将其放在新的场景下，让其快速适应并完成任务。在新的场景中，机器人要找到食材和厨具（exploration），然后做出一道可口的菜（exploitation）。  &lt;br /&gt;
+虽然通常的meta-RL的算法对exploration和exploitation进行了解耦，但在explore的时候往往会收集到任务无关的信息而陷入局部最优解。  &lt;br /&gt;
+DREAM的核心思想是构建独立的exploitation目标来确定任务相关的信息，然后构建独立的explore目标来寻找这些信息，从而实现最优解。通俗的说，就是带着目的去探索，然后用探索到的信息去完成任务。&lt;/p&gt;
+&lt;h2 id=&quot;实现过程&quot;&gt;实现过程&lt;/h2&gt;
+&lt;p&gt;在meta-training的trial中，针对于一个场景问题$\mu$，Dream训练一个任务编码器$F_{\psi}$，该编码器可以提取出$\mu$中的任务相关的信息，利用$F_{\psi}$作为中间件将exploration和exploitation进行解耦。  &lt;br /&gt;
+定义相关信息函数$I$，在exploration的过程中，通过更新exploration的策略来最大化该相关信息函数，从而得到最优exploration策略。 &lt;br /&gt;
+在exploitation的过程中，通过更新exploitation的策略和$F_{\psi}$来最大化exploitation奖励，从而得到最优exploitation策略。&lt;/p&gt;
+&lt;h2 id=&quot;测试任务&quot;&gt;测试任务&lt;/h2&gt;
+&lt;p&gt;Dream分别在定制的2D navigation环境和基于gym-miniworld的3D navigation环境上进行了测试。&lt;/p&gt;
+&lt;h2 id=&quot;创新点&quot;&gt;创新点&lt;/h2&gt;
+&lt;p&gt;本文提出了一个任务编码器，可以从问题中提取出任务相关信息，并排除任务无关信息，从而通过解耦exploration和exploitation，分别对两个过程进行优化得到最优策略。&lt;/p&gt;
+&lt;h2 id=&quot;算法评价&quot;&gt;算法评价&lt;/h2&gt;
+&lt;p&gt;Dream针对于端到端的meta-train方法容易陷入局部最优并且需要大量训练样本的问题，对exploration和exploitation进行了解耦，从而可以分别对这两个过程的策略进行优化。本文对问题定义很清晰，算法也很符合直觉。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tianyma.github.io/2021/05/29/meta-reinforcement-learning.html&quot;&gt;返回文章列表&lt;/a&gt;&lt;/p&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">核心思想 想象要学习一门新的编程语言，一种做法是找一本教科书或找到官方文档，完整阅读一遍，然后开始编程，但这也许不是最高效的做法。更高效的做法是找到一个要解决的问题或要实现的算法，尝试写出伪代码，然后学习这门语言的语法，并用其实现这个算法，也就是在实践中去学习。这个过程可以抽象成一个exploration和exploitation的过程。 在meta-RL中，存在如何解耦exploration和exploitation的问题，如教会一个机器人做饭，我们可以让其在一些厨房场景中先学习如何做饭，然后将其放在新的场景下，让其快速适应并完成任务。在新的场景中，机器人要找到食材和厨具（exploration），然后做出一道可口的菜（exploitation）。 虽然通常的meta-RL的算法对exploration和exploitation进行了解耦，但在explore的时候往往会收集到任务无关的信息而陷入局部最优解。 DREAM的核心思想是构建独立的exploitation目标来确定任务相关的信息，然后构建独立的explore目标来寻找这些信息，从而实现最优解。通俗的说，就是带着目的去探索，然后用探索到的信息去完成任务。 实现过程 在meta-training的trial中，针对于一个场景问题$\mu$，Dream训练一个任务编码器$F_{\psi}$，该编码器可以提取出$\mu$中的任务相关的信息，利用$F_{\psi}$作为中间件将exploration和exploitation进行解耦。 定义相关信息函数$I$，在exploration的过程中，通过更新exploration的策略来最大化该相关信息函数，从而得到最优exploration策略。 在exploitation的过程中，通过更新exploitation的策略和$F_{\psi}$来最大化exploitation奖励，从而得到最优exploitation策略。 测试任务 Dream分别在定制的2D navigation环境和基于gym-miniworld的3D navigation环境上进行了测试。 创新点 本文提出了一个任务编码器，可以从问题中提取出任务相关信息，并排除任务无关信息，从而通过解耦exploration和exploitation，分别对两个过程进行优化得到最优策略。 算法评价 Dream针对于端到端的meta-train方法容易陷入局部最优并且需要大量训练样本的问题，对exploration和exploitation进行了解耦，从而可以分别对这两个过程的策略进行优化。本文对问题定义很清晰，算法也很符合直觉。 返回文章列表</summary></entry><entry><title type="html">Paper reading: On First-Order Meta-Learning Algorithms</title><link href="http://localhost:4000/2021/06/04/Reptile.html" rel="alternate" type="text/html" title="Paper reading: On First-Order Meta-Learning Algorithms" /><published>2021-06-04T00:00:00+08:00</published><updated>2021-06-04T00:00:00+08:00</updated><id>http://localhost:4000/2021/06/04/Reptile</id><content type="html" xml:base="http://localhost:4000/2021/06/04/Reptile.html">&lt;h2 id=&quot;核心思想&quot;&gt;核心思想&lt;/h2&gt;
 &lt;p&gt;Reptile和MAML一样都是模型无关的元学习算法，不同的是，Reptile是用在新任务上的梯度下降方向和初始参数的方向求差作为初始参数的最终更新方向。&lt;/p&gt;
 &lt;h2 id=&quot;实现过程&quot;&gt;实现过程&lt;/h2&gt;
 &lt;center&gt;
@@ -71,7 +108,51 @@ MAML的核心思想是针对一系列学习任务构建共有的中间表征，�
 &lt;p&gt;本文是基于模型的元强化学习算法的一次尝试，通过将带LSTM的RNN用强化学习算法进行训练，可以使agent获得一定的学习适应能力。&lt;/p&gt;
 &lt;h2 id=&quot;算法评价&quot;&gt;算法评价&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://localhost:4000/2021/05/29/meta-reinforcement-learning.html&quot;&gt;返回文章列表&lt;/a&gt;&lt;/p&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">核心思想 本文提出了一种深度元强化学习(deep meta-reinforcement learning)方法，通过强化学习训练一个循环神经网络(RNN)，使得该RNN可以通过自适应更新的方法快速适应不同任务，从而提高训练效率。 实现过程 本文使用A2C(Advantage Actor-Critic)算法在一系列输入任务上训练一个RNN。以MDPs(Markov Decision Processes)为例，设$\mathcal{D}$是一个MDPs分布，每个新的episode开始时，先从D采样的一个任务$m \backsim \mathcal{D}$，RNN的内部循环单元的参数会被重置，然后和环境交互一定的时长，每一次策略都是基于到目前的所有历史信息（状态，动作，奖励），agent的目标是在所有任务上最大化总的奖励。 训练结束后，网络权重会被固定，然后在一组来自$\mathcal{D}$（或者对分布$\mathcal{D}$稍微修改）的MDPs上测试agent的适应能力。 测试任务 本文分布在4个bandit problem和2个MDP任务上进行了测试，MDP任务分别是一个改编的two step task和一个改编的Harlow task，最后讨论了在一个3D迷宫任务(来自deepmind lab)上进行深度元学习的方法。 创新点 本文是基于模型的元强化学习算法的一次尝试，通过将带LSTM的RNN用强化学习算法进行训练，可以使agent获得一定的学习适应能力。 算法评价 返回文章列表</summary></entry><entry><title type="html">Paper review: meta-reinforcement-learning</title><link href="http://localhost:4000/2021/05/29/meta-reinforcement-learning.html" rel="alternate" type="text/html" title="Paper review: meta-reinforcement-learning" /><published>2021-05-29T00:00:00+08:00</published><updated>2021-05-29T00:00:00+08:00</updated><id>http://localhost:4000/2021/05/29/meta-reinforcement-learning</id><content type="html" xml:base="http://localhost:4000/2021/05/29/meta-reinforcement-learning.html">&lt;h2 id=&quot;challenges-of-meta-rl&quot;&gt;Challenges of meta-RL&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://localhost:4000/2021/05/29/meta-reinforcement-learning.html&quot;&gt;返回文章列表&lt;/a&gt;&lt;/p&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">核心思想 本文提出了一种深度元强化学习(deep meta-reinforcement learning)方法，通过强化学习训练一个循环神经网络(RNN)，使得该RNN可以通过自适应更新的方法快速适应不同任务，从而提高训练效率。 实现过程 本文使用A2C(Advantage Actor-Critic)算法在一系列输入任务上训练一个RNN。以MDPs(Markov Decision Processes)为例，设$\mathcal{D}$是一个MDPs分布，每个新的episode开始时，先从D采样的一个任务$m \backsim \mathcal{D}$，RNN的内部循环单元的参数会被重置，然后和环境交互一定的时长，每一次策略都是基于到目前的所有历史信息（状态，动作，奖励），agent的目标是在所有任务上最大化总的奖励。 训练结束后，网络权重会被固定，然后在一组来自$\mathcal{D}$（或者对分布$\mathcal{D}$稍微修改）的MDPs上测试agent的适应能力。 测试任务 本文分布在4个bandit problem和2个MDP任务上进行了测试，MDP任务分别是一个改编的two step task和一个改编的Harlow task，最后讨论了在一个3D迷宫任务(来自deepmind lab)上进行深度元学习的方法。 创新点 本文是基于模型的元强化学习算法的一次尝试，通过将带LSTM的RNN用强化学习算法进行训练，可以使agent获得一定的学习适应能力。 算法评价 返回文章列表</summary></entry><entry><title type="html">Summary: Reinforcement learning benchmarks</title><link href="http://localhost:4000/2021/05/30/RL-benchmark.html" rel="alternate" type="text/html" title="Summary: Reinforcement learning benchmarks" /><published>2021-05-30T00:00:00+08:00</published><updated>2021-05-30T00:00:00+08:00</updated><id>http://localhost:4000/2021/05/30/RL-benchmark</id><content type="html" xml:base="http://localhost:4000/2021/05/30/RL-benchmark.html">&lt;p&gt;这是一篇强化学习benchmark的总结，按照任务对其进行分类，并不全面地列举了在benchmark测试过的文章及开源代码。&lt;/p&gt;
+&lt;h2 id=&quot;2d-navigation&quot;&gt;2D navigation&lt;/h2&gt;
+&lt;h3 id=&quot;gym-minigrid&quot;&gt;gym-minigrid&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;source code: &lt;a href=&quot;https://github.com/maximecb/gym-minigrid&quot;&gt;https://github.com/maximecb/gym-minigrid&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;scene screenshot:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/post_assets/2021-05-30/minigrid-shot.gif&quot; alt=&quot;gym-minigrid-shot&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;use cases:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1811.07882&quot;&gt;Guiding Policies with Language via Meta-Learning&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;gym-maze&quot;&gt;gym-maze&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;source code: &lt;a href=&quot;https://github.com/MattChanTK/gym-maze&quot;&gt;https://github.com/MattChanTK/gym-maze&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;scene screenshot:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/post_assets/2021-05-30/gymmaze-shot.gif&quot; alt=&quot;gym-maze-shot&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;use cases:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!---   
+### 
+- source code: 
+- scene screenshot: 
+- use cases:
+  - 
+-----&gt;
+
+&lt;p&gt;Reference:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/clvrai/awesome-rl-envs#navigation&quot;&gt;https://github.com/clvrai/awesome-rl-envs#navigation&lt;/a&gt;&lt;/p&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="RL-benchmark" /><summary type="html">这是一篇强化学习benchmark的总结，按照任务对其进行分类，并不全面地列举了在benchmark测试过的文章及开源代码。 2D navigation gym-minigrid source code: https://github.com/maximecb/gym-minigrid scene screenshot: use cases: Guiding Policies with Language via Meta-Learning gym-maze source code: https://github.com/MattChanTK/gym-maze scene screenshot: use cases: Reference: https://github.com/clvrai/awesome-rl-envs#navigation</summary></entry><entry><title type="html">Paper review: meta-reinforcement-learning</title><link href="http://localhost:4000/2021/05/29/meta-reinforcement-learning.html" rel="alternate" type="text/html" title="Paper review: meta-reinforcement-learning" /><published>2021-05-29T00:00:00+08:00</published><updated>2021-05-29T00:00:00+08:00</updated><id>http://localhost:4000/2021/05/29/meta-reinforcement-learning</id><content type="html" xml:base="http://localhost:4000/2021/05/29/meta-reinforcement-learning.html">&lt;h2 id=&quot;challenges-of-meta-rl&quot;&gt;Challenges of meta-RL&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;design a set of tasks that are interrelated&lt;/li&gt;
   &lt;li&gt;find the inter-representation&lt;/li&gt;
@@ -97,7 +178,8 @@ MAML的核心思想是针对一系列学习任务构建共有的中间表征，�
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;model-based-meta-rl&quot;&gt;model-based meta-RL&lt;/h3&gt;
-&lt;h4 id=&quot;learning-to-reinforcement-learn&quot;&gt;&lt;a href=&quot;http://localhost:4000/2021/06/01/Learning-to-reinforcement-learn.html&quot;&gt;Learning to reinforcement learn&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;learning-to-reinforcement-learn&quot;&gt;&lt;a href=&quot;/2021/06/01/Learning-to-reinforcement-learn.html&quot;&gt;Learning to reinforcement learn&lt;/a&gt;&lt;/h4&gt;
+&lt;!-- #### [Learning to reinforcement learn](http://localhost:4000/2021/06/01/Learning-to-reinforcement-learn.html) --&gt;
 &lt;ul&gt;
   &lt;li&gt;source: CogSci 2017&lt;/li&gt;
   &lt;li&gt;method: deep meta-RL&lt;/li&gt;
@@ -255,7 +337,12 @@ MAML的核心思想是针对一系列学习任务构建共有的中间表征，�
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1703.03400.pdf&quot;&gt;https://arxiv.org/pdf/1703.03400.pdf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;code: &lt;a href=&quot;https://github.com/cbfinn/maml_rl&quot;&gt;https://github.com/cbfinn/maml_rl&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/cbfinn/maml_rl&quot;&gt;https://github.com/cbfinn/maml_rl(tensorflow)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tristandeleu/pytorch-maml-rl&quot;&gt;https://github.com/tristandeleu/pytorch-maml-rl&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;interpretation:&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -274,7 +361,11 @@ MAML的核心思想是针对一系列学习任务构建共有的中间表征，�
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1803.02999.pdf&quot;&gt;https://arxiv.org/pdf/1803.02999.pdf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;code: &lt;a href=&quot;https://github.com/openai/supervised-reptile&quot;&gt;https://github.com/openai/supervised-reptile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/openai/supervised-reptile&quot;&gt;https://github.com/openai/supervised-reptile&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;interpretation:
     &lt;ul&gt;
       &lt;li&gt;https://openai.com/blog/reptile/&lt;/li&gt;
@@ -398,6 +489,28 @@ MAML的核心思想是针对一系列学习任务构建共有的中间表征，�
   &lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h4 id=&quot;learning-to-learn-how-to-learn-self-adaptive-visual-navigation-using-meta-learning&quot;&gt;&lt;a href=&quot;http://localhost:4000/2021/06/06/savn.html&quot;&gt;Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;source: CVPR 2019&lt;/li&gt;
+  &lt;li&gt;method: savn&lt;/li&gt;
+  &lt;li&gt;environment:
+    &lt;ul&gt;
+      &lt;li&gt;3D navigation (ai2thor)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1812.00971v2.pdf&quot;&gt;https://arxiv.org/pdf/1812.00971v2.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;code:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/allenai/savn&quot;&gt;https://github.com/allenai/savn&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;interpretation:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/154184867&quot;&gt;https://zhuanlan.zhihu.com/p/154184867&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h4 id=&quot;meta-q-learning&quot;&gt;Meta-Q-Learning&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;source: ICLR 2020&lt;/li&gt;
@@ -408,13 +521,13 @@ MAML的核心思想是针对一系列学习任务构建共有的中间表征，�
   &lt;li&gt;interpretation:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;decoupling-exploration-and-exploitation-for-meta-reinforcement-learning-without-sacrifices&quot;&gt;Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices&lt;/h4&gt;
+&lt;h4 id=&quot;decoupling-exploration-and-exploitation-for-meta-reinforcement-learning-without-sacrifices&quot;&gt;&lt;a href=&quot;http://localhost:4000/2021/06/05/dream.html&quot;&gt;Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices&lt;/a&gt;&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;source:	ICML 2021&lt;/li&gt;
   &lt;li&gt;method: Dream&lt;/li&gt;
   &lt;li&gt;environment:
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/maximecb/gym-miniworld&quot;&gt;gym-miniworld&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/maximecb/gym-miniworld&quot;&gt;gym-miniworld 3D navigation&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/2008.02790v2.pdf&quot;&gt;https://arxiv.org/pdf/2008.02790v2.pdf&lt;/a&gt;&lt;/li&gt;
@@ -457,24 +570,6 @@ MAML的核心思想是针对一系列学习任务构建共有的中间表征，�
       &lt;li&gt;&lt;a href=&quot;https://deepmind.com/research/publications/alchemy&quot;&gt;https://deepmind.com/research/publications/alchemy&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;learning-to-learn-how-to-learn-self-adaptive-visual-navigation-using-meta-learning&quot;&gt;Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;source: CVPR 2019&lt;/li&gt;
-  &lt;li&gt;method: savn&lt;/li&gt;
-  &lt;li&gt;environment:
-    &lt;ul&gt;
-      &lt;li&gt;3D navigation (ai2thor)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;paper link: &lt;a href=&quot;https://arxiv.org/pdf/1812.00971v2.pdf&quot;&gt;https://arxiv.org/pdf/1812.00971v2.pdf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;code:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/allenai/savn&quot;&gt;https://github.com/allenai/savn&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;interpretation:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;learning-robust-state-abstractions-for-hidden-parameter-block-mdps&quot;&gt;Learning Robust State Abstractions for Hidden-Parameter Block MDPs&lt;/h4&gt;
@@ -684,7 +779,7 @@ MAML的核心思想是针对一系列学习任务构建共有的中间表征，�
 - code:  
 - interpretation: 
 
---&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">Challenges of meta-RL design a set of tasks that are interrelated find the inter-representation fast adaptation to new tasks Papers environment Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning source: PMLR 2020 method: None environment: object manipulation paper link: http://proceedings.mlr.press/v100/yu20a/yu20a.pdf code: https://github.com/rlworkgroup/metaworld interpretation: https://meta-world.github.io/ model-based meta-RL Learning to reinforcement learn source: CogSci 2017 method: deep meta-RL environment: bandit problem Two-step task Harlow experiment 3D navigation (Deepmind Lab) paper link: https://arxiv.org/pdf/1611.05763.pdf code: https://github.com/Phu-archive/Learning2RL interpretation: RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning source: ICLR 2017 method: $RL^2$ environment: multi-armed bandit problem tabular MDP 3D navigation (ViZDoom) paper link: https://arxiv.org/pdf/1611.02779.pdf code: https://github.com/mwufi/meta-rl-bandits (pytorch) https://github.com/VashishtMadhavan/rl2 (tensorflow) interpretation: https://zhuanlan.zhihu.com/p/32606591 https://openreview.net/forum?id=HkLXCE9lx Prefrontal cortex as a meta-reinforcement learning system source: Nature Neuroscience 2018 method: environment: paper link: https://www.nature.com/articles/s41593-018-0147-8 code: interpretation: A Simple Neural Attentive Meta-Learner source: ICLR 2018 method: SNAIL (simple neural attentive learner) environment: navigation robotic locomotion paper link: https://openreview.net/pdf?id=B1DmUzWAW code: https://github.com/eambutu/snail-pytorch interpretation: https://www.carsi.edu.cn/index_zh.htm PixelSNAIL: An Improved Autoregressive Generative Model source: ICML 2018 method: environment: paper link: https://arxiv.org/pdf/1712.09763v1.pdf code: https://github.com/neocxi/pixelsnail-public interpretation: Concurrent Meta Reinforcement Learning source: arXiv:1903.02710 preprint method: CMRL environment: N-Monty-Hall N-Color-Choice N-Reacher (Reacher-V2 from gym) paper link: https://arxiv.org/pdf/1903.02710v1.pdf code: interpretation: Reinforcement Learning, Fast and Slow source: Trends in Cognitive Sciences 2019 method: environment: paper link: https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-66131930061-0 code: interpretation: Improving Generalization in Meta Reinforcement Learning using Learned Objectives source: ICLR 2020 method: environment: paper link: https://arxiv.org/pdf/1910.04098.pdf code: https://github.com/louiskirsch/metagenrl interpretation: Discovering Reinforcement Learning Algorithms source: arXiv:2007.08794 2020 method: environment: paper link: https://arxiv.org/pdf/2007.08794 code: interpretation: Model-based Adversarial Meta-Reinforcement Learning source: NeurIPS 2020 method: AdMRL environment: paper link: https://arxiv.org/pdf/2006.08875v2.pdf code: https://github.com/LinZichuan/AdMRL interpretation: optimization-based meta-RL Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks source: ICML 2017 method: MAML-RL environment: 2D navigation (rllab) locomotion (rllab) paper link: https://arxiv.org/pdf/1703.03400.pdf code: https://github.com/cbfinn/maml_rl interpretation: On First-Order Meta-Learning Algorithms source: arXiv:1803.02999 2018 method: Reptile environment: few-shot image classification mini-ImageNet Omniglot paper link: https://arxiv.org/pdf/1803.02999.pdf code: https://github.com/openai/supervised-reptile interpretation: https://openai.com/blog/reptile/ https://lilianweng.github.io/lil-log/2018/11/30/meta-learning.html#reptile Meta-Reinforcement Learning of Structured Exploration Strategies source: NeurIPS 2018 method: MAESN (model agnostic exploration with structured noise) environment: robotic locomotion (rllab) object manipulation paper link: https://arxiv.org/pdf/1802.07245.pdf code: https://github.com/russellmendonca/maesn_suite interpretation: https://zhuanlan.zhihu.com/p/63072582 Some Considerations on Learning to Explore via Meta-Reinforcement Learning source: ICLR 2018 method: E-MAML(optimization-based) E-$RL^2$(model-based) environment: Krazy World paper link: https://arxiv.org/pdf/1803.01118v2.pdf code: https://github.com/geyang/e-maml interpretation: ProMP: Proximal Meta-Policy Search source: ICLR 2019 method: ProMP environment: locomotion(gym &amp;amp; Mujoco) HalfCheetahFwdBack AntRandDir HopperRandParams WalkerFwdBack HumanoidRandDir WalkerRandParams paper link: https://openreview.net/pdf?id=SkxXCi0qFX code: https://github.com/jonasrothfuss/promp Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables source: ICML2019 method: PEARL (probabilistic embeddings for actor-critic RL) environment: robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133) paper link: https://arxiv.org/pdf/1903.08254.pdf code: https://github.com/katerakelly/oyster interpretation: https://bair.berkeley.edu/blog/2019/06/10/pearl/ Learning to Adapt in Dynamic, Real-World Environments Through Meta-Reinforcement Learning source: ICLR 2019 method: Model-Based Meta-Reinforcement Learning (train time) Online Model Adaptation (test time) environment: Mujoco half cheetah:disabled joint, sloped terrain, pier Ant: crippled leg real world robot paper link: https://arxiv.org/pdf/1803.11347v6.pdf code: https://github.com/iclavera/learning_to_adapt interpretation: https://sites.google.com/berkeley.edu/metaadaptivecontrol Meta-Q-Learning source: ICLR 2020 method: environment: paper link: https://arxiv.org/pdf/1910.00125.pdf code: interpretation: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices source: ICML 2021 method: Dream environment: gym-miniworld paper link: https://arxiv.org/pdf/2008.02790v2.pdf code: https://github.com/ezliu/dream interpretation: https://ezliu.github.io/dream/ Meta Learning via Learned Loss source: ICPR 2021 method: ML^3 environment: paper link: https://arxiv.org/pdf/1906.05374.pdf code: interpretation: 未分类 Alchemy: A structured task distribution for meta-reinforcement learning source: arXiv:2102.02926 preprint 2021 method: environment: paper link: https://arxiv.org/pdf/2102.02926v1.pdf code: https://github.com/deepmind/dm_alchemy interpretation: https://deepmind.com/research/publications/alchemy Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning source: CVPR 2019 method: savn environment: 3D navigation (ai2thor) paper link: https://arxiv.org/pdf/1812.00971v2.pdf code: https://github.com/allenai/savn interpretation: Learning Robust State Abstractions for Hidden-Parameter Block MDPs source: ICLR2021 method: environment: paper link: https://arxiv.org/pdf/2007.07206v4.pdf code: interpretation: Meta reinforcement learning as task inference source: arXiv:1905.06424 2019 method: environment: paper link: https://arxiv.org/pdf/1905.06424v2.pdf code: interpretation: MELD: Meta-Reinforcement Learning from Images via Latent State Models source: CoRL 2020 method: environment: paper link: https://arxiv.org/pdf/2010.13957v2.pdf code: https://github.com/tonyzhaozh/meld interpretation: https://sites.google.com/view/meld-lsm Meta Reinforcement Learning with Task Embedding and Shared Policy source: IJCAI 2019 method: environment: paper link: https://arxiv.org/pdf/1905.06527v3.pdf code: https://github.com/llan-ml/tesp interpretation: Fast Adaptive Task Offloading in Edge Computing based on Meta Reinforcement Learning source: ITPDS 2020 method: environment: paper link: https://arxiv.org/pdf/2008.02033v5.pdf code: https://github.com/linkpark/metarl-offloading interpretation: Learning Associative Inference Using Fast Weight Memory source: ICLR 2021 method: environment: paper link: https://arxiv.org/pdf/2011.07831v2.pdf code: https://github.com/ischlag/Fast-Weight-Memory-public interpretation: Few-Shot Complex Knowledge Base Question Answering via Meta Reinforcement Learning source: EMNLP 2020 method: environment: paper link: https://arxiv.org/pdf/2010.15877v1.pdf code: https://github.com/DevinJake/MRL-CQA interpretation: Meta Reinforcement Learning with Autonomous Inference of Subtask Dependencies source: ICLR 2020 method: environment: paper link: https://arxiv.org/pdf/2001.00248v2.pdf code: https://github.com/srsohn/msgi interpretation: Loaded DiCE: Trading off Bias and Variance in Any-Order Score Function Gradient Estimators for Reinforcement Learning source: NeurIPS 2019 method: environment: paper link: http://papers.nips.cc/paper/9026-loaded-dice-trading-off-bias-and-variance-in-any-order-score-function-gradient-estimators-for-reinforcement-learning.pdf code: https://github.com/oxwhirl/loaded-dice interpretation: Causal Reasoning from Meta-reinforcement Learning source: ICLR 2019 method: environment: paper link: https://arxiv.org/pdf/1901.08162v1.pdf code: https://github.com/kantneel/causal-metarl interpretation: Introducing Neuromodulation in Deep Neural Networks to Learn Adaptive Behaviours source: arXiv:1812.09113 preprint 2019 method: environment: paper link: https://arxiv.org/pdf/1812.09113v3.pdf code: https://github.com/nvecoven/nmd_net interpretation: Policy Gradient RL Algorithms as Directed Acyclic Graphs source: arXiv:2012.07763 preprint 2020 method: environment: paper link: https://arxiv.org/pdf/2012.07763v2.pdf code: https://github.com/jjgarau/DAGPolicyGradient interpretation: Evolving Inborn Knowledge For Fast Adaptation in Dynamic POMDP Problems source: GECCO 2020 method: environment: paper link: https://arxiv.org/pdf/2004.12846v2.pdf code: https://github.com/dlpbc/penn-a interpretation: Model-Based Meta-Reinforcement Learning for Flight with Suspended Payloads source: RA-L 2021 method: environment: paper link: https://arxiv.org/pdf/2004.11345v2.pdf code: https://github.com/suneelbelkhale/model-based-meta-rl-for-flight interpretation: Hierarchical Meta Reinforcement Learning for Multi-Task Environments source: ICLR 2021 method: environment: paper link: https://openreview.net/pdf?id=u9ax42K7ND code: https://github.com/MeSH-ICLR/MEtaSoftHierarchy interpretation: Modeling and Optimization Trade-off in Meta-learning source: NeurIPS 2020 method: environment: paper link: https://arxiv.org/pdf/2010.12916v2.pdf code: https://github.com/intel-isl/MetaLearningTradeoffs interpretation: Meta-Learning of Structured Task Distributions in Humans and Machines source: ICLR 2021 method: environment: paper link: https://arxiv.org/pdf/2010.02317v3.pdf code: https://github.com/sreejank/Compositional_MetaRL interpretation: Offline Meta Learning of Exploration source: arXiv:2008.02598 preprint 2021 method: environment: paper link: https://arxiv.org/pdf/2008.02598v3.pdf code: https://github.com/Rondorf/BOReL interpretation: Meta-Reinforcement Learning for Reliable Communication in THz/VLC Wireless VR Networks source: ICC 2021 method: environment: paper link: https://arxiv.org/pdf/2102.12277v1.pdf code: https://github.com/wyy0206/THzVR interpretation:</summary></entry><entry><title type="html">Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</title><link href="http://localhost:4000/2020/12/23/success.html" rel="alternate" type="text/html" title="Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)" /><published>2020-12-23T00:00:00+08:00</published><updated>2020-12-23T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/23/success</id><content type="html" xml:base="http://localhost:4000/2020/12/23/success.html">&lt;blockquote&gt;
+--&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><category term="review" /><summary type="html">Challenges of meta-RL design a set of tasks that are interrelated find the inter-representation fast adaptation to new tasks Papers environment Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning source: PMLR 2020 method: None environment: object manipulation paper link: http://proceedings.mlr.press/v100/yu20a/yu20a.pdf code: https://github.com/rlworkgroup/metaworld interpretation: https://meta-world.github.io/ model-based meta-RL Learning to reinforcement learn source: CogSci 2017 method: deep meta-RL environment: bandit problem Two-step task Harlow experiment 3D navigation (Deepmind Lab) paper link: https://arxiv.org/pdf/1611.05763.pdf code: https://github.com/Phu-archive/Learning2RL interpretation: RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning source: ICLR 2017 method: $RL^2$ environment: multi-armed bandit problem tabular MDP 3D navigation (ViZDoom) paper link: https://arxiv.org/pdf/1611.02779.pdf code: https://github.com/mwufi/meta-rl-bandits (pytorch) https://github.com/VashishtMadhavan/rl2 (tensorflow) interpretation: https://zhuanlan.zhihu.com/p/32606591 https://openreview.net/forum?id=HkLXCE9lx Prefrontal cortex as a meta-reinforcement learning system source: Nature Neuroscience 2018 method: environment: paper link: https://www.nature.com/articles/s41593-018-0147-8 code: interpretation: A Simple Neural Attentive Meta-Learner source: ICLR 2018 method: SNAIL (simple neural attentive learner) environment: navigation robotic locomotion paper link: https://openreview.net/pdf?id=B1DmUzWAW code: https://github.com/eambutu/snail-pytorch interpretation: https://www.carsi.edu.cn/index_zh.htm PixelSNAIL: An Improved Autoregressive Generative Model source: ICML 2018 method: environment: paper link: https://arxiv.org/pdf/1712.09763v1.pdf code: https://github.com/neocxi/pixelsnail-public interpretation: Concurrent Meta Reinforcement Learning source: arXiv:1903.02710 preprint method: CMRL environment: N-Monty-Hall N-Color-Choice N-Reacher (Reacher-V2 from gym) paper link: https://arxiv.org/pdf/1903.02710v1.pdf code: interpretation: Reinforcement Learning, Fast and Slow source: Trends in Cognitive Sciences 2019 method: environment: paper link: https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-66131930061-0 code: interpretation: Improving Generalization in Meta Reinforcement Learning using Learned Objectives source: ICLR 2020 method: environment: paper link: https://arxiv.org/pdf/1910.04098.pdf code: https://github.com/louiskirsch/metagenrl interpretation: Discovering Reinforcement Learning Algorithms source: arXiv:2007.08794 2020 method: environment: paper link: https://arxiv.org/pdf/2007.08794 code: interpretation: Model-based Adversarial Meta-Reinforcement Learning source: NeurIPS 2020 method: AdMRL environment: paper link: https://arxiv.org/pdf/2006.08875v2.pdf code: https://github.com/LinZichuan/AdMRL interpretation: optimization-based meta-RL Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks source: ICML 2017 method: MAML-RL environment: 2D navigation (rllab) locomotion (rllab) paper link: https://arxiv.org/pdf/1703.03400.pdf code: https://github.com/cbfinn/maml_rl(tensorflow) https://github.com/tristandeleu/pytorch-maml-rl interpretation: On First-Order Meta-Learning Algorithms source: arXiv:1803.02999 2018 method: Reptile environment: few-shot image classification mini-ImageNet Omniglot paper link: https://arxiv.org/pdf/1803.02999.pdf code: https://github.com/openai/supervised-reptile interpretation: https://openai.com/blog/reptile/ https://lilianweng.github.io/lil-log/2018/11/30/meta-learning.html#reptile Meta-Reinforcement Learning of Structured Exploration Strategies source: NeurIPS 2018 method: MAESN (model agnostic exploration with structured noise) environment: robotic locomotion (rllab) object manipulation paper link: https://arxiv.org/pdf/1802.07245.pdf code: https://github.com/russellmendonca/maesn_suite interpretation: https://zhuanlan.zhihu.com/p/63072582 Some Considerations on Learning to Explore via Meta-Reinforcement Learning source: ICLR 2018 method: E-MAML(optimization-based) E-$RL^2$(model-based) environment: Krazy World paper link: https://arxiv.org/pdf/1803.01118v2.pdf code: https://github.com/geyang/e-maml interpretation: ProMP: Proximal Meta-Policy Search source: ICLR 2019 method: ProMP environment: locomotion(gym &amp;amp; Mujoco) HalfCheetahFwdBack AntRandDir HopperRandParams WalkerFwdBack HumanoidRandDir WalkerRandParams paper link: https://openreview.net/pdf?id=SkxXCi0qFX code: https://github.com/jonasrothfuss/promp Efficient Off-Policy Meta-Reinforcement Learning via Probabilistic Context Variables source: ICML2019 method: PEARL (probabilistic embeddings for actor-critic RL) environment: robotic locomotion (MuJoCo, MuJoCo200, MuJoCu133) paper link: https://arxiv.org/pdf/1903.08254.pdf code: https://github.com/katerakelly/oyster interpretation: https://bair.berkeley.edu/blog/2019/06/10/pearl/ Learning to Adapt in Dynamic, Real-World Environments Through Meta-Reinforcement Learning source: ICLR 2019 method: Model-Based Meta-Reinforcement Learning (train time) Online Model Adaptation (test time) environment: Mujoco half cheetah:disabled joint, sloped terrain, pier Ant: crippled leg real world robot paper link: https://arxiv.org/pdf/1803.11347v6.pdf code: https://github.com/iclavera/learning_to_adapt interpretation: https://sites.google.com/berkeley.edu/metaadaptivecontrol Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning source: CVPR 2019 method: savn environment: 3D navigation (ai2thor) paper link: https://arxiv.org/pdf/1812.00971v2.pdf code: https://github.com/allenai/savn interpretation: https://zhuanlan.zhihu.com/p/154184867 Meta-Q-Learning source: ICLR 2020 method: environment: paper link: https://arxiv.org/pdf/1910.00125.pdf code: interpretation: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices source: ICML 2021 method: Dream environment: gym-miniworld 3D navigation paper link: https://arxiv.org/pdf/2008.02790v2.pdf code: https://github.com/ezliu/dream interpretation: https://ezliu.github.io/dream/ Meta Learning via Learned Loss source: ICPR 2021 method: ML^3 environment: paper link: https://arxiv.org/pdf/1906.05374.pdf code: interpretation: 未分类 Alchemy: A structured task distribution for meta-reinforcement learning source: arXiv:2102.02926 preprint 2021 method: environment: paper link: https://arxiv.org/pdf/2102.02926v1.pdf code: https://github.com/deepmind/dm_alchemy interpretation: https://deepmind.com/research/publications/alchemy Learning Robust State Abstractions for Hidden-Parameter Block MDPs source: ICLR2021 method: environment: paper link: https://arxiv.org/pdf/2007.07206v4.pdf code: interpretation: Meta reinforcement learning as task inference source: arXiv:1905.06424 2019 method: environment: paper link: https://arxiv.org/pdf/1905.06424v2.pdf code: interpretation: MELD: Meta-Reinforcement Learning from Images via Latent State Models source: CoRL 2020 method: environment: paper link: https://arxiv.org/pdf/2010.13957v2.pdf code: https://github.com/tonyzhaozh/meld interpretation: https://sites.google.com/view/meld-lsm Meta Reinforcement Learning with Task Embedding and Shared Policy source: IJCAI 2019 method: environment: paper link: https://arxiv.org/pdf/1905.06527v3.pdf code: https://github.com/llan-ml/tesp interpretation: Fast Adaptive Task Offloading in Edge Computing based on Meta Reinforcement Learning source: ITPDS 2020 method: environment: paper link: https://arxiv.org/pdf/2008.02033v5.pdf code: https://github.com/linkpark/metarl-offloading interpretation: Learning Associative Inference Using Fast Weight Memory source: ICLR 2021 method: environment: paper link: https://arxiv.org/pdf/2011.07831v2.pdf code: https://github.com/ischlag/Fast-Weight-Memory-public interpretation: Few-Shot Complex Knowledge Base Question Answering via Meta Reinforcement Learning source: EMNLP 2020 method: environment: paper link: https://arxiv.org/pdf/2010.15877v1.pdf code: https://github.com/DevinJake/MRL-CQA interpretation: Meta Reinforcement Learning with Autonomous Inference of Subtask Dependencies source: ICLR 2020 method: environment: paper link: https://arxiv.org/pdf/2001.00248v2.pdf code: https://github.com/srsohn/msgi interpretation: Loaded DiCE: Trading off Bias and Variance in Any-Order Score Function Gradient Estimators for Reinforcement Learning source: NeurIPS 2019 method: environment: paper link: http://papers.nips.cc/paper/9026-loaded-dice-trading-off-bias-and-variance-in-any-order-score-function-gradient-estimators-for-reinforcement-learning.pdf code: https://github.com/oxwhirl/loaded-dice interpretation: Causal Reasoning from Meta-reinforcement Learning source: ICLR 2019 method: environment: paper link: https://arxiv.org/pdf/1901.08162v1.pdf code: https://github.com/kantneel/causal-metarl interpretation: Introducing Neuromodulation in Deep Neural Networks to Learn Adaptive Behaviours source: arXiv:1812.09113 preprint 2019 method: environment: paper link: https://arxiv.org/pdf/1812.09113v3.pdf code: https://github.com/nvecoven/nmd_net interpretation: Policy Gradient RL Algorithms as Directed Acyclic Graphs source: arXiv:2012.07763 preprint 2020 method: environment: paper link: https://arxiv.org/pdf/2012.07763v2.pdf code: https://github.com/jjgarau/DAGPolicyGradient interpretation: Evolving Inborn Knowledge For Fast Adaptation in Dynamic POMDP Problems source: GECCO 2020 method: environment: paper link: https://arxiv.org/pdf/2004.12846v2.pdf code: https://github.com/dlpbc/penn-a interpretation: Model-Based Meta-Reinforcement Learning for Flight with Suspended Payloads source: RA-L 2021 method: environment: paper link: https://arxiv.org/pdf/2004.11345v2.pdf code: https://github.com/suneelbelkhale/model-based-meta-rl-for-flight interpretation: Hierarchical Meta Reinforcement Learning for Multi-Task Environments source: ICLR 2021 method: environment: paper link: https://openreview.net/pdf?id=u9ax42K7ND code: https://github.com/MeSH-ICLR/MEtaSoftHierarchy interpretation: Modeling and Optimization Trade-off in Meta-learning source: NeurIPS 2020 method: environment: paper link: https://arxiv.org/pdf/2010.12916v2.pdf code: https://github.com/intel-isl/MetaLearningTradeoffs interpretation: Meta-Learning of Structured Task Distributions in Humans and Machines source: ICLR 2021 method: environment: paper link: https://arxiv.org/pdf/2010.02317v3.pdf code: https://github.com/sreejank/Compositional_MetaRL interpretation: Offline Meta Learning of Exploration source: arXiv:2008.02598 preprint 2021 method: environment: paper link: https://arxiv.org/pdf/2008.02598v3.pdf code: https://github.com/Rondorf/BOReL interpretation: Meta-Reinforcement Learning for Reliable Communication in THz/VLC Wireless VR Networks source: ICC 2021 method: environment: paper link: https://arxiv.org/pdf/2102.12277v1.pdf code: https://github.com/wyy0206/THzVR interpretation:</summary></entry><entry><title type="html">Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</title><link href="http://localhost:4000/2020/12/23/success.html" rel="alternate" type="text/html" title="Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)" /><published>2020-12-23T00:00:00+08:00</published><updated>2020-12-23T00:00:00+08:00</updated><id>http://localhost:4000/2020/12/23/success</id><content type="html" xml:base="http://localhost:4000/2020/12/23/success.html">&lt;blockquote&gt;
   &lt;p&gt;转自Reddit.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -793,147 +888,4 @@ MAML的核心思想是针对一系列学习任务构建共有的中间表征，�
 &lt;a href=&quot;/pdf.js/web/viewer.html?file=/pdf/cufast.pdf&quot;&gt;Click to view this blog.&lt;/a&gt;
 
 &lt;!-- &lt;object data=&quot;/pdf/CAC2020.pdf&quot; width=&quot;1000&quot; height=&quot;1000&quot; type='application/pdf'/&gt; --&gt;
-&lt;/center&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="cuda" /><summary type="html">Click to view this blog.</summary></entry><entry><title type="html">CAC2020(for pdf view test)</title><link href="http://localhost:4000/2020/11/26/pdf-test.html" rel="alternate" type="text/html" title="CAC2020(for pdf view test)" /><published>2020-11-26T00:00:00+08:00</published><updated>2020-11-26T00:00:00+08:00</updated><id>http://localhost:4000/2020/11/26/pdf-test</id><content type="html" xml:base="http://localhost:4000/2020/11/26/pdf-test.html">&lt;center&gt;
-&lt;!-- &lt;iframe src=&quot;http://docs.google.com/gview?url=/pdf/CAC2020.pdf&amp;embedded=true&quot; style=&quot;width:718px; height:700px;&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt; --&gt;
-&lt;!-- &lt;iframe src=&quot;/web/viewer.html?file=/pdf/CAC2020.pdf&quot;&gt;&lt;/iframe&gt; --&gt;
-&lt;!-- &lt;iframe src=&quot;http://docs.google.com/gview?url=/pdf/CAC2020.pdf&amp;embedded=true&quot; style=&quot;width:500px; height:100px;&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt; --&gt;
-&lt;!-- &lt;a href=&quot;https://github.com/tianyma/tianyma.github.io/blob/main/pdf/CAC2020.pdf&quot; class=&quot;image fit&quot; &gt;&lt;img src=&quot;images/marr_pic.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt; --&gt;
-&lt;a href=&quot;/pdf.js/web/viewer.html?file=/pdf/CAC2020.pdf&quot;&gt;Click to view this blog.&lt;/a&gt;
-
-&lt;!-- &lt;object data=&quot;/pdf/CAC2020.pdf&quot; width=&quot;1000&quot; height=&quot;1000&quot; type='application/pdf'/&gt; --&gt;
-&lt;/center&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="paper" /><summary type="html">Click to view this blog.</summary></entry><entry><title type="html">使用docker运行多个版本的cuda</title><link href="http://localhost:4000/2020/11/21/docker-cuda.html" rel="alternate" type="text/html" title="使用docker运行多个版本的cuda" /><published>2020-11-21T00:00:00+08:00</published><updated>2020-11-21T00:00:00+08:00</updated><id>http://localhost:4000/2020/11/21/docker-cuda</id><content type="html" xml:base="http://localhost:4000/2020/11/21/docker-cuda.html">&lt;blockquote&gt;
-  &lt;p&gt;如果你遇到了这样一个问题:&lt;/p&gt;
-
-  &lt;p&gt;我的机器上装的cuda版本是最新的，比如cuda 11.1，然而我拿到了一个在cuda 8.0的版本上编译好的程序，我该怎么运行它呢？总不会我又要安装一个8.0的cuda吧。(这个问题来自于我在做cmu 15-418 assignment task2时需要运行在cuda8.0环境编译的参考程序cudaScan_ref，而我的cuda是11.1版本)&lt;/p&gt;
-
-  &lt;p&gt;这个时候你肯定立刻会想到虚拟化，作为轻便好用的虚拟化工具，docker就派上用场了。&lt;/p&gt;
-
-  &lt;p&gt;这篇文章就来介绍一下如何使用docker运行多版本的cuda。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;本机环境
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;系统：18.04.5 LTS (Bionic Beaver)
-已安装cuda版本：11.1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;h2 id=&quot;１-docker准备&quot;&gt;１ docker准备&lt;/h2&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;11-了解原理和基本命令&quot;&gt;1.1 了解原理和基本命令&lt;/h3&gt;
-&lt;p&gt;如果你还是个docker小白，建议先通过&lt;a href=&quot;https://docs.docker.com/get-started/overview/&quot;&gt;官方文档&lt;/a&gt;了解一下docker的原理和基本用法，如运行、停止、删除镜像等。&lt;/p&gt;
-
-&lt;h3 id=&quot;12-安装&quot;&gt;1.2 安装&lt;/h3&gt;
-&lt;p&gt;官方的&lt;a href=&quot;https://docs.docker.com/engine/install/&quot;&gt;安装教程&lt;/a&gt;提供了对应不同操作系统的安装方法。&lt;/p&gt;
-
-&lt;p&gt;当然，由于ubuntu 18.04源已经集成了docker软件，可以直接通过包管理工具安装。方法是&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# on ubuntu 18.04
-sudo apt instll docker.io
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;2-nvidia-container-toolkit准备&quot;&gt;2 Nvidia Container Toolkit准备&lt;/h2&gt;
-&lt;p&gt;Nvidia目前提供&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nvidia Container Toolkit&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nvidia-docker2&lt;/code&gt;包完成对docker的支持，可以通过&lt;a href=&quot;https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker&quot;&gt;安装教程&lt;/a&gt;进行安装。&lt;/p&gt;
-
-&lt;p&gt;安装的时候要注意其支持的系统环境和需要的环境依赖。&lt;/p&gt;
-
-&lt;h2 id=&quot;3-在docker上运行cuda环境&quot;&gt;3 在docker上运行cuda环境&lt;/h2&gt;
-&lt;p&gt;准备工作完成后，就可以来解决文章开始提出的问题了:如何在host环境为cuda11.1的情况下使用docker运行基于cuda8.0编译的程序？&lt;/p&gt;
-
-&lt;h3 id=&quot;31-镜像获取&quot;&gt;3.1 镜像获取&lt;/h3&gt;
-&lt;p&gt;首先要从&lt;a href=&quot;https://hub.docker.com/&quot;&gt;docker-hub&lt;/a&gt;上找到我们需要的环境的镜像，使用关键字&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cuda8.0&lt;/code&gt;搜索即可，然后在本地拉取镜像源。&lt;/p&gt;
-
-&lt;p&gt;比如：我在docker-hub上找到这样的镜像：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;klauskyj/cuda8.0-cudnn7
-&lt;/code&gt;。那么就可以通过&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo docker pull klauskyj/cuda8.0-cudnn7
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;拉取下来了。
-通过&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo docker ps -a 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;可以看到自己拉取的镜像。&lt;/p&gt;
-&lt;h3 id=&quot;32-运行镜像&quot;&gt;3.2 运行镜像&lt;/h3&gt;
-&lt;p&gt;类似于普通镜像运行自己拉取下来的镜像，runtime设为nvidia即可，如&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo docker run -it --runtime=nvidia [DOCKER_IMAGE]:[DOCKER_TAG] /bin/bash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;进入交互式环境后，去&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/local&lt;/code&gt;目录下就可以看到cuda 8.0了。&lt;/p&gt;
-&lt;h3 id=&quot;33-运行程序&quot;&gt;3.3 运行程序&lt;/h3&gt;
-&lt;p&gt;那么如何在容器中运行程序呢？我们需要将程序拷贝进去。从主机拷贝文件到容器中步骤如下：&lt;/p&gt;
-
-&lt;p&gt;1.通过&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo docker ps -a
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;获取容器的短ID或者name。&lt;/p&gt;
-
-&lt;p&gt;2.通过&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;sudo docker inspect -f ‘{{ .Id }}’ [短ID or name]&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;获取容器的完整ID。
-如：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;➜  render git:(master) ✗ sudo docker inspect -f ‘{{ .Id }}’ cc1ec222c1ff
-cc1ec222c1ff72272a00061aa197ab8ba13bd446697b9d9c1820c45ba16b75cd&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;3.通过&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo docker cp [本地文件路径] [ID全称]:[容器路径]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;拷贝文件，注意拷贝目录的话也一样，不用加其他参数。&lt;/p&gt;
-
-&lt;p&gt;如果从容器中传输文件到host，通过&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo docker cp [ID全称]:[容器文件路径] [本地路径]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;完成。&lt;/p&gt;
-
-&lt;p&gt;最后，在容器中就可以运行这个程序啦。&lt;/p&gt;
-
-&lt;h2 id=&quot;4-总结&quot;&gt;4 总结&lt;/h2&gt;
-&lt;p&gt;这篇文章其实介绍了基本的docker用法，nvidia提供的nvidia-docker2.0封装的很好，可以方便地建立cuda环境，这里要注意虚拟化的cuda的版本要和自己的GPU匹配。&lt;/p&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="docker" /><category term="cuda" /><summary type="html">如果你遇到了这样一个问题: 我的机器上装的cuda版本是最新的，比如cuda 11.1，然而我拿到了一个在cuda 8.0的版本上编译好的程序，我该怎么运行它呢？总不会我又要安装一个8.0的cuda吧。(这个问题来自于我在做cmu 15-418 assignment task2时需要运行在cuda8.0环境编译的参考程序cudaScan_ref，而我的cuda是11.1版本) 这个时候你肯定立刻会想到虚拟化，作为轻便好用的虚拟化工具，docker就派上用场了。 这篇文章就来介绍一下如何使用docker运行多版本的cuda。 本机环境 系统：18.04.5 LTS (Bionic Beaver) 已安装cuda版本：11.1 １ docker准备 1.1 了解原理和基本命令 如果你还是个docker小白，建议先通过官方文档了解一下docker的原理和基本用法，如运行、停止、删除镜像等。 1.2 安装 官方的安装教程提供了对应不同操作系统的安装方法。 当然，由于ubuntu 18.04源已经集成了docker软件，可以直接通过包管理工具安装。方法是 # on ubuntu 18.04 sudo apt instll docker.io 2 Nvidia Container Toolkit准备 Nvidia目前提供Nvidia Container Toolkit和nvidia-docker2包完成对docker的支持，可以通过安装教程进行安装。 安装的时候要注意其支持的系统环境和需要的环境依赖。 3 在docker上运行cuda环境 准备工作完成后，就可以来解决文章开始提出的问题了:如何在host环境为cuda11.1的情况下使用docker运行基于cuda8.0编译的程序？ 3.1 镜像获取 首先要从docker-hub上找到我们需要的环境的镜像，使用关键字cuda8.0搜索即可，然后在本地拉取镜像源。 比如：我在docker-hub上找到这样的镜像：klauskyj/cuda8.0-cudnn7 。那么就可以通过 sudo docker pull klauskyj/cuda8.0-cudnn7 拉取下来了。 通过 sudo docker ps -a 可以看到自己拉取的镜像。 3.2 运行镜像 类似于普通镜像运行自己拉取下来的镜像，runtime设为nvidia即可，如 sudo docker run -it --runtime=nvidia [DOCKER_IMAGE]:[DOCKER_TAG] /bin/bash 进入交互式环境后，去/usr/local目录下就可以看到cuda 8.0了。 3.3 运行程序 那么如何在容器中运行程序呢？我们需要将程序拷贝进去。从主机拷贝文件到容器中步骤如下： 1.通过 sudo docker ps -a 获取容器的短ID或者name。 2.通过 sudo docker inspect -f ‘{{ .Id }}’ [短ID or name] 获取容器的完整ID。 如： ➜ render git:(master) ✗ sudo docker inspect -f ‘{{ .Id }}’ cc1ec222c1ff cc1ec222c1ff72272a00061aa197ab8ba13bd446697b9d9c1820c45ba16b75cd 3.通过 sudo docker cp [本地文件路径] [ID全称]:[容器路径] 拷贝文件，注意拷贝目录的话也一样，不用加其他参数。 如果从容器中传输文件到host，通过 sudo docker cp [ID全称]:[容器文件路径] [本地路径] 完成。 最后，在容器中就可以运行这个程序啦。 4 总结 这篇文章其实介绍了基本的docker用法，nvidia提供的nvidia-docker2.0封装的很好，可以方便地建立cuda环境，这里要注意虚拟化的cuda的版本要和自己的GPU匹配。</summary></entry><entry><title type="html">CMU 15-418 assignment2 解题记录</title><link href="http://localhost:4000/2020/11/20/15-418-assignment2.html" rel="alternate" type="text/html" title="CMU 15-418 assignment2 解题记录" /><published>2020-11-20T00:00:00+08:00</published><updated>2020-11-20T00:00:00+08:00</updated><id>http://localhost:4000/2020/11/20/15-418-assignment2</id><content type="html" xml:base="http://localhost:4000/2020/11/20/15-418-assignment2.html">&lt;p&gt;下面是CMU 15-418/15-618: Parallel Computer Architecture and Programming课程解题记录。&lt;/p&gt;
-
-&lt;p&gt;本部分题解是assignment2，主题是cuda并行编程，这里是&lt;a href=&quot;http://www.cs.cmu.edu/~418/assignment_writeups/asst2.pdf&quot;&gt;题目&lt;/a&gt;。&lt;/p&gt;
-
-&lt;h2 id=&quot;part-1-saxpysum-of-a-by-x-plus-y&quot;&gt;Part 1 SAXPY(Sum of A by X PLUS Y)&lt;/h2&gt;
-
-&lt;h2 id=&quot;part-2-parallel-prefix-sum&quot;&gt;Part 2 Parallel Prefix-Sum&lt;/h2&gt;
-&lt;p&gt;本部分要求分别并行求解前缀和和重复元素索引。关于什么是前缀和和重复元素索引题目中有详细说明，这里我分别记录一下解题思路。&lt;/p&gt;
-
-&lt;p&gt;由于求解重复元素索引要用到求解前缀和的方法，所以先求解前缀和，在CPU版本中，题目代码中分别给出了并行版本和串行版本，所以GPU版本只需要对CPU的并行版本进行改写即可。&lt;/p&gt;
-
-&lt;p&gt;求解重复元素索引的方法分为下面几个步骤：&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. 声明如下数组flag, prefixflag,input, output
-2. 如果input[index] = input[index + 1], flag[index] = 1;
-3. 对flag求前缀和得到prefixflag。
-4. 重复元素个数count为prefixflag最后一位的值。
-5. 如果prefixflag[index] = prefixflag[index - 1], output[prefixflag[index - 1]] = index - 1。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;举个例子:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;item&lt;/th&gt;
-      &lt;th&gt;value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;input&lt;/td&gt;
-      &lt;td&gt;[1,2,2,1,1,1,3,5,3,3]&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;flag&lt;/td&gt;
-      &lt;td&gt;[0,1,0,1,1,0,0,0,1,0]&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;prefixflag&lt;/td&gt;
-      &lt;td&gt;[0,0,1,1,2,3,3,3,3,4]&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;output&lt;/td&gt;
-      &lt;td&gt;[1,3,4,8]&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;count&lt;/td&gt;
-      &lt;td&gt;4&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="cmu15-418" /><summary type="html">下面是CMU 15-418/15-618: Parallel Computer Architecture and Programming课程解题记录。 本部分题解是assignment2，主题是cuda并行编程，这里是题目。 Part 1 SAXPY(Sum of A by X PLUS Y) Part 2 Parallel Prefix-Sum 本部分要求分别并行求解前缀和和重复元素索引。关于什么是前缀和和重复元素索引题目中有详细说明，这里我分别记录一下解题思路。 由于求解重复元素索引要用到求解前缀和的方法，所以先求解前缀和，在CPU版本中，题目代码中分别给出了并行版本和串行版本，所以GPU版本只需要对CPU的并行版本进行改写即可。 求解重复元素索引的方法分为下面几个步骤： 1. 声明如下数组flag, prefixflag,input, output 2. 如果input[index] = input[index + 1], flag[index] = 1; 3. 对flag求前缀和得到prefixflag。 4. 重复元素个数count为prefixflag最后一位的值。 5. 如果prefixflag[index] = prefixflag[index - 1], output[prefixflag[index - 1]] = index - 1。 举个例子: item value input [1,2,2,1,1,1,3,5,3,3] flag [0,1,0,1,1,0,0,0,1,0] prefixflag [0,0,1,1,2,3,3,3,3,4] output [1,3,4,8] count 4</summary></entry></feed>
+&lt;/center&gt;</content><author><name>tianyun ma</name><email>himarsmty@gmail.com</email></author><category term="cuda" /><summary type="html">Click to view this blog.</summary></entry></feed>
