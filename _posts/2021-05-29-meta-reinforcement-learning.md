@@ -212,6 +212,17 @@ key: 2021-05-29-blog
 - interpretation: 
   - [https://sites.google.com/berkeley.edu/metaadaptivecontrol](https://sites.google.com/berkeley.edu/metaadaptivecontrol)
 
+#### [Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning]({{ site.url}}/2021/06/06/savn.html)
+- source: CVPR 2019
+- method: savn 
+- environment:
+  - 3D navigation (ai2thor)
+- paper link: [https://arxiv.org/pdf/1812.00971v2.pdf](https://arxiv.org/pdf/1812.00971v2.pdf)
+- code:  
+  - [https://github.com/allenai/savn](https://github.com/allenai/savn)
+- interpretation: 
+  - [https://zhuanlan.zhihu.com/p/154184867](https://zhuanlan.zhihu.com/p/154184867)
+
 #### Meta-Q-Learning 
 - source: ICLR 2020
 - method: 
@@ -250,16 +261,6 @@ key: 2021-05-29-blog
   - [https://github.com/deepmind/dm_alchemy](https://github.com/deepmind/dm_alchemy)
 - interpretation: 
   - [https://deepmind.com/research/publications/alchemy](https://deepmind.com/research/publications/alchemy)
-
-#### Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning
-- source: CVPR 2019
-- method: savn 
-- environment:
-  - 3D navigation (ai2thor)
-- paper link: [https://arxiv.org/pdf/1812.00971v2.pdf](https://arxiv.org/pdf/1812.00971v2.pdf)
-- code:  
-  - [https://github.com/allenai/savn](https://github.com/allenai/savn)
-- interpretation: 
 
 #### Learning Robust State Abstractions for Hidden-Parameter Block MDPs
 - source: ICLR2021
