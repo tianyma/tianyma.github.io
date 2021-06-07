@@ -38,7 +38,7 @@ top: true
   - [https://github.com/Phu-archive/Learning2RL](https://github.com/Phu-archive/Learning2RL)
 - interpretation: 
 
-#### [RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning]({{ site.url }}/2021/06/02/RL2.html)
+#### [RL^2: Fast Reinforcement Learning via Slow Reinforcement Learning]({% post_url 2021-06-02-RL2 %})
 - source: ICLR 2017
 - method: $RL^2$
 - environment:
@@ -53,10 +53,11 @@ top: true
   - [https://zhuanlan.zhihu.com/p/32606591](https://zhuanlan.zhihu.com/p/32606591)
   - [https://openreview.net/forum?id=HkLXCE9lx](https://openreview.net/forum?id=HkLXCE9lx)
 
-#### Prefrontal cortex as a meta-reinforcement learning system
+#### [Prefrontal cortex as a meta-reinforcement learning system]({% post_url 2021-06-07-prefrontal %})
 - source: Nature Neuroscience 2018
-- method: 
+- method: None
 - environment:
+  - Harlow learning task
 - paper link: [https://www.nature.com/articles/s41593-018-0147-8](https://www.nature.com/articles/s41593-018-0147-8)
 - code:  
 - interpretation: 
