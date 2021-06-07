@@ -5,6 +5,7 @@ date: 2021-05-29
 tags: paper review
 mathjax: true
 key: 2021-05-29-blog
+top: true
 ---
 ## Challenges of meta-RL
 - design a set of tasks that are interrelated
