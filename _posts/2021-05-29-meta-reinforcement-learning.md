@@ -62,12 +62,14 @@ top: true
 - code:  
 - interpretation: 
 
-#### A Simple Neural Attentive Meta-Learner
+#### [A Simple Neural Attentive Meta-Learner]({% post_url 2021-06-08-snail %})
 - source: ICLR 2018
 - method: SNAIL (simple neural attentive learner)
 - environment:
-  - navigation 
-  - robotic locomotion
+  - Multi-armed bandits
+  - Tabular MDPs
+  - Navigation (VizDoom)
+  - Robotic locomotion (Mujoco)
 - paper link: [https://openreview.net/pdf?id=B1DmUzWAW](https://openreview.net/pdf?id=B1DmUzWAW)
 - code: [https://github.com/eambutu/snail-pytorch](https://github.com/eambutu/snail-pytorch)
 - interpretation: 
