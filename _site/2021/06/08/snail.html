@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - tianyma's blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Paper reading: A Simple Neural Attentive Meta-Learner - tianyma's blog</title>
 
-<meta name="description" content="do valuable research, be valuable person.
-">
-<link rel="canonical" href="http://localhost:4000/page2/"><link rel="alternate" type="application/rss+xml" title="tianyma's blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="核心思想SNAIL结合了temporal convolution和soft attention，是一个model-based meta learning算法。temporal convolution可以直接快速获取大量历史信息，soft attention可以以一种key-value的形式精确定位信息。两者的互补...">
+<link rel="canonical" href="http://localhost:4000/2021/06/08/snail.html"><link rel="alternate" type="application/rss+xml" title="tianyma's blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -255,7 +254,7 @@
 </head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
@@ -274,47 +273,17 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="tianyun ma"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/05/30/RL-benchmark.html"><h2 itemprop="headline" class="item__header">[置顶]Summary: Reinforcement learning benchmarks</h2></a></header>
-          <div class="item__description"><p><a href="/2021/05/30/RL-benchmark.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=RL-benchmark">RL-benchmark</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 05月30日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-05-30T00:00:00+08:00">
-    <meta itemprop="keywords" content="RL-benchmark"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/05/29/meta-reinforcement-learning.html"><h2 itemprop="headline" class="item__header">[置顶]Paper review: meta-reinforcement-learning</h2></a></header>
-          <div class="item__description"><p><a href="/2021/05/29/meta-reinforcement-learning.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 05月29日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-05-29T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/09/bisnn.html"><h2 itemprop="headline" class="item__header">Paper reading: BiSNN: Training Spiking Neural Networks with Binary Weights via Bayesian Learning</h2></a></header>
-          <div class="item__description"><p><a href="/2021/06/09/bisnn.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=SNN">SNN</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月09日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-09T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review,SNN"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/08/snail.html"><h2 itemprop="headline" class="item__header">Paper reading: A Simple Neural Attentive Meta-Learner</h2></a></header>
-          <div class="item__description"><p><a href="/2021/06/08/snail.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Paper reading: A Simple Neural Attentive Meta-Learner</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="在 Github 上修改"
+            href="https://github.com/user_name/repo_name/tree/master/_posts/2021-06-08-snail.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Paper reading: A Simple Neural Attentive Meta-Learner"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=paper">paper</a>
             </li><li>
@@ -322,430 +291,64 @@
                 href="/archive.html?tag=review">review</a>
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月08日</span>
             </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-08T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/07/prefrontal.html"><h2 itemprop="headline" class="item__header">Paper reading: Prefrontal cortex as a meta-reinforcement learning system</h2></a></header>
-          <div class="item__description"><p><a href="/2021/06/07/prefrontal.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月07日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-07T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/06/savn.html"><h2 itemprop="headline" class="item__header">Paper reading: Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning</h2></a></header>
-          <div class="item__description"><p><a href="/2021/06/06/savn.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月06日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-06T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/05/dream.html"><h2 itemprop="headline" class="item__header">Paper reading: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices</h2></a></header>
-          <div class="item__description"><p><a href="/2021/06/05/dream.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月05日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-05T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/04/Reptile.html"><h2 itemprop="headline" class="item__header">Paper reading: On First-Order Meta-Learning Algorithms</h2></a></header>
-          <div class="item__description"><p><a href="/2021/06/04/Reptile.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月04日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-04T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/03/MAML.html"><h2 itemprop="headline" class="item__header">Paper reading: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</h2></a></header>
-          <div class="item__description"><p><a href="/2021/06/03/MAML.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月03日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-03T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/02/RL2.html"><h2 itemprop="headline" class="item__header">Paper reading: $RL^2$: Fast Reinforcement Learning via Slow Reinforcement Learning</h2></a></header>
-          <div class="item__description"><p><a href="/2021/06/02/RL2.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月02日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-02T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/06/01/Learning-to-reinforcement-learn.html"><h2 itemprop="headline" class="item__header">Paper reading: Learning to reinforcement learn</h2></a></header>
-          <div class="item__description"><p><a href="/2021/06/01/Learning-to-reinforcement-learn.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review">review</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 06月01日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2021-06-01T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper,review"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/12/23/success.html"><h2 itemprop="headline" class="item__header">Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</h2></a></header>
-          <div class="item__description"><p><a href="/2020/12/23/success.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=%E9%9A%8F%E6%84%9F">随感</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 12月23日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-12-23T00:00:00+08:00">
-    <meta itemprop="keywords" content="随感"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/12/19/pdf-cufast.html"><h2 itemprop="headline" class="item__header">cuFAST:基于GPU的FAST算法加速</h2></a></header>
-          <div class="item__description"><p><a href="/2020/12/19/pdf-cufast.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=cuda">cuda</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 12月19日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-12-19T00:00:00+08:00">
-    <meta itemprop="keywords" content="cuda"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/11/26/pdf-test.html"><h2 itemprop="headline" class="item__header">CAC2020(for pdf view test)</h2></a></header>
-          <div class="item__description"><p><a href="/2020/11/26/pdf-test.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=paper">paper</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 11月26日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-11-26T00:00:00+08:00">
-    <meta itemprop="keywords" content="paper"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/11/21/docker-cuda.html"><h2 itemprop="headline" class="item__header">使用docker运行多个版本的cuda</h2></a></header>
-          <div class="item__description"><p><a href="/2020/11/21/docker-cuda.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=docker">docker</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=cuda">cuda</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 11月21日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-11-21T00:00:00+08:00">
-    <meta itemprop="keywords" content="docker,cuda"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/11/20/15-418-assignment2.html"><h2 itemprop="headline" class="item__header">CMU 15-418 assignment2 解题记录</h2></a></header>
-          <div class="item__description"><p><a href="/2020/11/20/15-418-assignment2.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=cmu15-418">cmu15-418</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 11月20日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-11-20T00:00:00+08:00">
-    <meta itemprop="keywords" content="cmu15-418"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/11/18/basic-vim.html"><h2 itemprop="headline" class="item__header">Vim Cheat Sheet (不定期更新)</h2></a></header>
-          <div class="item__description"><p><a href="/2020/11/18/basic-vim.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=%E5%B7%A5%E5%85%B7">工具</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 11月18日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-11-18T00:00:00+08:00">
-    <meta itemprop="keywords" content="工具"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2020/11/11/meaning.html"><h2 itemprop="headline" class="item__header">写博客的意义是什么？</h2></a></header>
-          <div class="item__description"><p><a href="/2020/11/11/meaning.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=%E9%9A%8F%E6%84%9F">随感</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2020年 11月11日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2020-11-11T00:00:00+08:00">
-    <meta itemprop="keywords" content="随感"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2018/07/01/welcome.html"><h2 itemprop="headline" class="item__header">Welcome</h2></a></header>
-          <div class="item__description"><p><a href="/2018/07/01/welcome.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=TeXt">TeXt</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 07月01日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2018-07-01T00:00:00+08:00">
-    <meta itemprop="keywords" content="TeXt"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2018/06/01/header-image.html"><h2 itemprop="headline" class="item__header">Post with Header Image</h2></a></header>
-          <div class="item__description"><p><a href="/2018/06/01/header-image.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=TeXt">TeXt</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 06月01日</span>
-            </li></ul></div><meta itemprop="author" content="tianyun ma"/><meta itemprop="datePublished" content="2018-06-01T00:00:00+08:00">
-    <meta itemprop="keywords" content="TeXt"></div>
-      </article></div>
-</div><!-- 
-<ul>
-  
-    <li>
-      <a href="/2021/06/09/bisnn.html">Paper reading: BiSNN: Training Spiking Neural Networks with Binary Weights via Bayesian Learning</a>
-    </li>
-  
-    <li>
-      <a href="/2021/06/08/snail.html">Paper reading: A Simple Neural Attentive Meta-Learner</a>
-    </li>
-  
-    <li>
-      <a href="/2021/06/07/prefrontal.html">Paper reading: Prefrontal cortex as a meta-reinforcement learning system</a>
-    </li>
-  
-    <li>
-      <a href="/2021/06/06/savn.html">Paper reading: Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning</a>
-    </li>
-  
-    <li>
-      <a href="/2021/06/05/dream.html">Paper reading: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices</a>
-    </li>
-  
-    <li>
-      <a href="/2021/06/04/Reptile.html">Paper reading: On First-Order Meta-Learning Algorithms</a>
-    </li>
-  
-    <li>
-      <a href="/2021/06/03/MAML.html">Paper reading: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</a>
-    </li>
-  
-    <li>
-      <a href="/2021/06/02/RL2.html">Paper reading: $RL^2$: Fast Reinforcement Learning via Slow Reinforcement Learning</a>
-    </li>
-  
-    <li>
-      <a href="/2021/06/01/Learning-to-reinforcement-learn.html">Paper reading: Learning to reinforcement learn</a>
-    </li>
-  
-    <li>
-      <a href="/2021/05/30/RL-benchmark.html">Summary: Reinforcement learning benchmarks</a>
-    </li>
-  
-    <li>
-      <a href="/2021/05/29/meta-reinforcement-learning.html">Paper review: meta-reinforcement-learning</a>
-    </li>
-  
-    <li>
-      <a href="/2020/12/23/success.html">Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</a>
-    </li>
-  
-    <li>
-      <a href="/2020/12/19/pdf-cufast.html">cuFAST:基于GPU的FAST算法加速</a>
-    </li>
-  
-    <li>
-      <a href="/2020/11/26/pdf-test.html">CAC2020(for pdf view test)</a>
-    </li>
-  
-    <li>
-      <a href="/2020/11/21/docker-cuda.html">使用docker运行多个版本的cuda</a>
-    </li>
-  
-    <li>
-      <a href="/2020/11/20/15-418-assignment2.html">CMU 15-418 assignment2 解题记录</a>
-    </li>
-  
-    <li>
-      <a href="/2020/11/18/basic-vim.html">Vim Cheat Sheet (不定期更新)</a>
-    </li>
-  
-    <li>
-      <a href="/2020/11/11/meaning.html">写博客的意义是什么？</a>
-    </li>
-  
-    <li>
-      <a href="/2018/07/01/welcome.html">Welcome</a>
-    </li>
-  
-    <li>
-      <a href="/2018/06/01/header-image.html">Post with Header Image</a>
-    </li>
-  
-</ul> -->
-<!-- <ul>
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-    <li>
-      <a href="/2021/05/30/RL-benchmark.html">Summary: Reinforcement learning benchmarks</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2021/05/29/meta-reinforcement-learning.html">Paper review: meta-reinforcement-learning</a>
-    </li>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-  
-    
-    <li>
-      <a href="/2021/06/09/bisnn.html">Paper reading: BiSNN: Training Spiking Neural Networks with Binary Weights via Bayesian Learning</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2021/06/08/snail.html">Paper reading: A Simple Neural Attentive Meta-Learner</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2021/06/07/prefrontal.html">Paper reading: Prefrontal cortex as a meta-reinforcement learning system</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2021/06/06/savn.html">Paper reading: Learning to Learn How to Learn: Self-Adaptive Visual Navigation Using Meta-Learning</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2021/06/05/dream.html">Paper reading: Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2021/06/04/Reptile.html">Paper reading: On First-Order Meta-Learning Algorithms</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2021/06/03/MAML.html">Paper reading: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2021/06/02/RL2.html">Paper reading: $RL^2$: Fast Reinforcement Learning via Slow Reinforcement Learning</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2021/06/01/Learning-to-reinforcement-learn.html">Paper reading: Learning to reinforcement learn</a>
-    </li>
-    
-  
-    
-  
-    
-  
-    
-    <li>
-      <a href="/2020/12/23/success.html">Tips on How To Succeed in an ECE Major(如何在电子和计算机工程专业取得成功？)</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2020/12/19/pdf-cufast.html">cuFAST:基于GPU的FAST算法加速</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2020/11/26/pdf-test.html">CAC2020(for pdf view test)</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2020/11/21/docker-cuda.html">使用docker运行多个版本的cuda</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2020/11/20/15-418-assignment2.html">CMU 15-418 assignment2 解题记录</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2020/11/18/basic-vim.html">Vim Cheat Sheet (不定期更新)</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2020/11/11/meaning.html">写博客的意义是什么？</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2018/07/01/welcome.html">Welcome</a>
-    </li>
-    
-  
-    
-    <li>
-      <a href="/2018/06/01/header-image.html">Post with Header Image</a>
-    </li>
-    
-  
-</ul> -->
-<!-- <div class="layout--home"><div class="pagination"><p>共计 20 篇文章，3 页。</p>
-    <div class="pagination__menu">
-      <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/">
-            <i class="fas fa-angle-left"></i>
-          </a></li><li>
-              <a class="button button--secondary button--circle" href="/"><span>1</span></a>
-            </li><li>
-              <div class="button button--primary button--circle focus"><span>2</span></div>
-            </li><li>
-                <a class="button button--secondary button--circle" href="/page3"><span>3</span></a>
-              </li><li><a class="button button--secondary button--circle" href="/page3">
-            <i class="fas fa-angle-right"></i>
-          </a></li></ul>
-    </div>
-  </div></div> -->
-<script>/*(function () {
+    <meta itemprop="keywords" content="paper,review"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-})();*/
+<!-- end custom article top snippet -->
+<div class="article__content" itemprop="articleBody"><h2 id="核心思想">核心思想</h2>
+<p>SNAIL结合了temporal convolution和soft attention，是一个model-based meta learning算法。temporal convolution可以直接快速获取大量历史信息，soft attention可以以一种key-value的形式精确定位信息。两者的互补使得SNAIL既可以以高带宽访问历史信息，又可以精确定位到需要的信息。</p>
+<h2 id="实现过程">实现过程</h2>
+<p>SNAIL通过在网络中交替使用temporal convolution layer和 soft attention layer实现。  <br />
+具体的，在监督任务中，在$1, …, t-1$时刻SNAIL依次输入(example, label)对$(x_1, y_1), …, (x_{t-1}, y_{t-1})$，之后输入一个无标签的example$(x_t, -)$，输出对$x_t$的标签的预测。  <br />
+在强化学习任务中，在$1, …, t-1$时刻SNAIL依次输入(observation, action, reward)对$(o_1, -, -), …, (o_t, a_{t-1}, r_{t-1})$，然后在$t$时刻输出对$a_t$的分布的预测。在整个学习过程中，跨episode的信息都会被保存下来，从而可以拥有不同episode的泛化能力。</p>
+<h2 id="测试任务">测试任务</h2>
+<p>本文在监督学习和强化学习上都对SNAIL进行了测试，其中监督学习的任务是few-shot image classification，强化学习任务包括multi-armed bandits、Tabular MDPs、3D visual navigation(VizDoom)、Locomotion tasks(mujoco)。</p>
+
+<h2 id="创新点">创新点</h2>
+<p>本文将temporal convolution layer和soft attention layer在网络中交替使用，使得二者可以互补，既可以实现对历史信息的高带宽访问，又可以实现精确查找。</p>
+<h2 id="算法评价">算法评价</h2>
+<p>SNAIL是一个典型的model-based meta learning算法，本文对算法的描述思路很清晰，并分别在监督学习任务和强化学习任务上进行了测试。但是，除了模型设计外，meta learning还需要从任务的角度进行分析，这样才能获得更好的任务泛化能力，在lifelong learning这种任务上也有助于解决计算及存储复杂性的问题。</p>
+
+<p><a href="/2021/05/29/meta-reinforcement-learning.html">返回文章列表</a></p>
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-06-08T00:00:00+08:00"><!-- start custom article footer snippet -->
+
+<!-- end custom article footer snippet -->
+<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
+</div><div class="article__license"><div class="license">
+    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/2021/06/07/prefrontal.html">Paper reading: Prefrontal cortex as a meta-reinforcement learning system</a></div><div class="next"><span>下篇</span><a href="/2021/06/09/bisnn.html">Paper reading: BiSNN: Training Spiking Neural Networks with Binary Weights via Bayesian Learning</a></div></div></div>
+
+</div>
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    $(function() {
+      var $this ,$scroll;
+      var $articleContent = $('.js-article-content');
+      var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+      var scroll = hasSidebar ? '.js-page-main' : 'html, body';
+      $scroll = $(scroll);
+
+      $articleContent.find('.highlight').each(function() {
+        $this = $(this);
+        $this.attr('data-lang', $this.find('code').attr('data-lang'));
+      });
+      $articleContent.find('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').each(function() {
+        $this = $(this);
+        $this.append($('<a class="anchor d-print-none" aria-hidden="true"></a>').html('<i class="fas fa-anchor"></i>'));
+      });
+      $articleContent.on('click', '.anchor', function() {
+        $scroll.scrollToAnchor('#' + $(this).parent().attr('id'), 400);
+      });
+    });
+  });
+})();
 </script>
-
-
-
 </div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
@@ -1293,7 +896,75 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 /*(function () {
 
 })();*/
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
+</script><script type="text/x-mathjax-config">
+	var _config = { tex2jax: {
+		inlineMath: [['$','$'], ['\\(','\\)']]
+	}};MathJax.Hub.Config(_config);
 </script>
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
     </div>
     <script>(function () {
   var $root = document.getElementsByClassName('root')[0];

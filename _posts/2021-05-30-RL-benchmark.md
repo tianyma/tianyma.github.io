@@ -5,6 +5,8 @@ date: 2021-05-30
 tags: RL-benchmark
 mathjax: true
 key: 2021-05-30-blog
+weight: 100
+top: true
 ---
 这是一篇强化学习benchmark的总结，按照任务对其进行分类，并不全面地列举了在benchmark测试过的文章及开源代码。
 ## 2D navigation

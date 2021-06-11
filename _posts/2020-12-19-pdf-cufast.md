@@ -5,6 +5,7 @@ date: 2020-12-19
 tags: cuda
 mathjax: true
 key: 2020-12-19-blog
+weight: 0
 ---
 <center>
 <!-- <iframe src="http://docs.google.com/gview?url=/pdf/CAC2020.pdf&embedded=true" style="width:718px; height:700px;" frameborder="0"></iframe> -->

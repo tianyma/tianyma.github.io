@@ -5,6 +5,8 @@ date: 2021-06-01
 tags: paper review
 mathjax: true
 key: 2021-06-01-blog
+
+weight: 0
 ---
 ## 核心思想
 本文提出了一种深度元强化学习(deep meta-reinforcement learning)方法，通过强化学习训练一个循环神经网络(RNN)，使得该RNN可以通过自适应更新的方法快速适应不同任务，从而提高训练效率。

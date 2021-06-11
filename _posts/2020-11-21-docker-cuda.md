@@ -5,6 +5,7 @@ date:   2020-11-21
 tags: ['docker', 'cuda']
 mathjax: true
 key: 2020-11-21-blog
+weight: 0
 ---
 
 > 如果你遇到了这样一个问题:
