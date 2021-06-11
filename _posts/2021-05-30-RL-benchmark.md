@@ -27,8 +27,15 @@ top: true
 
 - use cases:
   - 
+## 3D navigation
+### gym-miniworld
+- source code: [https://github.com/maximecb/gym-miniworld](https://github.com/maximecb/)
+- scene screenshot:
 
+![gym-minigrid-shot]({{ site.url }}/post_assets/2021-05-30/miniworld-shot.jpg)
 
+- use cases:
+    - [Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices](https://arxiv.org/abs/2008.02790)
 
 
 <!---   

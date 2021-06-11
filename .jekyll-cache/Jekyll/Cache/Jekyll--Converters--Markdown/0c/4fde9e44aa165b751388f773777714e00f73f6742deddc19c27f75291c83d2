@@ -1,4 +1,4 @@
-I"�<p>这是一篇强化学习benchmark的总结，按照任务对其进行分类，并不全面地列举了在benchmark测试过的文章及开源代码。</p>
+I"%<p>这是一篇强化学习benchmark的总结，按照任务对其进行分类，并不全面地列举了在benchmark测试过的文章及开源代码。</p>
 <h2 id="2d-navigation">2D navigation</h2>
 <h3 id="gym-minigrid">gym-minigrid</h3>
 <ul>
@@ -27,7 +27,22 @@
 <ul>
   <li>use cases:
     <ul>
-      <li></li>
+      <li>
+        <h2 id="3d-navigation">3D navigation</h2>
+        <h3 id="gym-miniworld">gym-miniworld</h3>
+      </li>
+    </ul>
+  </li>
+  <li>source code: <a href="https://github.com/maximecb/">https://github.com/maximecb/gym-miniworld</a></li>
+  <li>scene screenshot:</li>
+</ul>
+
+<p><img src="http://localhost:4000/post_assets/2021-05-30/miniworld-shot.jpg" alt="gym-minigrid-shot" /></p>
+
+<ul>
+  <li>use cases:
+    <ul>
+      <li><a href="https://arxiv.org/abs/2008.02790">Decoupling Exploration and Exploitation for Meta-Reinforcement Learning without Sacrifices</a></li>
     </ul>
   </li>
 </ul>
