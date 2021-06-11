@@ -2,7 +2,7 @@
 layout: article
 title: "Paper reading: Learning to reinforcement learn"
 date: 2021-06-01
-tags: paper review
+tags: paper meta-RL
 mathjax: true
 key: 2021-06-01-blog
 

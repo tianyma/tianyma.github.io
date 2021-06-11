@@ -2,7 +2,7 @@
 layout: article
 title: "Paper reading: Prefrontal cortex as a meta-reinforcement learning system"
 date: 2021-06-07
-tags: paper review
+tags: paper meta-RL
 mathjax: true
 key: 2021-06-07-blog
 weight: 0

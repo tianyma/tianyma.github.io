@@ -2,7 +2,7 @@
 layout: article
 title: "Summary: Reinforcement learning benchmarks"
 date: 2021-05-30
-tags: RL-benchmark
+tags: RL-benchmark review
 mathjax: true
 key: 2021-05-30-blog
 weight: 100
